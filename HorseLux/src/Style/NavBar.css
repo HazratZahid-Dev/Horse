@@ -1,0 +1,115 @@
+.cloths-navbar{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center; 
+    padding: 0px 10px;
+    height: auto;
+    /* background: rgb(23, 0, 0); */
+    /* background: rgb(210, 210, 210); */
+    border-bottom: 1px solid gray;
+    
+}
+.yoga__logo{
+    background-image: url('D:/YOGA/yoga/portfolio/src/Compunents/y8.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 1px solid black; */
+   
+  
+   border-radius: 50%;
+   
+}
+.Hazrat{
+    color: rgb(255, 98, 0);
+}
+
+
+
+.menu{
+    display: flex;
+    gap: 40px;
+    
+    /* font-weight: bold; */
+    /* padding-left: 520px;  */
+    
+}
+
+.menu {
+    list-style: none;
+    letter-spacing: 2px;
+    font-size: 15px;
+    color: black;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 5px;
+}
+
+.menu li:hover{
+    cursor: pointer;
+ 
+
+
+    
+  
+ 
+}
+
+.navbar__icon{
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+    
+}
+
+
+
+@media (max-width:1024px) {
+    .navbar__icon{
+        display: flex;
+        color: black;
+         /* margin-left: 400px; */
+         padding: 0px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 27px;
+        left: -100%;
+        margin-top: 80px;
+        background-color: #000032;
+        height: 80vh;
+        width: 100%;
+        z-index: 999;
+        gap: 50px;
+        padding-top: 20px;
+        text-align: center;
+        transition: 0.5s ease-in-out;
+        color: white;
+    }
+    .menu.active{
+        position: absolute;
+        left: 0;
+    }
+    
+    .nav-search{
+        padding: 2px 3px 2px 3px;
+        margin-left: 150px;
+        /* background: white; */
+        justify-items: center;
+        width: 150px;
+    }
+   
+
+}
+
+
+/* @media (max-width:1200px) {
+   .menu{
+
+  padding-left: 100px; 
+   }
+
+} */
