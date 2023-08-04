@@ -16,7 +16,7 @@ const SignUp = () => {
   };
   return (
     <div>
-      <div className="bg-signIn bg-cover bg-center bg-no-repeat w-full py-32 flex items-center justify-center">
+      <div className="bg-signIn bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center">
         <div className="w-[80%] p-5 h-auto  flex flex-col gap-y-4 bg-opacity-70 bg-[#000] rounded-2xl">
           <h1 className="text-white font-[Quicksand] text-[40px] font-[700] leading-[60px] ">
             Create account,

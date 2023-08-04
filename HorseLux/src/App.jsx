@@ -2,7 +2,9 @@
 
 import './App.css';
 import NavBar from './Compunents/NavBar';
+import ForggotPassword from './Pages/ForggotPassword';
 import Home from './Pages/Home';
+import ResetPassword from './Pages/ResetPassword';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import './index.css';
@@ -26,6 +28,11 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/signin' element={<SignIn />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/forgetpassword' element={<ForggotPassword />} />
+            <Route path='/resetpassword' element={<ResetPassword />} />
+            
+
+
 
 
      

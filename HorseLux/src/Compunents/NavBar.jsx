@@ -18,7 +18,7 @@ const NavBar = () => {
 
 
   return (
-    <div className="cloths-navbar bg-[#000032]  w-full py-2 flex justify-between ">
+    <div className="cloths-navbar bg-[#000032]   w-full py-2 flex justify-between ">
       <div onclick={toHome} className=" cursor-pointer w-[33.33%]  gap-x-3 flex items-center justify-start  ">
         <img  src={img} className="w-[70px] h-[70px] " />
         <h1 class="text-[25px] font-bold bg-gradient-to-r from-[#AE8625] via-[#F7EF8A] to-[#D2AC47]  text-transparent bg-clip-text">

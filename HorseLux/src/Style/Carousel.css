@@ -1,10 +1,4 @@
-/* Carousel.css */
-
-.carousel-item {
-    margin-right: 20px; /* Adjust the value to control the gap size */
-  }
-  
-  /* Ensure the last item doesn't have a right margin */
-  .slick-slide:last-child .carousel-item {
-    margin-right: 0;
-  }
+/* .custom-clip-path {
+  -webkit-clip-path: polygon(25% 0%, 97% 14%, 75% 100%, 0% 100%);
+  clip-path: polygon(25% 0%, 97% 14%, 75% 100%, 0% 100%);
+} */
