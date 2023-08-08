@@ -16,6 +16,10 @@ const navigate=useNavigate()
     navigate('/forgetpassword')
 
   }
+  const toDashboard=()=>{
+    navigate('/dashboard')
+
+  }
   return (
     <div>
       <div className="bg-signIn bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center">
@@ -68,6 +72,7 @@ const navigate=useNavigate()
             <button
               className="w-[70%] py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
               type="button"
+              onClick={toDashboard}
             >
               Sign in
             </button>
