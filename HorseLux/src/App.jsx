@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './Compunents/NavBar';
 import BasicInfo from './Pages/BasicInfo';
 import Dashboard from './Pages/Dashboard';
+import ForgetPassword from './Pages/ForgetPassword';
 import ForggotPassword from './Pages/ForggotPassword';
 import Home from './Pages/Home';
 import Horses from './Pages/Horses';
@@ -31,11 +32,13 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/signin' element={<SignIn />} />
             <Route path='/signup' element={<SignUp />} />
-            <Route path='/forgetpassword' element={<ForggotPassword />} />
+            <Route path='/forgotpassword' element={<ForggotPassword />} />
             <Route path='/resetpassword' element={<ResetPassword />} />
             <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/horses' element={<Horses/>}/>
             <Route path='/basicInfo' element={<BasicInfo/>}/>
+            <Route path='/forgetpassword' element={<ForgetPassword/>}/>
+
 
 
             
