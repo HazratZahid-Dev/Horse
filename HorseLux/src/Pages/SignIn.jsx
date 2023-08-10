@@ -4,6 +4,9 @@ import face from "../Images/face.png";
 import Frame from "../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,15 +14,30 @@ const SignIn = () => {
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-const navigate=useNavigate()
-  const toForget=()=>{
-    navigate('/forgetpassword')
-
-  }
-  const toDashboard=()=>{
-    navigate('/dashboard')
-
-  }
+  const navigate = useNavigate();
+  const toForget = () => {
+    navigate("/forgetpassword");
+  };
+  const toDashboard = () => {
+    navigate("/dashboard");
+  };
+  // const validationSchema = Yup.object().shape({
+  //   email: Yup.string().email("Invalid email").required("Email is required"),
+  //   password: Yup.string().required("Password is required"),
+  // });
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await axios.post(
+        "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
+        values
+      );
+      console.log("API response:", response.data);
+    }  catch (error) {
+      console.error("API error:", error);
+      console.log("show error error:", error);
+    }
+    setSubmitting(false);
+  };
   return (
     <div>
       <div className="bg-signIn bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center">
@@ -33,60 +51,77 @@ const navigate=useNavigate()
             </p>
           </div>
 
-        
           <div className="flex flex-col gap-y-3 py-3 w-full items-center justify-center">
-          <div className="flex flex-col gap-y-2 w-full items-center justify-center">
-            <div className="text-start  w-[70%] px-3 text-white">
-              <label>Email</label>
-            </div>
-            <input
-              type="email"
-              placeholder="adamsmith@gmail.com"
-              className="rounded-2xl py-2 outline-none px-4 bg-[#EBEEF2] w-[70%] "
-            ></input>
-          </div>
-            <div className="text-start  w-[70%] px-3 text-white">
-              <label>Password</label>
-            </div>
-            <div className="relative w-[70%] rounded-2xl bg-[#EBEEF2]">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className=" py-2 rounded-2xl outline-none px-4 bg-[#EBEEF2] w-[70%]"
-              />
-              <button
-                type="button"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
-                onClick={handleTogglePassword}
+            <div className="flex flex-col gap-y-2 w-full items-center justify-center">
+              <Formik
+                initialValues={{ email: "", password: "" }}
+                // validationSchema={validationSchema}
+                onSubmit={handleSubmit}
               >
-                {showPassword ? <BiHide size={20} /> : <BiShow size={20} />}
-              </button>
-            </div>
-            <div className="text-start  w-[70%] px-3 text-white flex gap-x-2">
-              <input type="checkbox" />
-              <label>Remember me</label>
-            </div>
-            <p onClick={toForget} className="font-[Source Sans Pro] cursor-pointer text-white text-[16px] font-[600] text-center">
-              Forgot the password?
-            </p>
-            <button
-              className="w-[70%] py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
-              type="button"
-              onClick={toDashboard}
-            >
-              Sign in
-            </button>
-            <p className="text-[16px] text-white font-[400]">
-              or continue with
-            </p>
-            <div className="flex items-center gap-x-12">
-              <div className="flex items-center text-white gap-x-2">
-                <img src={face} className="w-[24px] h-[24px]" />
-                <p>Facebook</p>
-              </div>
-              <div className="flex text-white items-center gap-x-2">
-                <img src={Frame} className="w-[24px] h-[24px]" />
-                <p>Google</p>
+                {({ isSubmitting }) => (
+                  <Form className="w-full">
+                    <div className="flex flex-col gap-y-2 w-[70%] m-auto items-center justify-center">
+                      <div className="text-start  w-full  px-3 text-white">
+                        <label className="text-[16px] font-[600] font-[Source Sans Pro]">
+                          Email
+                        </label>
+                      </div>
+                      <Field
+                        type="email"
+                        name="email"
+                        placeholder="adamsmith@gmail.com"
+                        className="rounded-2xl py-2 w-full outline-none px-4 bg-[#EBEEF2] "
+                      ></Field>
+                      <ErrorMessage name="email" component="div" />
+                      <div className="text-start mt-3  w-full  px-3 text-white">
+                        <label className="text-[16px] font-[600] font-[Source Sans Pro]">
+                          Password
+                        </label>
+                      </div>
+                      <div className="relative w-full rounded-2xl bg-[#EBEEF2]">
+                        <Field
+                          name="password"
+                          type={showPassword ? "text" : "password"}
+                          placeholder="*****************"
+                          className=" py-2 rounded-2xl outline-none px-4 bg-[#EBEEF2] w-[70%]"
+                        />
+                        <ErrorMessage name="password" component="div" />
+                        <button
+                          type="button"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                          onClick={handleTogglePassword}
+                        >
+                          {showPassword ? (
+                            <BiHide size={20} />
+                          ) : (
+                            <BiShow size={20} />
+                          )}
+                        </button>
+                      </div>
+                      <button
+                        className="w-full mt-4 py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
+                        type="submit"
+                        disabled={isSubmitting}
+                        // onClick={toDashboard}
+                      >
+                        Continue
+                      </button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+              <p className="text-[16px] text-white font-[400]">
+                or continue with
+              </p>
+              <div className="flex items-center gap-x-12">
+                <div className="flex items-center text-white gap-x-2">
+                  <img src={face} className="w-[24px] h-[24px]" />
+                  <p>Facebook</p>
+                </div>
+                <div className="flex text-white items-center gap-x-2">
+                  <img src={Frame} className="w-[24px] h-[24px]" />
+                  <p>Google</p>
+                </div>
               </div>
             </div>
           </div>
