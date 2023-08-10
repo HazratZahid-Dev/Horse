@@ -4,6 +4,7 @@ import data from "../config/Data";
 import { AiOutlineMinusCircle, AiOutlinePlus, AiOutlinePlusCircle } from "react-icons/ai";
 import Horses from "./Horses";
 import '../Style/Home.css'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [showHorse,setShowHorse]=useState(false);
@@ -12,6 +13,11 @@ const Dashboard = () => {
   const toHorses=()=>{
     setShowHorse(!showHorse)
     setHarry(!harry)
+  }
+  const navigate=useNavigate();
+  const toHorsesDetail=()=>{
+    navigate('/horsedetail')
+
   }
   return (
     <div className="flex">
@@ -42,7 +48,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div>
-                <button className="text-xl cursor-pointer font-semibold text-[#000032]">
+                <button onClick={toHorsesDetail} className="text-xl cursor-pointer font-semibold text-[#000032]">
                   {items.arrow}
                 </button>
               </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../Compunents/Sidebar";
 import { contact, finance, health, horse, schedule } from "../config/Horses";
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -30,6 +30,15 @@ const Horses = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [modals, setModals] = useState(Array(horse.length).fill(false));
+  const handleOpenModal = (index) => {
+    const newModals = [...modals];
+    newModals[index] = true;
+    setModals(newModals);
+  };
+
+  
+
   return (
     <div>
       <div className="flex gap-x-5">
@@ -40,12 +49,12 @@ const Horses = () => {
                 Horses
               </h3>
 
-              <div className="flex justify-between mt-4  w-full">
+              <div className="flex  justify-between mt-4  w-full">
                 {horse.map((items, index) => (
                   <>
                     <div
                       key={index}
-                      onClick={handleOpen}
+                      onClick={() => handleOpen(index)}
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>

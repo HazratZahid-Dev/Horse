@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard';
 import ForgetPassword from './Pages/ForgetPassword';
 import ForggotPassword from './Pages/ForggotPassword';
 import Home from './Pages/Home';
+import HorseDetail from './Pages/HorseDetail';
 import Horses from './Pages/Horses';
 import ResetPassword from './Pages/ResetPassword';
 import SignIn from './Pages/SignIn';
@@ -38,6 +39,8 @@ function App() {
             <Route path='/horses' element={<Horses/>}/>
             <Route path='/basicInfo' element={<BasicInfo/>}/>
             <Route path='/forgetpassword' element={<ForgetPassword/>}/>
+            <Route path='/horsedetail' element={<HorseDetail/>}/>
+
 
 
 

@@ -3,6 +3,7 @@ import "../Style/Home.css";
 import face from "../Images/face.png";
 import Frame from "../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +14,11 @@ const SignUp = () => {
   };
   const handleTogglePass = () => {
     setShowPass((prevShowPass) => !prevShowPass);
+  };
+  const navigate = useNavigate();
+
+  const toDashboard = () => {
+    navigate("/dashboard");
   };
   return (
     <div>
@@ -100,6 +106,7 @@ const SignUp = () => {
           </div>
           <div className="text-center mt-2 w-[30%] flex flex-col gap-y-3 m-auto">
             <button
+            onClick={toDashboard}
               className="w-full  py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
               type="button"
             >
