@@ -6,20 +6,19 @@ import { useNavigate } from "react-router-dom";
 import { Box, Modal, Typography } from "@mui/material";
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    bgcolor:"#000032",
-    borderRadius:"50px",
-    width:'759px',
-    
-    boxShadow: 12,
-   
-  };
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  bgcolor: "#000032",
+  borderRadius: "50px",
+  width: "759px",
+
+  boxShadow: 12,
+};
 
 const Horses = () => {
   const navi = useNavigate();
@@ -36,8 +35,10 @@ const Horses = () => {
     newModals[index] = true;
     setModals(newModals);
   };
-
-  
+  const navigate=useNavigate();
+  const toCogging=()=>{
+    navigate('/cogging')
+  }
 
   return (
     <div>
@@ -54,36 +55,50 @@ const Horses = () => {
                   <>
                     <div
                       key={index}
-                      onClick={() => handleOpen(index)}
+                      // onClick={() => handleOpen(index)}
+                      onClick={index === 0 ? () => window.location = "/horsedetail" : index===1 ? handleOpen :index===2 ?  () => window.location = "/addservices"  :"" }
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>
                     <Modal
+                      // open={open}
+                      // onClose={handleClose}
+                      // aria-labelledby="modal-modal-title"
+                      // aria-describedby="modal-modal-description"
                       open={open}
                       onClose={handleClose}
                       aria-labelledby="modal-modal-title"
                       aria-describedby="modal-modal-description"
                     >
                       <Box sx={style}>
-                       <div className="bg-[#000032] text-white rounded-3xl">
-                        <h2 className="text-center text-[18px] font-[700] py-3">Report Record</h2>
-                        <hr className="w-1/2 m-auto text-gray-300 mt-1"/>
-                        <h2  className="text-center text-[18px] font-[700] py-3">Choose a health record Type</h2>
-                       <div className="flex  flex-wrap gap-x-12 w-[60%] gap-y-7 py-7 m-auto  items-center justify-center">
-                       {
-                            health.map((items)=>(
-                                <div className="flex">
-                                    <div className="">
-                                        <img src={items.img} className="w-[50px] h-[50px]"/>
-                                        <p className="text-white">{items.text}</p>
-                                    </div>
+                        <div className="bg-[#000032] text-white rounded-3xl">
+                          <h2 className="text-center text-[18px] font-[700] py-3">
+                            Report Record
+                          </h2>
+                          <hr className="w-1/2 m-auto text-gray-300 mt-1" />
+                          <h2 className="text-center text-[18px] font-[700] py-3">
+                            Choose a health record Type
+                          </h2>
+                          <div className="grid grid-cols-4   gap-x-12 w-[60%] gap-y-7 py-10 m-auto  items-center justify-center">
+                            {health.map((items) => (
+                              <div className="flex justify-center cursor-pointer ">
+                                <div onClick={toCogging} className=" flex flex-col">
+                                  <div className="flex justify-center items-center">
+                                    <img
+                                      src={items.img}
+                                      className="w-[50px] h-[50px]"
+                                    />
+                                  </div>
+                                  <p className="text-white text-[12px] mt-2 font-[600] text-center">
+                                    {items.text}
+                                  </p>
                                 </div>
-                            ))
-                        }
-                       </div>
-                       </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </Box>
                     </Modal>
                   </>

@@ -16,6 +16,23 @@ import horse14 from "../Images/Contacts11.png";
 
 import horse15 from "../Images/Upload.png";
 import dental from "../Images/dental.png";
+import glass from "../Images/glass.png";
+import deworming from "../Images/deworming.png";
+import injury from "../Images/injury.png";
+import hand from "../Images/hand.png";
+import veccination from "../Images/veccination.png";
+import vitals from "../Images/vitals.png";
+import joint from "../Images/joint.png";
+import diognostics from "../Images/diognostics.png";
+
+import ferrier from "../Images/hand.png";
+import healthimg from "../Images/healthimg.png";
+import medical from "../Images/diognostics.png";
+import { BsChevronRight } from "react-icons/bs";
+
+
+
+
 
 
 export const horse = [
@@ -224,63 +241,172 @@ export const HorseColor = [
 export const health = [
   {
     id: 1,
-    img: dental,
-    text: "cogging",
+    img: glass,
+    text: "Cogging",
   },
 
   {
     id: 2,
     img: dental,
-    text: "cogging",
+    text: "Dental",
   },
   {
     id: 3,
-    img: dental,
-    text: "cogging",
+    img: deworming,
+    text: "Deworming",
   },
   {
     id: 4,
-    img: dental,
-    text: "cogging",
+    img: injury,
+    text: "Injury",
   },
   {
     id: 5,
-    img: dental,
-    text: "cogging",
+    img: hand,
+    text: "Therapy",
   },
   {
     id: 6,
-    img: dental,
-    text: "cogging",
+    img: veccination,
+    text: "Vaccination",
   },
   {
     id: 7,
-    img: dental,
-    text: "cogging",
+    img: vitals,
+    text: "Vitals",
   },
   {
     id: 8,
-    img: dental,
-    text: "cogging",
+    img: joint,
+    text: "Joint Injection",
   },
   {
     id: 9,
-    img: dental,
-    text: "cogging",
+    img: diognostics,
+    text: "Diognostics",
   },
   {
     id: 10,
-    img: dental,
-    text: "cogging",
+    img: ferrier,
+    text: "Ferrier",
   },
   {
     id: 11,
-    img: dental,
-    text: "cogging",
+    img: healthimg,
+    text: "Genral Health",
   },
   {
     id: 12,
-    img: dental,
-    text: "cogging",
+    img: medical,
+    text: "Med/Supplement",
   },
 ];
+
+export const addservicesData=[
+  {
+    id:1,
+    service:"BodyClip",
+    price:"$100",
+    arrow:<BsChevronRight/>
+
+  },
+  {
+    id:2,
+    service:"Coaching (Daily)",
+    price:"$100",
+    arrow:<BsChevronRight/>
+
+  },
+  {
+    id:3,
+    service:"Equipment",
+    price:"",
+    arrow:<BsChevronRight/>
+
+  },
+  {
+    id:4,
+    service:"Flat Rate",
+    price:"$3000",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:5,
+    service:"Lesson",
+    price:"$65",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:6,
+    service:"Lodging",
+    price:"",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:7,
+    service:"Longe",
+    price:"30$",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:8,
+    service:"Monthly Board",
+    price:"$1200",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:9,
+    service:"Monthly Training",
+    price:"$1000",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:10,
+    service:"Office Fee",
+    price:"$25",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:11,
+    service:"Other",
+    price:"",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:12,
+    service:"Riding",
+    price:"$25",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:13,
+    service:"Show Ride",
+    price:"",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:14,
+    service:"Travel Expense",
+    price:"",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:15,
+    service:"Treadmill",
+    price:"$25",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:16,
+    service:"Trim",
+    price:"$30",
+    arrow:<BsChevronRight/>
+
+  },  {
+    id:17,
+    service:"Warmup Ride",
+    price:"$50",
+    arrow:<BsChevronRight/>
+
+  },
+]

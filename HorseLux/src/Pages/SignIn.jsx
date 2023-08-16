@@ -98,13 +98,18 @@ const SignIn = () => {
                           )}
                         </button>
                       </div>
+                      <div className="flex items-center gap-x-2  w-full py-3">
+                        <input type="checkbox"/>
+                        <label className="text-white text-[14px] font-[600]">Remember me</label>
+                      </div>
+                      <button onClick={toForget} className="text-white text-[16px] font-[600]">Forgot the Password?</button>
                       <button
-                        className="w-full mt-4 py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
+                        className="w-full text-[quacksand] mt-4 py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
                         type="submit"
                         disabled={isSubmitting}
                         // onClick={toDashboard}
                       >
-                        Continue
+                        Sign In
                       </button>
                     </div>
                   </Form>

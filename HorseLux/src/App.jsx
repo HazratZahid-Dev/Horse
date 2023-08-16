@@ -2,7 +2,11 @@
 
 import './App.css';
 import NavBar from './Compunents/NavBar';
+import AddCogging from './Pages/AddCogging';
+import AddServices from './Pages/AddServices';
+import AddServicesRecord from './Pages/AddServicesRecord';
 import BasicInfo from './Pages/BasicInfo';
+import BodyClip from './Pages/BodyClip';
 import Dashboard from './Pages/Dashboard';
 import ForgetPassword from './Pages/ForgetPassword';
 import ForggotPassword from './Pages/ForggotPassword';
@@ -40,6 +44,14 @@ function App() {
             <Route path='/basicInfo' element={<BasicInfo/>}/>
             <Route path='/forgetpassword' element={<ForgetPassword/>}/>
             <Route path='/horsedetail' element={<HorseDetail/>}/>
+            <Route path='/cogging' element={<AddCogging/>}/>
+            <Route path='/addservices' element={<AddServices/>}/>
+            <Route path='/addservicesrecord' element={<AddServicesRecord/>}/>
+            <Route path='/bodyclip' element={<BodyClip/>}/>
+
+
+
+
 
 
 
