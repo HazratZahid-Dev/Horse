@@ -43,30 +43,27 @@ const Horses = () => {
   return (
     <div>
       <div className="flex gap-x-5">
-        <div className="relative p-8">
+        <div className="relative p-8  flex items-center justify-center">
           <div className="w-[746px] flex py-5 bg-[#F4F4F4] rounded-xl flex-col ">
             <div className=" w-full px-8  ">
               <h3 className="text-[#000032] mt-4 font-[700] text-[20px] text-center">
                 Horses
               </h3>
 
-              <div className="flex  justify-between mt-4  w-full">
+              <div className="flex   justify-between mt-4  w-full">
                 {horse.map((items, index) => (
                   <>
                     <div
                       key={index}
                       // onClick={() => handleOpen(index)}
-                      onClick={index === 0 ? () => window.location = "/horsedetail" : index===1 ? handleOpen :index===2 ?  () => window.location = "/addservices"  :"" }
+                      onClick={index === 0 ? () => window.location = "/basicInfo" : index===1 ? handleOpen :index===2 ?  () => window.location = "/addservices"  :"" }
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>
                     <Modal
-                      // open={open}
-                      // onClose={handleClose}
-                      // aria-labelledby="modal-modal-title"
-                      // aria-describedby="modal-modal-description"
+                     
                       open={open}
                       onClose={handleClose}
                       aria-labelledby="modal-modal-title"

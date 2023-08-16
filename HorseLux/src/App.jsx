@@ -46,7 +46,7 @@ function App() {
             <Route path='/horsedetail' element={<HorseDetail/>}/>
             <Route path='/cogging' element={<AddCogging/>}/>
             <Route path='/addservices' element={<AddServices/>}/>
-            <Route path='/addservicesrecord' element={<AddServicesRecord/>}/>
+            <Route path='/servicesrecord'  element={<AddServicesRecord/>}/>
             <Route path='/bodyclip' element={<BodyClip/>}/>
 
 

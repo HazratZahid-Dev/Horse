@@ -70,7 +70,7 @@ const Dashboard = () => {
    
       {
         showHorse && (
-         <div className="animate-slideInFromBottom">
+         <div className="animate-slideInFromBottom m-auto">
          <Horses/>
          </div>
         )

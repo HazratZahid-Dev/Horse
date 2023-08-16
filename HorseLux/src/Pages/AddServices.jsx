@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const AddServices = () => {
     const navigate=useNavigate()
     const toRecord=()=>{
-        navigate('/addservicesrecord')
+        navigate('/servicesrecord')
     }
   return (
     <div className="flex">
