@@ -6,25 +6,40 @@ import { useNavigate, useParams } from "react-router-dom";
 import { addservicesData } from "../config/Horses";
 
 const BodyClip = () => {
-  const { index } = useParams();
+  // const { index } = useParams();
+ 
+  const { index, price } = useParams();
 
-  const navigate=useNavigate();
-  const toHome=()=>{
-    navigate('/dashboard')
-  }
-  
+  const navigate = useNavigate();
+  const toHome = () => {
+    navigate("/dashboard");
+  };
+
   const [selectedFile, setSelectedFile] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const pricee = addservicesData[index].price;
+  const [totalCost, setTotalCost] = useState(price);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
   };
+  const [pric, setPrice] = useState(addservicesData[index].price);
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+  const handleQuantityChange = (event) => {
+    const newQuantity = parseInt(event.target.value);
+    setQuantity(newQuantity);
+    setTotalCost(newQuantity * pricee);
+  };
+  
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-        {addservicesData[index].service}
+          {addservicesData[index].service}
         </h2>
 
         <div className="px-10">
@@ -62,12 +77,13 @@ const BodyClip = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
-                      placeholder="$100"
-                      className="py-1 border px-3 w-full shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    >
-                      
-                    </input>
+                      type="text"
+                      onChange={handlePriceChange}
+
+                      value={pric}
+                    
+                      className="py-1 border px-3 w-full flex items-center shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                    ></input>
                   </div>
                 </div>
                 <div className="flex justify-between mt-2  ">
@@ -77,7 +93,9 @@ const BodyClip = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
+                     type="text"
+                  onChange={handleQuantityChange}
+                  value={quantity}
                       placeholder="1"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
@@ -88,7 +106,8 @@ const BodyClip = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
+                       type="text"
+                  value={totalCost}
                       placeholder="$100"
                       className="py-1 border px-3 w-full shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
@@ -119,15 +138,18 @@ const BodyClip = () => {
                     ></textarea>
                   </div>
                 </div>
-              
+
                 <div className=" justify-between   w-[45%] -mt-16  ">
-                <label className="px-1  py-3 text-[16px] font-[600] ">
-                      Add Attachments
-                    </label>
+                  <label className="px-1  py-3 text-[16px] font-[600] ">
+                    Add Attachments
+                  </label>
                   <div className="flex items-center ">
-               
-                    <label htmlFor="fileInput" className="custom-file-upload border text-[12px] font-[600] flex items-center h-[33px] rounded-[5px] gap-x-1 px-2">
-                      <AiOutlinePlus/>Add Attachments
+                    <label
+                      htmlFor="fileInput"
+                      className="custom-file-upload border text-[12px] font-[600] flex items-center h-[33px] rounded-[5px] gap-x-1 px-2"
+                    >
+                      <AiOutlinePlus />
+                      Add Attachments
                     </label>
                     <input
                       type="file"
@@ -136,15 +158,21 @@ const BodyClip = () => {
                       onChange={handleFileChange}
                     />
                     {selectedFile && (
-                      <button className=" text-[12px] font-[600] ml-2"> {selectedFile.name}</button>
+                      <button className=" text-[12px] font-[600] ml-2">
+                        {" "}
+                        {selectedFile.name}
+                      </button>
                     )}
                   </div>
                 </div>
-                <div className=" justify-between   w-[45%]  ">
-              
-                </div>
-                <button type="submit" onClick={toHome}  className="bg-[#000032] w-1/2 mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]">Save</button>
-
+                <div className=" justify-between   w-[45%]  "></div>
+                <button
+                  type="submit"
+                  onClick={toHome}
+                  className="bg-[#000032] w-1/2 mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
+                >
+                  Save
+                </button>
               </form>
             </div>
           </div>

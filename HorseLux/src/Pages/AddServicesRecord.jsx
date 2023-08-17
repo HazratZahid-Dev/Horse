@@ -38,7 +38,7 @@ const AddServicesRecord = () => {
                     <p className="text-[15px] font-[600]">{items.service}</p>
                     <div className="flex items-center gap-x-3">
                       <p className="text-[15px] font-[400]">{items.price}</p>
-                      <h2 onClick={() => toBodyclip(index)} className="font-[800] cursor-pointer">{items.arrow}</h2>
+                      <h2 onClick={() => toBodyclip(index,items.price)} className="font-[800] cursor-pointer">{items.arrow}</h2>
                     </div>
                   </div>
                   <hr />
