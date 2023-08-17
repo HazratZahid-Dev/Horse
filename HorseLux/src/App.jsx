@@ -3,10 +3,13 @@
 import './App.css';
 import NavBar from './Compunents/NavBar';
 import AddCogging from './Pages/AddCogging';
+import AddCoggingRenewal from './Pages/AddCoggingReneal';
+import AddCoggingRnlDetail from './Pages/AddCoggingRnlDetail';
 import AddServices from './Pages/AddServices';
 import AddServicesRecord from './Pages/AddServicesRecord';
 import BasicInfo from './Pages/BasicInfo';
 import BodyClip from './Pages/BodyClip';
+import ChooseRecordType from './Pages/ChooseRecordType';
 import Dashboard from './Pages/Dashboard';
 import ForgetPassword from './Pages/ForgetPassword';
 import ForggotPassword from './Pages/ForggotPassword';
@@ -47,7 +50,14 @@ function App() {
             <Route path='/cogging' element={<AddCogging/>}/>
             <Route path='/addservices' element={<AddServices/>}/>
             <Route path='/servicesrecord'  element={<AddServicesRecord/>}/>
-            <Route path='/bodyclip' element={<BodyClip/>}/>
+            <Route path="/bodyclip/:index" element={<BodyClip />} />
+            <Route path="/chooserecordtype" element={<ChooseRecordType />} />
+            <Route path="/addcoggingrenewal" element={<AddCoggingRenewal />} />
+            <Route path="/addcoggingrenewalDetail" element={<AddCoggingRnlDetail />} />
+
+
+
+            
 
 
 

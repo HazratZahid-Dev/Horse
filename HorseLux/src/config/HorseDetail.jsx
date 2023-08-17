@@ -3,6 +3,10 @@ import d1 from "../Images/horsedetail/d1.png";
 import d2 from "../Images/horsedetail/d2.png";
 import d3 from "../Images/horsedetail/d3.png";
 import d4 from "../Images/horsedetail/d4.png";
+import choose from "../Images/horsedetail/d4.png";
+
+
+
 
 import {IoIosArrowForward} from 'react-icons/io'
 export const horseData=[
@@ -61,4 +65,36 @@ export const activityData=[
 
 
     }
+]
+
+export const chooseRecordtype=[
+    {
+        id:1,
+        img:choose,
+        cate:"Coggings"
+
+
+    },
+    {
+        id:2,
+        img:choose,
+        cate:"FEI"
+
+
+    },
+    {
+        id:3,
+        img:choose,
+        cate:"Lease"
+
+
+    },
+    {
+        id:4,
+        img:choose,
+        cate:"Passport"
+
+
+    }
+
 ]
