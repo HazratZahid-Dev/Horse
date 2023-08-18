@@ -5,6 +5,8 @@ import NavBar from './Compunents/NavBar';
 import AddCogging from './Pages/AddCogging';
 import AddCoggingRenewal from './Pages/AddCoggingReneal';
 import AddCoggingRnlDetail from './Pages/AddCoggingRnlDetail';
+import AddNote from './Pages/AddNote';
+import AddNoteDetail from './Pages/AddNoteDetail';
 import AddServices from './Pages/AddServices';
 import AddServicesRecord from './Pages/AddServicesRecord';
 import BasicInfo from './Pages/BasicInfo';
@@ -54,6 +56,10 @@ function App() {
             <Route path="/chooserecordtype" element={<ChooseRecordType />} />
             <Route path="/addcoggingrenewal" element={<AddCoggingRenewal />} />
             <Route path="/addcoggingrenewalDetail" element={<AddCoggingRnlDetail />} />
+            <Route path="/addnote" element={<AddNote />} />
+            <Route path="/addnoterecord" element={<AddNoteDetail />} />
+
+
 
 
 
