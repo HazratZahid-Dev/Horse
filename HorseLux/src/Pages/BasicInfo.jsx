@@ -151,7 +151,7 @@ const BasicInfo = () => {
               <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                 Color <span className="text-red-500">*</span>
               </label>
-           <div    onClick={handleColor} className="flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md">
+              <div    onClick={handleColor} className="flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md">
            <input
                  disabled={setColor ? true : false}
                 type="text"

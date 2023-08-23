@@ -410,3 +410,47 @@ export const addservicesData=[
 
   },
 ]
+
+export const contactType=[
+  {
+    contactType:"Brand Member"
+  },
+  {
+    contactType:"Dentist"
+  },  {
+    contactType:"Forrier"
+  },  {
+    contactType:"Health Provider"
+  },  {
+    contactType:"Bill Payer"
+  },  {
+    contactType:"Barn Manager"
+  },  {
+    contactType:"Horse Owner"
+  },  {
+    contactType:"Lesse"
+  },  {
+    contactType:"Parent"
+  },  {
+    contactType:"Lesson student"
+  },  {
+    contactType:"Rider"
+  },  {
+    contactType:"Veterinarian"
+  },
+  {
+    contactType:"Staff"
+  }, {
+    contactType:"Trainer"
+  }, {
+    contactType:"Vedor"
+  }, {
+    contactType:"Volunteer"
+  },
+
+  {
+    contactType:"Other"
+  },
+
+]
+

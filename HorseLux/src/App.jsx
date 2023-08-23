@@ -9,9 +9,11 @@ import AddNote from './Pages/AddNote';
 import AddNoteDetail from './Pages/AddNoteDetail';
 import AddServices from './Pages/AddServices';
 import AddServicesRecord from './Pages/AddServicesRecord';
+import AddTemprature from './Pages/AddTemprature';
 import BasicInfo from './Pages/BasicInfo';
 import BodyClip from './Pages/BodyClip';
 import ChooseRecordType from './Pages/ChooseRecordType';
+import Contact from './Pages/Contact';
 import Dashboard from './Pages/Dashboard';
 import ForgetPassword from './Pages/ForgetPassword';
 import ForggotPassword from './Pages/ForggotPassword';
@@ -58,6 +60,10 @@ function App() {
             <Route path="/addcoggingrenewalDetail" element={<AddCoggingRnlDetail />} />
             <Route path="/addnote" element={<AddNote />} />
             <Route path="/addnoterecord" element={<AddNoteDetail />} />
+            <Route path="/addtemprature" element={<AddTemprature />} />
+            <Route path="/contact" element={<Contact />} />
+
+
 
 
 
