@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Sidebar from "../Compunents/Sidebar";
-import h1 from "../Images/h1.png";
+import Sidebar from "../../../Compunents/Sidebar";
+import h1 from "../../../Images/h1.png";
 import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import { contactType } from "../config/Horses";
+import { contactType } from "../../../config/Horses";
 
 const Contact = () => {
   // const { index } = useParams();

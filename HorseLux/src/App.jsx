@@ -13,7 +13,7 @@ import AddTemprature from './Pages/Services/AddTemprature';
 import BasicInfo from './Pages/Services/BasicInfo';
 import BodyClip from './Pages/Services/BodyClip';
 import ChooseRecordType from './Pages/Services/ChooseRecordType';
-import Contact from './Pages/Contact';
+import Contact from './Pages/Services/Contact/Contact';
 import Dashboard from './Pages/Dashboard';
 import ForgetPassword from '../src/Pages/User/ForgetPassword';
 import ForggotPassword from '../src/Pages/User/ForggotPassword';
