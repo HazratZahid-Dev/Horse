@@ -1,6 +1,6 @@
 import React from 'react'
-import '../Style/Home.css'
-import Services from './Services'
+import '../../Style/Home.css'
+import Services from '../Services'
 
 const Home = () => {
   return (

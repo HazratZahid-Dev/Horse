@@ -1,21 +1,49 @@
 import React from "react";
-import Sidebar from "../Compunents/Sidebar";
-import data from "../config/Data";
-import h1 from "../Images/h1.png";
+import Sidebar from "../../Compunents/Sidebar";
+import data from "../../config/Data";
+import h1 from "../../Images/h1.png";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 
-const AddCoggingRenewal = () => {
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 800,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  radius:10,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+// import h1 from '../Images/h1.png'
+
+const AddNote = () => {
     const navigate=useNavigate()
-    const toAddCRD=()=>{
-        navigate('/addcoggingrenewalDetail')
+    const toAddNoteRecord=()=>{
+        navigate('/addnoterecord')
     }
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
   return (
     <div className="flex">
       <Sidebar />
+    
+      
       <div className="w-full p-5">
         <div className="text-[30px] font-[700] text-center">
-          Add Cogging Renewal
+          Add Note
         </div>
         <div className="w-1/2">
           <div className="w-full">
@@ -78,7 +106,7 @@ const AddCoggingRenewal = () => {
            </div>
           
           </div>
-          <button onClick={toAddCRD}  className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]">Next</button>
+          <button onClick={toAddNoteRecord} className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]">Next</button>
         </div>
         <div className="w-1/2"></div>
       </div>
@@ -86,4 +114,4 @@ const AddCoggingRenewal = () => {
   );
 };
 
-export default AddCoggingRenewal;
+export default AddNote;

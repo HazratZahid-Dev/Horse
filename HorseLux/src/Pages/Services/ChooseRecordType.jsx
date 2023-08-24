@@ -1,9 +1,9 @@
 import React from 'react'
-import Sidebar from '../Compunents/Sidebar'
-import data from "../config/Data";
-import h1 from "../Images/h1.png";
+import Sidebar from '../../Compunents/Sidebar'
+import data from "../../config/Data";
+import h1 from "../../Images/h1.png";
 import { BsSearch } from 'react-icons/bs';
-import { chooseRecordtype } from '../config/HorseDetail';
+import { chooseRecordtype } from '../../config/HorseDetail';
 import {BiChevronRight} from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom';
 

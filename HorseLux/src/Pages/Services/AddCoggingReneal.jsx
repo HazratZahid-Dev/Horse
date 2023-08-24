@@ -1,21 +1,21 @@
 import React from "react";
-import Sidebar from "../Compunents/Sidebar";
-import data from "../config/Data";
-import h1 from "../Images/h1.png";
+import Sidebar from "../../Compunents/Sidebar";
+import data from "../../config/Data";
+import h1 from "../../Images/h1.png";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-const AddServices = () => {
+const AddCoggingRenewal = () => {
     const navigate=useNavigate()
-    const toRecord=()=>{
-        navigate('/servicesrecord')
+    const toAddCRD=()=>{
+        navigate('/addcoggingrenewalDetail')
     }
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full p-5">
         <div className="text-[30px] font-[700] text-center">
-          Add Services Record
+          Add Cogging Renewal
         </div>
         <div className="w-1/2">
           <div className="w-full">
@@ -78,7 +78,7 @@ const AddServices = () => {
            </div>
           
           </div>
-          <button onClick={toRecord} className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]">Next</button>
+          <button onClick={toAddCRD}  className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]">Next</button>
         </div>
         <div className="w-1/2"></div>
       </div>
@@ -86,4 +86,4 @@ const AddServices = () => {
   );
 };
 
-export default AddServices;
+export default AddCoggingRenewal;

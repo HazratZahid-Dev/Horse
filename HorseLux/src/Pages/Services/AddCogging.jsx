@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../Compunents/Sidebar'
+import Sidebar from '../../Compunents/Sidebar'
 
 const AddCogging = () => {
   return (

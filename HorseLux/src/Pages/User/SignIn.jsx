@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../Style/Home.css";
-import face from "../Images/face.png";
-import Frame from "../Images/Frame.png";
+import "../../Style/Home.css";
+import face from "../../Images/face.png";
+import Frame from "../../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Sidebar from "../Compunents/Sidebar";
-import h1 from "../Images/h1.png";
+import Sidebar from "../../Compunents/Sidebar";
+import h1 from "../../Images/h1.png";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 

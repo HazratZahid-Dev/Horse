@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Sidebar from "../Compunents/Sidebar";
+import Sidebar from "../../Compunents/Sidebar";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import { HorseColor, popOver, sex } from "../config/Horses";
+import { HorseColor, popOver, sex } from "../../config/Horses";
 // import Button from '@mui/material/Button';
 import {AiFillCaretDown} from 'react-icons/ai'
 
