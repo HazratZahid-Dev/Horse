@@ -25,6 +25,11 @@ import SignIn from '../src/Pages/User/SignIn';
 import SignUp from '../src/Pages/User/SignUp';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import UploadContact from './Pages/Services/Contact/UploadContact';
+import Breading from './Pages/Services/Breading/Breading';
+import MilkTest from './Pages/Services/Breading/MilkTest';
+import AddInsemination from './Pages/Services/Breading/AddInsemination';
+import AddOvulation from './Pages/Services/Breading/AddOvulation';
 
 
 
@@ -62,6 +67,16 @@ function App() {
             <Route path="/addnoterecord" element={<AddNoteDetail />} />
             <Route path="/addtemprature" element={<AddTemprature />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/uploadcontact" element={<UploadContact />} />
+            <Route path="/breading" element={<Breading />} />
+            <Route path="/milktest" element={<MilkTest />} />
+            <Route path="/addinsemination" element={<AddInsemination />} />
+            <Route path="/addovulation" element={<AddOvulation />} />
+
+
+
+
+
 
 
 

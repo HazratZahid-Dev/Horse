@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Compunents/Sidebar";
 import h1 from "../../../Images/h1.png";
+import Popover from "@mui/material/Popover";
+
 import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
 import { contactType } from "../../../config/Horses";
+import { inseminationType, milktestProprties } from "../../../config/HorseDetail";
 
-const Contact = () => {
-  // const { index } = useParams();
+const AddInsemination = () => {
+ 
 
-  const { index, price } = useParams();
 
-  const navigate = useNavigate();
-  const toHome = () => {
-    navigate("/dashboard");
-  };
 
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState(null);
+  const handlePropertySelect = (property) => {
+    setSelectedProperty(property);
+    setAnchorEl(null); // Close the popover when an item is selected
+  };
 
+ 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -30,31 +32,68 @@ const Contact = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? 'simple-popover' : undefined;
 
+  
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-          Add Contact
+        Add Insemination
         </h2>
 
         <div className="px-10">
           <div className="w-full">
-            <div className="w-[45%] ">
-              <label className="px-[14px]  text-[16px] font-[600] ">
-                Contact type
-              </label>
-              <br />
-              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
+          <div className="w-[45%] ">
+                   
+          <div className="w-full">
+            <h2 className="w-full text-[20px] font-[700] ">Selected Horse</h2>
+
+            <div className="w-[39px] h-[39px] rounded-full mt-2 ">
+              <img
+                className="h-full w-full rounded-full object-fill"
+                src={h1}
+              />
+              <p className="text-[10px] font-[600] text-center mt-1">Ferrier</p>
+            </div>
+          </div>
+                   
+                   
+                  </div>
+           
+            <hr className="mt-6 w-1/2" />
+            <div className="w-full">
+              <h2 className="w-full text-[20px] font-[700] py-2 ">
+                Add detail
+              </h2>
+              <form className="w-full">
+                <div className="flex justify-between  ">
+                  <div className="w-[45%] ">
+                    <label className="px-[14px]  text-[16px] font-[600] ">
+                      Date <span className="text-red-500 text-xl">*</span>
+                    </label>
+                    <br />
+                    <input
+                      type=" text"
+                      placeholder="22-jun-2023"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                    ></input>
+                  </div>
+                  <div className="w-[45%]">
+                    <label className="px-[14px]   text-[16px] font-[600] ">
+                    Insemination Type <span className="text-red-500 text-xl">*</span>
+                    </label>
+                    <br />
+                    <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
                 <input
                   aria-describedby={id}
                   variant="contained"
                   onClick={handleClick}
                   className="outline-none w-full h-full"
                   type=" text"
-                  placeholder="Choose"
+                  value={selectedProperty || ""}
+                  placeholder="Select"
                 ></input>
                 <AiFillCaretRight className="text-2xl text-gray-300" />
               </div>
@@ -71,76 +110,46 @@ const Contact = () => {
                 // style={{ width: '' }}
                 sx={{ width: "1000px" }}
               >
-                <div className=" bg-[#000032] text-white h-72  overflow-y-auto w-96  ">
-                  {contactType.map((items, index) => (
+                <div className=" bg-[#000032] text-white h-auto p-2   w-96 ">
+                  {inseminationType.map((property, index) => (
                     <div
                       className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
                       key={index}
+                      onClick={() => handlePropertySelect(property.property)}
                     >
-                      <input type="radio" />
+                      <input type="radio" checked={selectedProperty === property.property}  />
                       <p className="text-[16px] hover:text-yellow-600 font-[700] font-[Quicksand]">
-                        {items.contactType}
+                        {property.property}
                       </p>
                     </div>
                   ))}
                 </div>
               </Popover>
-            </div>
-
-            <hr className="mt-6 w-1/2" />
-            <div className="w-full">
-              <h2 className="w-full text-[20px] font-[700] py-2 ">
-                Contact Information
-              </h2>
-              <form className="w-full">
-                <div className="flex justify-between  ">
-                  <div className="w-[45%] ">
-                    <label className="px-[14px]  text-[16px] font-[600] ">
-                      Titlle
-                    </label>
-                    <br />
-                    <input
-                      type=" text"
-                      placeholder="22-jun-2023"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
-                  </div>
-                  <div className="w-[45%]">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                      Primary Phone
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="+44 323245658790"
-                      className="py-1 border px-3 w-full flex items-center shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
                   </div>
                 </div>
                 <div className="flex justify-between mt-2  ">
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                      First Name
+                    Account
                     </label>
                     <br />
                     <input
-                      type="text"
-                      //   onChange={handleQuantityChange}
-                      //   value={quantity}
+                     type="text"
+                //   onChange={handleQuantityChange}
+                //   value={quantity}
                       placeholder="Adam"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
                   <div className="w-[45%]">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                      Email
+                      Seman Quality
                     </label>
                     <br />
                     <input
-                      type="text"
-                      //   onChange={handleQuantityChange}
-                      //   value={quantity}
-                      placeholder="adamsmith@gmail.com"
+                     type="text"
+              
+                      placeholder="Ph"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
@@ -148,7 +157,7 @@ const Contact = () => {
                 <div className="flex justify-between mt-2  ">
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                      Last Name
+                      Price
                     </label>
                     <br />
                     <input
@@ -157,8 +166,39 @@ const Contact = () => {
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
+                  <div className="w-[45%] ">
+                    <label className="px-[14px]   text-[16px] font-[600] ">
+                      Stallian Name
+                    </label>
+                    <br />
+                    <input
+                      type=" text"
+                      placeholder="Select Horse"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                    ></input>
+                  </div>
+                </div>
+                <div className="flex justify-between mt-2  ">
+                  <div className="w-[45%] ">
+                    <label className="px-[14px]   text-[16px] font-[600] ">
+                      Frequancy
+                    </label>
+                    <br />
+                    <input
+                      type=" text"
+                      placeholder="Frequancy"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                    ></input>
+                  </div>
+                  <div className=" justify-between mt-1   w-[45%]  ">
+                <label className="px-[14px]   text-[16px] font-[600] ">
+                      Comments
+                    </label>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "></textarea>
+                </div>
                 </div>
 
+                <div className="flex items-center justify-between">
                 <div className=" justify-between   w-[45%] mt-2   ">
                   <label className="px-1  py-3 text-[16px] font-[600]  ">
                     Add Attachments
@@ -175,7 +215,7 @@ const Contact = () => {
                       type="file"
                       id="fileInput"
                       style={{ display: "none" }}
-                      //   onChange={handleFileChange}
+                    //   onChange={handleFileChange}
                     />
                     {selectedFile && (
                       <button className=" text-[12px] font-[600] ml-2">
@@ -185,10 +225,11 @@ const Contact = () => {
                     )}
                   </div>
                 </div>
-                <div className=" justify-between   w-[45%]  "></div>
+
+                
+                </div>
                 <button
                   type="submit"
-                  onClick={toHome}
                   className="bg-[#000032] w-1/2 mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
                 >
                   Save
@@ -202,4 +243,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default AddInsemination;

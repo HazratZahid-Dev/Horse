@@ -98,3 +98,78 @@ export const chooseRecordtype=[
     }
 
 ]
+
+export const milktestProprties=[
+    {
+        id:1,
+        property:"Clear"
+    },
+    {
+        id:2,
+        property:"Cloudy"
+    },
+    {
+        id:3,
+        property:"Sticky"
+    },  {
+        id:4,
+        property:"True Colostrum"
+    },  {
+        id:5,
+        property:"True Milk"
+    },
+    {
+        id:6,
+        property:"Yellow Tint"
+    },
+]
+
+export const inseminationType=[
+    {
+        id:1,
+        property:"All"
+    },
+    {
+        id:2,
+        property:"Fresh"
+    },
+    {
+        id:3,
+        property:"Frozen"
+    },  {
+        id:4,
+        property:"ICSI"
+    },  {
+        id:5,
+        property:"Live Cover"
+    },
+    {
+        id:6,
+        property:"Other"
+    },
+]
+
+export const edimaLevel=[
+    {
+        id:1,
+        property:"Grade 1"
+    },
+    {
+        id:2,
+        property:"Grade 2"
+    },
+    {
+        id:3,
+        property:"Grade 3"
+    },  {
+        id:4,
+        property:"Grade 4"
+    },  {
+        id:5,
+        property:"Grade 5"
+    },
+    {
+        id:6,
+        property:"Grade 6"
+    },
+]
