@@ -30,6 +30,8 @@ import Breading from './Pages/Services/Breading/Breading';
 import MilkTest from './Pages/Services/Breading/MilkTest';
 import AddInsemination from './Pages/Services/Breading/AddInsemination';
 import AddOvulation from './Pages/Services/Breading/AddOvulation';
+import Addpregnancy from './Pages/Services/Breading/AddPregnancy';
+import AddSeman from './Pages/Services/Breading/AddSeman';
 
 
 
@@ -72,6 +74,10 @@ function App() {
             <Route path="/milktest" element={<MilkTest />} />
             <Route path="/addinsemination" element={<AddInsemination />} />
             <Route path="/addovulation" element={<AddOvulation />} />
+            <Route path="/addpregnancy" element={<Addpregnancy />} />
+            <Route path="/addseman" element={<AddSeman />} />
+
+
 
 
 

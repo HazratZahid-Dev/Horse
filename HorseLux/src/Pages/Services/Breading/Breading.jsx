@@ -44,14 +44,14 @@ const Breading = () => {
                 </Link>
                 <hr className=''/>
                </div><div className=''> 
-               <Link className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/addpregnancy' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Pregnancy Check
                     <BsChevronRight className=''/>
                 </Link>
                 <hr className=''/>
                </div>
                <div className=''> 
-               <Link className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/addseman' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Semen Collection
                     <BsChevronRight style={{fontWeight:'900'}} className='font-bold'/>
                 </Link>
