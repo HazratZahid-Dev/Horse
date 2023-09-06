@@ -1,8 +1,8 @@
 import React from "react";
+import Sidebar from "./Sidebar";
 import h1 from "../../Images/h1.png";
+import { addservicesData } from "../config/Horses";
 import { useNavigate } from "react-router-dom";
-import { addservicesData } from "../../config/Horses";
-import Sidebar from "../../Compunents/Sidebar";
 
 const AddServicesRecord = () => {
   const navigate=useNavigate()

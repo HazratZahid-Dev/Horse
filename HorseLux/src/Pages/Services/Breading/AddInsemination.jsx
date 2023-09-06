@@ -36,11 +36,11 @@ const AddInsemination = () => {
 
   
   return (
-    <div className="flex">
+    <div className="flex pb-1">
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-        Add Insemination
+        ADD INSEMINATION
         </h2>
 
         <div className="px-10">

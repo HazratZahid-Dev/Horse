@@ -7,8 +7,8 @@ import AddCoggingRenewal from './Pages/Services/AddCoggingReneal';
 import AddCoggingRnlDetail from './Pages/Services/AddCoggingRnlDetail';
 import AddNote from './Pages/Services/AddNote';
 import AddNoteDetail from './Pages/Services/AddNoteDetail';
-import AddServices from './Pages/Services/AddServices';
-import AddServicesRecord from './Pages/Services/AddServicesRecord';
+import AddServices from './Pages/HorseSelection/AddServices';
+// import AddServicesRecord from './Pages/Services/AddServicesRecord';
 import AddTemprature from './Pages/Services/AddTemprature';
 import BasicInfo from './Pages/Services/BasicInfo';
 import BodyClip from './Pages/Services/BodyClip';
@@ -32,6 +32,14 @@ import AddInsemination from './Pages/Services/Breading/AddInsemination';
 import AddOvulation from './Pages/Services/Breading/AddOvulation';
 import Addpregnancy from './Pages/Services/Breading/AddPregnancy';
 import AddSeman from './Pages/Services/Breading/AddSeman';
+import AddServicesRecord from './Pages/Services/AddServicesRecord';
+import AddTemp from './Pages/HorseSelection/AddTemp';
+import AddMilkTest from './Pages/HorseSelection/MilkTest';
+import AddInsem from './Pages/HorseSelection/AddInsem';
+import AddPreg from './Pages/HorseSelection/AddPreg';
+import Addseman from './Pages/HorseSelection/AddSeman';
+import NewOwnerGroup from './Pages/Services/Contact/NewOwnerGroup';
+// import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
 
@@ -76,49 +84,13 @@ function App() {
             <Route path="/addovulation" element={<AddOvulation />} />
             <Route path="/addpregnancy" element={<Addpregnancy />} />
             <Route path="/addseman" element={<AddSeman />} />
+            <Route path="/addtemp" element={<AddTemp/>} />
+            <Route path="/addmilk" element={<AddMilkTest/>} />
+            <Route path="/addminsem" element={<AddInsem/>} />
+            <Route path="/addpreg" element={<AddPreg/>} />
+            <Route path="/seman" element={<Addseman/>} />
+            <Route path="/newowner" element={<NewOwnerGroup/>} />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-            
-
-
-
-
-     
-            {/* <Route path='/About' element={<About/>} />
-        
-            <Route path='/Contact' element={<CardList/>} />
-            <Route path='/detail/:name' element={<Aptech/>} />
-            <Route path='/web' element={<Web/>}/>
-            <Route path='/graphicdesigning' element={<GraphicDesigning/>}/>
-            <Route path='/digitalmarkiter' element={<DigitalMarkiting/>}></Route>
-            <Route path='/signIn' element={<SignIn/>}></Route> */}
-
-            {/* <Footer/> */}
-        
-       
-       
-      
           </Routes>
         </div>
       </Router>

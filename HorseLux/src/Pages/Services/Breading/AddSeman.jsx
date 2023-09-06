@@ -7,18 +7,10 @@ import { contactType } from "../../../config/Horses";
 import { edimaLevel, milktestProprties } from "../../../config/HorseDetail";
 
 const AddSeman = () => {
-
   const [selectedFile, setSelectedFile] = useState(null);
-
-
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-
-
-
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-
   return (
     <div className="flex">
       <Sidebar />

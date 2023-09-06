@@ -1,21 +1,21 @@
 import React from "react";
-import Sidebar from "../../Compunents/Sidebar";
-import data from "../../config/Data";
-import h1 from "../../Images/h1.png";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../Compunents/Sidebar";
+import data from "../../config/Data";
+import h1 from '../../Images/h1.png'
 
-const AddServices = () => {
+const Ovulation = () => {
     const navigate=useNavigate()
     const toRecord=()=>{
-        navigate('/servicesrecord')
+        navigate('/milktest')
     }
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full p-5">
         <div className="text-[30px] font-[700] text-center">
-          Add Services Record
+          ADD OVULATION
         </div>
         <div className="w-1/2">
           <div className="w-full">
@@ -86,4 +86,4 @@ const AddServices = () => {
   );
 };
 
-export default AddServices;
+export default Ovulation;

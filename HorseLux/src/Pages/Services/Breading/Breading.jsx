@@ -18,7 +18,7 @@ const Breading = () => {
             </h2>
             <div>
                <div>
-               <Link to='/milktest' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/addmilk' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                     Milk Test
                     <BsChevronRight className=''/>
                 </Link>
@@ -32,7 +32,7 @@ const Breading = () => {
                 <hr className=''/>
                </div>
                <div className=''> 
-               <Link to='/addinsemination'  className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/addminsem'  className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Insemination
                     <BsChevronRight className=''/>
                 </Link>
@@ -44,14 +44,14 @@ const Breading = () => {
                 </Link>
                 <hr className=''/>
                </div><div className=''> 
-               <Link to='/addpregnancy' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/addpreg' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Pregnancy Check
                     <BsChevronRight className=''/>
                 </Link>
                 <hr className=''/>
                </div>
                <div className=''> 
-               <Link to='/addseman' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/seman' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Semen Collection
                     <BsChevronRight style={{fontWeight:'900'}} className='font-bold'/>
                 </Link>
