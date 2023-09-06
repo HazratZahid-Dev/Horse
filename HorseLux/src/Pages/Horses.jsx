@@ -129,9 +129,13 @@ const Horses = () => {
               </h3>
 
               <div className="flex justify-between mt-4  w-full">
-                {schedule.map((items) => (
+                {schedule.map((items,index) => (
                   <>
-                    <div className=" h-[65px] w-[75px] space-y-2 flex flex-col items-center justify-center">
+                    <div
+                      key={index}
+                      // onClick={() => handleOpen(index)}
+                      onClick={index === 0 ? () => window.location = "/eventservices" : index===1 ? () => window.location = "/appointmet"  :index===2 ?  () => window.location = "/task" :"" }
+                     className=" h-[65px] cursor-pointer w-[75px] space-y-2 flex flex-col items-center justify-center">
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>

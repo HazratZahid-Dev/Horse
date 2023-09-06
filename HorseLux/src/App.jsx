@@ -39,6 +39,9 @@ import AddInsem from './Pages/HorseSelection/AddInsem';
 import AddPreg from './Pages/HorseSelection/AddPreg';
 import Addseman from './Pages/HorseSelection/AddSeman';
 import NewOwnerGroup from './Pages/Services/Contact/NewOwnerGroup';
+import Services from './Pages/Services/Schedule/Services';
+import Appointment from './Pages/Services/Schedule/Appointement';
+import Task from './Pages/Services/Schedule/Task';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -90,6 +93,13 @@ function App() {
             <Route path="/addpreg" element={<AddPreg/>} />
             <Route path="/seman" element={<Addseman/>} />
             <Route path="/newowner" element={<NewOwnerGroup/>} />
+            <Route path="/eventservices" element={<Services/>} />
+            <Route path="/appointmet" element={<Appointment/>} />
+            <Route path="/task" element={<Task/>} />
+
+
+
+
 
           </Routes>
         </div>
