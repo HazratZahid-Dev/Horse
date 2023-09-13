@@ -24,7 +24,8 @@ const Horses = () => {
   const navi = useNavigate();
   const toBasicInfo = () => {
     navi("/basicInfo");
-    // console.log('zahiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiid')
+     console.log('zahiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiid')
+
   };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
