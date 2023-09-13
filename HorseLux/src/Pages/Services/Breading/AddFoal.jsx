@@ -313,9 +313,10 @@ const AddFoal = () => {
               <h2 className="w-full text-[20px] font-[700] py-2 ">
                 Add detail
               </h2>
-              <form className="w-full">
+             <div className="flex">
+             <form className="w-1/2">
                 <div className="flex justify-between  ">
-                  <div className="w-[45%] ">
+                  <div className="w-[80%] ">
                     <label className="px-[14px]  text-[16px] font-[600] ">
                       Date <span className="text-red-500 text-xl">*</span>
                     </label>
@@ -327,52 +328,7 @@ const AddFoal = () => {
                     ></input>
                     
                   </div>
-                  <div className="w-[45%]">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                    Milk Test Properties <span className="text-red-500 text-xl">*</span>
-                    </label>
-                    <br />
-              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
-                <input
-                  aria-describedby={id}
-                  variant="contained"
-                  onClick={handleClick}
-                  className="outline-none w-full h-full"
-                  type=" text"
-                  value={selectedProperty || ""}
-                  placeholder="Select"
-                ></input>
-                <AiFillCaretDown className="text-2xl text-gray-500" />
-              </div>
-
-              <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                // style={{ width: '' }}
-                sx={{ width: "1000px" }}
-              >
-                <div className=" bg-[#000032] text-white h-auto p-2   w-96 ">
-                  {milktestProprties.map((property, index) => (
-                    <div
-                      className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
-                      key={index}
-                      onClick={() => handlePropertySelect(property.property)}
-                    >
-                      <input type="radio" checked={selectedProperty === property.property}  />
-                      <p className="text-[16px] hover:text-yellow-600 font-[700] font-[Quicksand]">
-                        {property.property}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </Popover>
-                  </div>
+                 
                 </div>
                 <div className="flex justify-between mt-2">
                   <div className="w-[45%]">
@@ -396,18 +352,6 @@ const AddFoal = () => {
               </div>
                 </div>
 
-                  <div className="w-[45%]">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                      Milk Test Ph
-                    </label>
-                    <br />
-                    <input
-                     type="text"
-              
-                      placeholder="adamsmith@gmail.com"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
-                  </div>
                 </div>
                 <div className="flex justify-between mt-2  ">
                   <div className="w-[45%] ">
@@ -421,17 +365,14 @@ const AddFoal = () => {
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
-                  <div className="w-[45%] ">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                      Under Development
+              
+                </div>
+                
+                <div className=" justify-between mt-1   w-[45%]  ">
+                <label className="px-[14px]   text-[16px] font-[600] ">
+                      Comments
                     </label>
-                    <br />
-                    <input
-                      type=" text"
-                      placeholder="Under Development"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
-                  </div>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -462,20 +403,36 @@ const AddFoal = () => {
                   </div>
                 </div>
 
-                <div className=" justify-between mt-1   w-[45%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
-                      Comments
-                    </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "></textarea>
-                </div>
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#000032] w-1/2 mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
+                  className="bg-[#000032] w-[80%] mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
                 >
                   Save
                 </button>
               </form>
+              <form className="border rounded-md w-1/2 ">
+
+              <div className=" justify-between mt-1   w-[80%]  ">
+                <label className="px-[14px]   text-[16px] font-[600] ">
+                      Comments
+                    </label>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
+                </div>
+                <div className=" justify-between mt-1   w-[45%]  ">
+                <label className="px-[14px]   text-[16px] font-[600] ">
+                      Comments
+                    </label>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
+                </div>
+                <div className=" justify-between mt-1   w-[45%]  ">
+                <label className="px-[14px]   text-[16px] font-[600] ">
+                      Comments
+                    </label>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
+                </div>
+              </form>
+             </div>
             </div>
           </div>
         </div>
