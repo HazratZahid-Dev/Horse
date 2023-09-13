@@ -42,6 +42,8 @@ import NewOwnerGroup from './Pages/Services/Contact/NewOwnerGroup';
 import Services from './Pages/Services/Schedule/Services';
 import Appointment from './Pages/Services/Schedule/Appointement';
 import Task from './Pages/Services/Schedule/Task';
+import Foaling from './Pages/HorseSelection/Foaling';
+import AddFoal from './Pages/Services/Breading/AddFoal';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -84,6 +86,8 @@ function App() {
             <Route path="/breading" element={<Breading />} />
             <Route path="/milktest" element={<MilkTest />} />
             <Route path="/addinsemination" element={<AddInsemination />} />
+            <Route path="/foaling" element={<Foaling/>}/>
+            <Route path="/AddFoal" element={<AddFoal/>}/>
             <Route path="/addovulation" element={<AddOvulation />} />
             <Route path="/addpregnancy" element={<Addpregnancy />} />
             <Route path="/addseman" element={<AddSeman />} />

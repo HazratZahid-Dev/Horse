@@ -81,7 +81,7 @@ const MilkTest = () => {
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
-                  <div className="w-[45%]">
+                  <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
                     Milk Test Properties <span className="text-red-500 text-xl">*</span>
                     </label>

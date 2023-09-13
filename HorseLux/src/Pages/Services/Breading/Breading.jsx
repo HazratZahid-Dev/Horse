@@ -25,7 +25,7 @@ const Breading = () => {
                 <hr className=''/>
                </div>
                <div className=''> 
-               <Link  className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
+               <Link to='/foaling' className='flex items-center py-2 text-[15px] font-[600] leading-[22px] justify-between'>
                Foaling
                     <BsChevronRight className=''/>
                 </Link>
