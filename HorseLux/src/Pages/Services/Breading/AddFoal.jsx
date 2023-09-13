@@ -246,12 +246,14 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Compunents/Sidebar";
 import h1 from "../../../Images/h1.png";
-import Popover from "@mui/material/Popover";
-
 import { AiFillCaretDown, AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
 import { contactType } from "../../../config/Horses";
 import { milktestProprties } from "../../../config/HorseDetail";
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Popover from '@mui/material/Popover';
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 
 const AddFoal = () => {
  
@@ -314,10 +316,12 @@ const AddFoal = () => {
                 Add detail
               </h2>
              <div className="flex">
+              {/* left side Form */}
+
              <form className="w-1/2">
                 <div className="flex justify-between  ">
                   <div className="w-[80%] ">
-                    <label className="px-[14px]  text-[16px] font-[600] ">
+                    <label className="px-[14px] text-gray-500 text-[16px] font-[500] ">
                       Date <span className="text-red-500 text-xl">*</span>
                     </label>
                     <br />
@@ -331,14 +335,14 @@ const AddFoal = () => {
                  
                 </div>
                 <div className="flex justify-between mt-2">
-                  <div className="w-[45%]">
+                  <div className="w-[80%]">
                     
-                    <label className="px-[14px]   text-[16px] font-[600] ">
+                    <label className="px-[14px]  text-gray-500 text-[16px] font-[500] ">
                     Account
                     </label>
                     <br />
               
-              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
+              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]">
                 <input
                   aria-describedby={id}
                   variant="contained"
@@ -348,32 +352,36 @@ const AddFoal = () => {
                   value={selectedProperty || ""}
                   placeholder="Select Contact..."
                 ></input>
-                <AiFillCaretDown className="text-2xl text-gray-500" />
+                <AiFillCaretRight className="text-2xl text-gray-500" />
               </div>
                 </div>
 
                 </div>
                 <div className="flex justify-between mt-2  ">
-                  <div className="w-[45%] ">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
+                  <div className="w-[80%] ">
+                    <label className="px-[14px] text-gray-500  text-[16px] font-[500] ">
                       Price
                     </label>
                     <br />
                     <input
                       type=" text"
-                      placeholder="Smith"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                      placeholder="$Price"
+                      className="py-1 w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
               
                 </div>
                 
-                <div className=" justify-between mt-1   w-[45%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
+                <div className=" justify-between mt-1   w-[80%]  ">
+                <label className="px-[14px] text-gray-500  text-[16px] font-[500] ">
                       Comments
                     </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
-                </div>
+                    <input
+                      type=" text"
+                      placeholder="Add Comments..."
+                      className="py-1 w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]"
+                    ></input>               
+                     </div>
 
                 <div className="flex items-center justify-between">
                 <div className=" justify-between   w-[45%] mt-2   ">
@@ -411,26 +419,210 @@ const AddFoal = () => {
                   Save
                 </button>
               </form>
-              <form className="border rounded-md w-1/2 ">
 
-              <div className=" justify-between mt-1   w-[80%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
-                      Comments
+              {/* right side form */}
+              
+              <form className="border border-black rounded-md w-1/3 pl-2 ml-12 mb-6">
+
+              <div className=" justify-between mt-2   w-[80%] ml-2">
+                <label className="text-[16px] font-[600] ">
+                      Foal Details:
                     </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
-                </div>
-                <div className=" justify-between mt-1   w-[45%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
-                      Comments
-                    </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
-                </div>
-                <div className=" justify-between mt-1   w-[45%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
-                      Comments
-                    </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-12 outline-none rounded-[10px] "></textarea>
-                </div>
+                   <div>
+                   <h1 className="font-semibold">Name</h1>
+                    <input
+                      type=" text"
+                      placeholder="Full name" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+                   </div>
+              </div>
+
+              <div className=" justify-between mt-3   w-[80%] ml-2">
+                   <h1 className="font-semibold">sex</h1>
+                   <div className="flex">
+                    <input
+                      type=" text"
+                      placeholder="select..." 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+
+                    <PopupState variant="popover" popupId="demo-popup-popover">
+            {(popupState) => (
+              <div>
+                {/* <Button variant="contained" {...bindTrigger(popupState)}>
+                  Open Popover
+                </Button> */}
+                <AiFillCaretDown 
+                {...bindTrigger(popupState)}
+                className="text-xl text-gray-500 pb-2" />
+                <Popover
+                  {...bindPopover(popupState)}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  PaperProps={{
+                    style: { width: '372px', 
+                    marginLeft: '-180px',
+                    maxHeight: '300px'
+                    
+                  } // Adjust the width as needed
+                    
+                  }}
+                >
+                  <Typography sx={{ p: 2 }} className="text-white text-center bg-[#000032]">
+                  Select sex</Typography>
+
+                  <hr />
+
+                  <Typography className="bg-[#000032] text-white" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Colt
+                  </Typography>
+
+                  <Typography className="bg-[#000032] text-white mt-3" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Filly</Typography>
+
+                    </Popover>
+                  </div>
+                )}
+              </PopupState>
+                    {/* <AiFillCaretDown className="text-xl text-gray-500 pb-2"/> */}
+                    </div>
+              </div>
+
+
+
+              <div className=" justify-between mt-3  w-[80%] ml-2">
+                   <h1 className="font-semibold">color</h1>
+                <div className="flex">
+                    <input
+                      type=" text"
+                      placeholder="select" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+
+          <PopupState variant="popover" popupId="demo-popup-popover">
+            {(popupState) => (
+              <div>
+                {/* <Button variant="contained" {...bindTrigger(popupState)}>
+                  Open Popover
+                </Button> */}
+                <AiFillCaretDown 
+                {...bindTrigger(popupState)}
+                className="text-xl text-gray-500 pb-2" />
+                <Popover
+                  {...bindPopover(popupState)}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  PaperProps={{
+                    style: { width: '372px', 
+                    marginLeft: '-180px',
+                    maxHeight: '300px'
+                    
+                  } // Adjust the width as needed
+                    
+                  }}
+                >
+                  <Typography sx={{ p: 2 }} className="text-white text-center bg-[#000032]">
+                  Select Horse Color</Typography>
+
+                  <hr />
+
+                  <Typography className="bg-[#000032] text-white" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Appalosa
+                  </Typography>
+
+                  <Typography className="bg-[#000032] text-white mt-3" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Bay</Typography>
+
+                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Bay Roan</Typography>
+
+                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Black</Typography>
+
+                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Blue Roan</Typography>
+
+                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
+                   <input type="radio" name="color" value="red" />
+                 </label>Brown</Typography>
+          </Popover>
+        </div>
+      )}
+    </PopupState>
+                    {/* <AiFillCaretDown className="text-xl text-gray-500 pb-2" /> */}
+                    </div>
+              </div>
+
+              <div className=" justify-between mt-3  w-[80%] ml-2">
+                   <h1 className="font-semibold">Marking</h1>
+                    <input
+                      type=" text"
+                      placeholder="foal marking" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+              </div>
+
+              <div className=" justify-between mt-3  w-[80%] ml-2">
+                   <h1 className="font-semibold">Length to stand</h1>
+                    <input
+                      type=" text"
+                      placeholder="foal length to stand" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5 border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+              </div>
+
+              <div className=" justify-between mt-3  w-[80%] ml-2">
+                   <h1 className="font-semibold">Length to feed</h1>
+                    <input
+                      type=" text"
+                      placeholder="Foal lenth to feed" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+              </div>
+
+              <div className=" justify-between mt-3 mb-5  w-[80%] ml-2">
+                   <h1 className="font-semibold">IGG Titter</h1>
+                    <input
+                      type=" text"
+                      placeholder="Foal igg titter" 
+                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
+                      className="w-full h-5 border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      label="Name">
+                    </input>
+              </div>
+
               </form>
              </div>
             </div>
