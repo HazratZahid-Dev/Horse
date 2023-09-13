@@ -181,7 +181,7 @@ export const popOver = [
   { text: "Furioso" },
   { text: "German Trotter" },
   { text: "German Classic Pony" },
-  { text: "German Riding Horse" },
+  { text: "German Riding Horse" },  
   { text: "German Riding Pony" },
   { text: "Gelderland" },
 ];
@@ -190,7 +190,7 @@ export const sex = [
   { text: "Mare" },
   { text: "Stallion" },
   { text: "Filly" },
-  { text: "Clot" },
+  { text: "Colt" },
   { text: " Weanling" },
   { text: "Yearling" },
 ];
