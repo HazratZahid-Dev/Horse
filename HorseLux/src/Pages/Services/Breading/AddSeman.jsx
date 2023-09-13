@@ -16,7 +16,7 @@ const AddSeman = () => {
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-          ADD SEMAN COLLECTION
+          ADD SEMAN COLLECTION 
         </h2>
 
         <div className="px-10">
@@ -70,7 +70,7 @@ const AddSeman = () => {
                         type="text"
                         placeholder="choose"
                       />
-                      <AiFillCaretRight className="text-2xl text-gray-300" />
+                      <AiFillCaretRight className="text-2xl text-gray-500" />
                     </div>
 
                   </div>
