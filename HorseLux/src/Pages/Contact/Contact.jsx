@@ -80,6 +80,7 @@ const Contact = () => {
               <FiPlusCircle aria-describedby={id} variant="contained" onClick={handleClick} size={30} />
               <Popover
                 id={id}
+                style={{marginTop:'60px',marginRight:'10px'}}
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
@@ -88,9 +89,32 @@ const Contact = () => {
                   horizontal: "left",
                 }}
               >
-              <div className="bg-[#000032] text-white">
-                <h1 className="">Filter Contacts</h1>
-                <Button style={{ color: "white" }} className="border-white border-2" onClick = {gotoContactdetail}>Brand member</Button>
+              <div className="bg-[#000032] w-96 text-white">
+                <h1 className="text-[18px] text-center py-2 font-[700] leading-[27px]">Filter Contacts</h1>
+                <div className="flex items-center justify-center">
+                  <hr className="w-[90%]"/>
+                </div>
+               <div className="p-4 flex gap-3 flex-wrap ">
+               <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Brand member</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Dentist</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Bill Pair</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Farrier</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Bam Manager</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Health Provider</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Horse Owner</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Lesse</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Parent</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Lessen Student</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Rider</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Veterinarian</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Staff</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Brand member</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Trainer</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Vendor</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Volunteer</button>
+                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Other</button>
+
+               </div>
               </div>
               </Popover>
             </div>
