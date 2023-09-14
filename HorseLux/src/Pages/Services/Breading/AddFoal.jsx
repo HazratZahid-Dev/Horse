@@ -246,16 +246,50 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Compunents/Sidebar";
 import h1 from "../../../Images/h1.png";
+import Popover from "@mui/material/Popover";
+import { HorseColor, popOver, sex } from "../../../config/Horses";
 import { AiFillCaretDown, AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
 import { contactType } from "../../../config/Horses";
 import { milktestProprties } from "../../../config/HorseDetail";
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
-import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+
 
 const AddFoal = () => {
+
+
+  const [selectedSex, setSelectedSex] = useState("");
+  const [anchorSex, setAnchorSex] = useState(null);
+  const handleSex = (event) => {
+    setAnchorSex(event.currentTarget);
+  };
+  const handleCloseSex = () => {
+    setAnchorSex(null);
+  };
+  const openSex = Boolean(anchorSex);
+  const idSex = openSex ? "simple-popover" : undefined;
+  const handleSelectSex = (sex) => {
+    setSelectedSex(sex);
+    setAnchorSex(null); 
+  };
+
+
+    const filteredSex = sex.filter(item => item.text === "Colt" || item.text === "Filly");
+  
+  // Color
+  const [color, setColor] = useState("");
+  const [anchorColor, setAnchorColor] = useState(null);
+  const handleColor = (event) => {
+    setAnchorColor(event.currentTarget);
+  };
+  const handleCloseColor = () => {
+    setAnchorColor(null);
+  };
+  const openColor = Boolean(anchorColor);
+  const idColor = openColor ? "simple-popover" : undefined;
+  const handleSelectColor = (sex) => {
+    setColor(sex);
+    setAnchorColor(null); 
+  };
  
 
   const navigate = useNavigate();
@@ -328,7 +362,7 @@ const AddFoal = () => {
                     <input
                       type=" text"
                       placeholder="22-jun-2023" 
-                      className="py-1 w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                     
                   </div>
@@ -342,7 +376,7 @@ const AddFoal = () => {
                     </label>
                     <br />
               
-              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]">
+              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
                 <input
                   aria-describedby={id}
                   variant="contained"
@@ -366,7 +400,7 @@ const AddFoal = () => {
                     <input
                       type=" text"
                       placeholder="$Price"
-                      className="py-1 w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
               
@@ -379,7 +413,7 @@ const AddFoal = () => {
                     <input
                       type=" text"
                       placeholder="Add Comments..."
-                      className="py-1 w-full border px-3 shadow-xl mt-1 outline-none h-12 rounded-[10px]"
+                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>               
                      </div>
 
@@ -424,7 +458,7 @@ const AddFoal = () => {
               
               <form className="border border-black rounded-md w-1/3 pl-2 ml-12 mb-6">
 
-              <div className=" justify-between mt-2   w-[80%] ml-2">
+              <div className=" justify-between mt-2 w-[95%] ml-2">
                 <label className="text-[16px] font-[600] ">
                       Foal Details:
                     </label>
@@ -434,152 +468,112 @@ const AddFoal = () => {
                       type=" text"
                       placeholder="Full name" 
                       // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
-                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      className="w-full h-5   border-b border-gray-300 rounded-none resize-none  focus:outline-none "
                       label="Name">
                     </input>
                    </div>
               </div>
 
-              <div className=" justify-between mt-3   w-[80%] ml-2">
-                   <h1 className="font-semibold">sex</h1>
-                   <div className="flex">
-                    <input
-                      type=" text"
-                      placeholder="select..." 
-                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
-                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
-                      label="Name">
-                    </input>
 
-                    <PopupState variant="popover" popupId="demo-popup-popover">
-            {(popupState) => (
-              <div>
-                {/* <Button variant="contained" {...bindTrigger(popupState)}>
-                  Open Popover
-                </Button> */}
-                <AiFillCaretDown 
-                {...bindTrigger(popupState)}
-                className="text-xl text-gray-500 pb-2" />
-                <Popover
-                  {...bindPopover(popupState)}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  PaperProps={{
-                    style: { width: '372px', 
-                    marginLeft: '-180px',
-                    maxHeight: '300px'
-                    
-                  } // Adjust the width as needed
-                    
-                  }}
-                >
-                  <Typography sx={{ p: 2 }} className="text-white text-center bg-[#000032]">
-                  Select sex</Typography>
 
-                  <hr />
 
-                  <Typography className="bg-[#000032] text-white" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Colt
-                  </Typography>
+              {/* <div className="flex flex-col"> */}
+              {/* <label className="text-[16px] pt-3 px-2 font-[600] text-[#2C3A4B]">
+                Sex <span className="text-red-500">*</span>
+              </label> */}
 
-                  <Typography className="bg-[#000032] text-white mt-3" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Filly</Typography>
+              <h1 className="font-semibold ml-2 mt-2">Sex</h1>
+              <div
+              onClick={handleSex}
 
-                    </Popover>
-                  </div>
-                )}
-              </PopupState>
-                    {/* <AiFillCaretDown className="text-xl text-gray-500 pb-2"/> */}
-                    </div>
+               className=" flex items-center justify-between  outline-none h-[44px] rounded-[10px]  px-2 ">
+              <input
+                disabled={selectedSex ? true : false}
+                  type=" text"
+                  value={selectedSex}
+                  onChange={(e) => setSelectedSex(e.target.value)}
+                  placeholder="Sex"
+                  className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                  label="Name">
+                </input>
+                <button type="button" className=" text-md "><AiFillCaretDown/></button>
               </div>
-
-
-
-              <div className=" justify-between mt-3  w-[80%] ml-2">
-                   <h1 className="font-semibold">color</h1>
-                <div className="flex">
-                    <input
-                      type=" text"
-                      placeholder="select" 
-                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
-                      className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
-                      label="Name">
-                    </input>
-
-          <PopupState variant="popover" popupId="demo-popup-popover">
-            {(popupState) => (
-              <div>
-                {/* <Button variant="contained" {...bindTrigger(popupState)}>
-                  Open Popover
-                </Button> */}
-                <AiFillCaretDown 
-                {...bindTrigger(popupState)}
-                className="text-xl text-gray-500 pb-2" />
-                <Popover
-                  {...bindPopover(popupState)}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  PaperProps={{
-                    style: { width: '372px', 
-                    marginLeft: '-180px',
-                    maxHeight: '300px'
-                    
-                  } // Adjust the width as needed
-                    
-                  }}
-                >
-                  <Typography sx={{ p: 2 }} className="text-white text-center bg-[#000032]">
-                  Select Horse Color</Typography>
-
+                   <Popover
+                id={idSex}
+                open={openSex}
+                anchorEl={anchorSex}
+                onClose={handleCloseSex}
+                className="mt-0"
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <div className="bg-[#000032]  text-white w-[355px] h-32 overflow-y-auto py-2 px-5 font-[Quicksand]">
+                  <h2 className="text-[18px] font-[700]">Select Horse Breed</h2>
                   <hr />
-
-                  <Typography className="bg-[#000032] text-white" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Appalosa
-                  </Typography>
-
-                  <Typography className="bg-[#000032] text-white mt-3" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Bay</Typography>
-
-                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Bay Roan</Typography>
-
-                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Black</Typography>
-
-                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Blue Roan</Typography>
-
-                 <Typography className="bg-[#000032] text-white mt-1" sx={{ p: 2 }}><label>
-                   <input type="radio" name="color" value="red" />
-                 </label>Brown</Typography>
-          </Popover>
-        </div>
-      )}
-    </PopupState>
-                    {/* <AiFillCaretDown className="text-xl text-gray-500 pb-2" /> */}
+                  {filteredSex.map((item, index) => (
+                    <div className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-2xl  py-1 cursor-pointer" key={index}>
+                      <input type="radio" />
+                      <p onClick={() => handleSelectSex(item.text)} className="text-[16px] hover:text-yellow-600 font-[700] font-[]">
+                        {item.text}
+                      </p>
                     </div>
-              </div>
+                  ))}
+                </div>
+              </Popover>
+            {/* </div> */}
 
-              <div className=" justify-between mt-3  w-[80%] ml-2">
+
+
+
+
+            {/* <div className="flex flex-col"> */}
+              <label className="text-[16px] pt-1 px-2 font-[600] text-[#2C3A4B]">
+                Color <span className="text-red-500">*</span>
+              </label>
+              <div    onClick={handleColor} className="flex items-center justify-between  outline-none h-[44px] rounded-[10px]  px-2 ">
+               <input
+                 disabled={setColor ? true : false}
+                type="text"
+                placeholder="Color"
+                className="w-full h-5  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                value={color}
+                onChange={(e) => setColor(e.target.value)}
+                />
+                <button type="button" className=" text-md outline-none"><AiFillCaretDown/></button>
+
+           </div>
+                <Popover
+                id={idColor}
+                open={openColor}
+                anchorEl={anchorColor}
+                onClose={handleCloseColor}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <div className="bg-[#000032] text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
+                  <h2 className="text-[18px] font-[700]">Select Horse Breed</h2>
+                  <hr />
+                  {HorseColor.map((item, index) => (
+                    <div className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer" key={index}>
+                      <input type="radio" />
+                      <p onClick={() => handleSelectColor(item.text)} className="text-[16px] hover:text-yellow-600 font-[700] font-[Quicksand]">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Popover>
+            {/* </div> */}
+
+
+
+
+
+              <div className=" justify-between mt-3  w-[95%] ml-2">
                    <h1 className="font-semibold">Marking</h1>
                     <input
                       type=" text"
@@ -590,7 +584,7 @@ const AddFoal = () => {
                     </input>
               </div>
 
-              <div className=" justify-between mt-3  w-[80%] ml-2">
+              <div className=" justify-between mt-3  w-[95%] ml-2">
                    <h1 className="font-semibold">Length to stand</h1>
                     <input
                       type=" text"
@@ -601,7 +595,7 @@ const AddFoal = () => {
                     </input>
               </div>
 
-              <div className=" justify-between mt-3  w-[80%] ml-2">
+              <div className=" justify-between mt-3  w-[95%] ml-2">
                    <h1 className="font-semibold">Length to feed</h1>
                     <input
                       type=" text"
@@ -612,7 +606,7 @@ const AddFoal = () => {
                     </input>
               </div>
 
-              <div className=" justify-between mt-3 mb-5  w-[80%] ml-2">
+              <div className=" justify-between mt-3 mb-5  w-[95%] ml-2">
                    <h1 className="font-semibold">IGG Titter</h1>
                     <input
                       type=" text"
