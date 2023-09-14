@@ -13,7 +13,7 @@ import AddTemprature from './Pages/Services/AddTemprature';
 import BasicInfo from './Pages/Services/BasicInfo';
 import BodyClip from './Pages/Services/BodyClip';
 import ChooseRecordType from './Pages/Services/ChooseRecordType';
-import Contact from './Pages/Services/Contact/Contact';
+import Contact from './Pages/Contact/Contact';
 import Dashboard from './Pages/Dashboard';
 import ForgetPassword from '../src/Pages/User/ForgetPassword';
 import ForggotPassword from '../src/Pages/User/ForggotPassword';
@@ -100,6 +100,8 @@ function App() {
             <Route path="/eventservices" element={<Services/>} />
             <Route path="/appointmet" element={<Appointment/>} />
             <Route path="/task" element={<Task/>} />
+           //Contact page Routes
+           <Route path="/dashboard/contact" element={<Contact/>} />
 
 
 
