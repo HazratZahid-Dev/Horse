@@ -45,6 +45,7 @@ import Task from './Pages/Services/Schedule/Task';
 import Foaling from './Pages/HorseSelection/Foaling';
 import AddFoal from './Pages/Services/Breading/AddFoal';
 import ContactInfo from './Pages/Contact/ContactInfo';
+import ContactDetail from './Pages/Contact/ContactDetail';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -101,9 +102,10 @@ function App() {
             <Route path="/eventservices" element={<Services/>} />
             <Route path="/appointmet" element={<Appointment/>} />
             <Route path="/task" element={<Task/>} />
-            <Route path='contactinfo' element={<ContactInfo/> }/>
+            <Route path='/contactinfo' element={<ContactInfo/> }/>
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
+           <Route path='/contactdetail' element={<ContactDetail/>} />
 
 
 

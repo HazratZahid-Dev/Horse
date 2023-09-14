@@ -82,7 +82,7 @@ const AddFoal = () => {
         </h2>
 
         <div className="px-20">
-          <div className="w-full">
+        <div className="w-full">
           <div className="w-[45%] ">
                    
           <div className="w-full">
@@ -98,7 +98,7 @@ const AddFoal = () => {
           </div>
                    
                    
-                  </div>
+        </div>
            
             <hr className="mt-6 w-1/2" />
             <div className="w-full">

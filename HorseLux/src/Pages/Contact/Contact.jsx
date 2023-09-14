@@ -6,11 +6,16 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
+import { Button } from "@mui/material";
 const Contact = () => {
   const navigate = useNavigate();
   const navigateto = () => {
     navigate("/contactinfo");
   };
+
+  const gotoContactdetail = () => {
+    navigate('/contactdetail')
+  }
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -83,7 +88,10 @@ const Contact = () => {
                   horizontal: "left",
                 }}
               >
-              <div>the button section</div>
+              <div className="bg-[#000032] text-white">
+                <h1 className="">Filter Contacts</h1>
+                <Button style={{ color: "white" }} className="border-white border-2" onClick = {gotoContactdetail}>Brand member</Button>
+              </div>
               </Popover>
             </div>
           </div>
