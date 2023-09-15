@@ -7,32 +7,31 @@ import { useNavigate } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
-const Contact = () => {
+
+
+const OwnerGroup = () => {
   const navigate = useNavigate();
-  const navigateto = () => {
-    navigate("/contactinfo");
-  };
 
-  const gotoContactdetail = () => {
-    navigate('/contactdetail')
+  const gotoContact = () => {
+    navigate('/contact')
   }
 
-  const gotoOwnerGroup = () => {
-    navigate("/ownergroup")
+  const newOnwerGroup = () => {
+    navigate('/newowner')
   }
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+//   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+//   const handleClick = (event) => {
+//     setAnchorEl(event.currentTarget);
+//   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+//   const handleClose = () => {
+//     setAnchorEl(null);
+//   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+//   const open = Boolean(anchorEl);
+//   const id = open ? "simple-popover" : undefined;
 
   return (
     <div className="flex ">
@@ -41,7 +40,7 @@ const Contact = () => {
         {/* top menu Start */}
         <div className=" flex w-full items-center  justify-between h-[60px]">
           <div>
-            <h1 className="text-3xl font-black text-[#000000]">CONTACTS</h1>
+            <h1 className="text-3xl font-black text-[#000000]">CONTACTS </h1>
           </div>
           <div className="flex items-center flex-row gap-x-3">
             <div>
@@ -81,8 +80,8 @@ const Contact = () => {
             </div>
             <div className="flex flex-row gap-x-3">
               <MdFilterAlt size={30} />
-              <FiPlusCircle aria-describedby={id} variant="contained" onClick={handleClick} size={30} />
-              <Popover
+              <FiPlusCircle  variant="contained"  size={30} />
+              {/* <Popover
                 id={id}
                 style={{marginTop:'60px',marginRight:'10px'}}
                 open={open}
@@ -120,23 +119,23 @@ const Contact = () => {
 
                </div>
               </div>
-              </Popover>
+              </Popover> */}
             </div>
           </div>
         </div>
         {/* top menu End */}
 
-        <div class="inline-flex rounded-md shadow-sm" role="group">
+        <div class=" rounded-md shadow-sm" role="group">
           <button
             type="button"
-            class="px-4 py-2 text-sm font-medium   border border-gray-900 rounded-l-lg bg-gray-900 text-white h-[46px] "
+            class="px-4 py-3 text-sm font-medium text-gray-900 bg-transparent border rounded-sm border-gray-900 "
+            onClick={gotoContact}
           >
             Contacts
           </button>
           <button
             type="button"
-            class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 "
-            onClick={gotoOwnerGroup}
+            class="px-4 py-2 text-sm font-medium   border border-gray-900 rounded-sm bg-gray-900 text-white h-[46px] "
           >
             Owner group
           </button>
@@ -144,62 +143,40 @@ const Contact = () => {
 
         {/* page start */}
 
-        <div className=" w-1/3">
-          <div className="">
-            <h1 className="pt-3 font-bold ">A</h1>
-            <hr className="mt-3" />
-          </div>
+            <div className="w-1/3"> 
+                <hr className="mt-8 border-t-2 text-lg" />
 
-          <div className="pt-5 flex justify-between gap-x-">
-            <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-          </div>
+                <h1 className="pt-4 font-[700] text-[20px]">Group 1</h1>
+                <div className=" flex justify-between">
+                    <div>
+                    <p className="pt-2">Owner: Johnson(50%),Ahmad(50%)</p>
+                    <p className="">Horses: Harry,Ferris</p>
+                    </div>
+                    <div className="pt-3">
+                    <HiOutlineChevronRight className="text-lg"  onClick={newOnwerGroup}/>
+                    </div>
+                </div>
 
-          <div className="pt-5 flex justify-between gap-x">
-            <h1 className="font-bold">Avalyun Bruce</h1>
-            <HiOutlineChevronRight onClick={navigateto} className="text-lg" />
-          </div>
+                <hr className="mt-8 border-t-2 text-lg" />
 
-          <div className="pt-5 flex justify-between gap-x-">
-            <h1 className="font-bold">Alonso Bravo</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-          </div>
+                <h1 className="pt-4 font-[700] text-[20px]">Group 2</h1>
+                <div className=" flex justify-between">
+                    <div>
+                    <p className="pt-2">Owner: Johnson(50%),Ahmad(50%)</p>
+                    <p className="">Horses: Harry,Ferris</p>
+                    </div>
+                    <div className="pt-3">
+                    <HiOutlineChevronRight className="text-lg" onClick={newOnwerGroup} />
+                    </div>
+                </div>
 
-          <div className="pt-5 flex  justify-between gap-x-">
-            <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-          </div>
-
-          <div className="pt-5 flex justify-between gap-x-">
-            <h1 className="font-bold">Avery McConnell</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-          </div>
-
-          <div className="mt-6">
-            <div className="">
-              <h1 className="pt-3 font-bold ">B</h1>
-              <hr className="mt-3" />
+                <hr className="mt-8 border-t-2 text-lg" />
             </div>
-
-            <div className="pt-5 flex justify-between gap-x-">
-              <h1 className="font-bold">Brayden Harrington</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-            </div>
-
-            <div className="pt-5 flex justify-between gap-x-">
-              <h1 className="font-bold">Braxton Jefferson</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-            </div>
-
-            <div className="pt-5 flex justify-between gap-x-">
-              <h1 className="font-bold">Bridget Gonzales</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
-            </div>
-          </div>
-        </div>
+            
+        
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default OwnerGroup;

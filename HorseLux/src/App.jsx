@@ -38,7 +38,7 @@ import AddMilkTest from './Pages/HorseSelection/MilkTest';
 import AddInsem from './Pages/HorseSelection/AddInsem';
 import AddPreg from './Pages/HorseSelection/AddPreg';
 import Addseman from './Pages/HorseSelection/AddSeman';
-import NewOwnerGroup from './Pages/Services/Contact/NewOwnerGroup';
+import NewOwnerGroup from './Pages/Contact/NewOwnerGroup';
 import Services from './Pages/Services/Schedule/Services';
 import Appointment from './Pages/Services/Schedule/Appointement';
 import Task from './Pages/Services/Schedule/Task';
@@ -47,6 +47,8 @@ import AddFoal from './Pages/Services/Breading/AddFoal';
 import ContactInfo from './Pages/Contact/ContactInfo';
 import ContactDetail from './Pages/Contact/ContactDetail';
 import HorseReport from './Pages/Report/HorseReport';
+import OwnerGroup from './Pages/Contact/OwnerGroup';
+import GroupInfoandMembers from './Pages/Contact/GroupInfoMembers';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -107,9 +109,6 @@ function App() {
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
-           //report page
-           <Route path='/dashboard/horsereport' element={<HorseReport/>} />
-
 
 
 

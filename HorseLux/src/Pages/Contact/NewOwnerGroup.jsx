@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import Sidebar from "../../../Compunents/Sidebar";
+import Sidebar from "../../Compunents/Sidebar";
 import {  AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const NewOwner = () => {
   const navigate = useNavigate();
 
   const toHome = () => {
-    navigate("/dashboard");
+    navigate("/groupinfomember");
   };
 
 
@@ -43,9 +43,8 @@ const NewOwner = () => {
     <div className="flex">
       <Sidebar />
       <div className="w-full">
-        <h2 className="text-[30px] w-full py-3 font-[700] text-center">NEW OWNER GROUP</h2>
-        <div className="px-10">
-          <h2 className="text-[24px] leading-[36px] font-[700]">GROUP INFO AND MEMBERS</h2>
+        <div className="px-10 pt-5">
+          <h2 className="text-[24px] leading-[36px] font-[700]">NEW OWNER GROUP</h2>
           <hr />
         </div>
 
@@ -137,7 +136,7 @@ const NewOwner = () => {
                 onClick={toHome}
                 className="bg-[#000032] w-1/2 mt-2 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
               >
-                Save
+                Save  
               </button>
             </form>
           </div>
