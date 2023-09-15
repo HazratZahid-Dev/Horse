@@ -4,10 +4,6 @@ import img from '../Images/horsestable.png'
 import contact from '../Images/Contacts.png'
 import Schedule from '../Images/Schedule.png'
 import combo from '../Images/combo.png'
-
-
-
-
 const Sidebar = () => {
   return (
     <div className="bg-gray-100 text-black  h-screen w-1/6 px-4 py-8">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../Compunents/Sidebar";
 import { contact, finance, health, horse, schedule } from "../config/Horses";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, Modal, Typography } from "@mui/material";
 
 const style = {
@@ -24,8 +24,6 @@ const Horses = () => {
   const navi = useNavigate();
   const toBasicInfo = () => {
     navi("/basicInfo");
-     console.log('zahiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiid')
-
   };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,10 +34,18 @@ const Horses = () => {
     newModals[index] = true;
     setModals(newModals);
   };
-  const navigate=useNavigate();
-  const toCogging=()=>{
-    navigate('/cogging')
-  }
+  const navigate = useNavigate();
+  const toCogging = () => {
+    navigate("/cogging");
+  };
+
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null); 
+
+ 
+
+  const handleItemClick = (index) => {
+    setSelectedItemIndex(index); 
+  };
 
   return (
     <div>
@@ -57,14 +63,29 @@ const Horses = () => {
                     <div
                       key={index}
                       // onClick={() => handleOpen(index)}
-                      onClick={index === 0 ? () => window.location = "/basicInfo" : index===1 ? handleOpen :index===2 ?  () => window.location = "/addservices":index===3 ?  () => window.location = "/chooserecordtype" :index===4 ?  () => window.location = "/addnote":index===5 ?  () => window.location = "/addtemp"  : index===6 ?  () => window.location = "/breading":"" }
+                      onClick={
+                        index === 0
+                          ? () => (window.location = "/basicInfo")
+                          : index === 1
+                          ? handleOpen
+                          : index === 2
+                          ? () => (window.location = "/addservices")
+                          : index === 3
+                          ? () => (window.location = "/chooserecordtype")
+                          : index === 4
+                          ? () => (window.location = "/addnote")
+                          : index === 5
+                          ? () => (window.location = "/addtemp")
+                          : index === 6
+                          ? () => (window.location = "/breading")
+                          : ""
+                      }
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>
                     <Modal
-                     
                       open={open}
                       onClose={handleClose}
                       aria-labelledby="modal-modal-title"
@@ -80,9 +101,12 @@ const Horses = () => {
                             Choose a health record Type
                           </h2>
                           <div className="grid grid-cols-4   gap-x-12 w-[60%] gap-y-7 py-10 m-auto  items-center justify-center">
-                            {health.map((items) => (
-                              <div className="flex justify-center cursor-pointer ">
-                                <div onClick={toCogging} className=" flex flex-col">
+                            {health.map((items, index) => (
+                              <div key={index}  onClick={() => handleItemClick(index)} className="flex justify-center cursor-pointer ">
+                                <Link
+                                to={items.link}
+                                  className="  flex flex-col"
+                                >
                                   <div className="flex justify-center items-center">
                                     <img
                                       src={items.img}
@@ -92,7 +116,7 @@ const Horses = () => {
                                   <p className="text-white text-[12px] mt-2 font-[600] text-center">
                                     {items.text}
                                   </p>
-                                </div>
+                                </Link>
                               </div>
                             ))}
                           </div>
@@ -109,14 +133,22 @@ const Horses = () => {
               </h3>
 
               <div className="flex justify-between mt-4  w-full">
-                {contact.map((items,index) => (
+                {contact.map((items, index) => (
                   <>
-                    <div 
-                     key={index}
+                    <div
+                      key={index}
                       // onClick={() => handleOpen(index)}
-                      onClick={index === 0 ? () => window.location = "/contact" : index===1 ? () => window.location = "/uploadcontact"  :index===2 ?  () => window.location = "/newowner" :"" }
-                    
-                    className=" h-[65px] w-[115px] cursor-pointer  flex flex-col space-y-2 items-center justify-center">
+                      onClick={
+                        index === 0
+                          ? () => (window.location = "/contact")
+                          : index === 1
+                          ? () => (window.location = "/uploadcontact")
+                          : index === 2
+                          ? () => (window.location = "/newowner")
+                          : ""
+                      }
+                      className=" h-[65px] w-[115px] cursor-pointer  flex flex-col space-y-2 items-center justify-center"
+                    >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>
@@ -130,13 +162,22 @@ const Horses = () => {
               </h3>
 
               <div className="flex justify-between mt-4  w-full">
-                {schedule.map((items,index) => (
+                {schedule.map((items, index) => (
                   <>
                     <div
                       key={index}
                       // onClick={() => handleOpen(index)}
-                      onClick={index === 0 ? () => window.location = "/eventservices" : index===1 ? () => window.location = "/appointmet"  :index===2 ?  () => window.location = "/task" :"" }
-                     className=" h-[65px] cursor-pointer w-[75px] space-y-2 flex flex-col items-center justify-center">
+                      onClick={
+                        index === 0
+                          ? () => (window.location = "/eventservices")
+                          : index === 1
+                          ? () => (window.location = "/appointmet")
+                          : index === 2
+                          ? () => (window.location = "/task")
+                          : ""
+                      }
+                      className=" h-[65px] cursor-pointer w-[75px] space-y-2 flex flex-col items-center justify-center"
+                    >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
                     </div>

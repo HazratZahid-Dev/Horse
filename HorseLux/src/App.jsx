@@ -2,7 +2,7 @@
 
 import './App.css';
 import NavBar from './Compunents/NavBar';
-import AddCogging from './Pages/Services/AddCogging';
+import AddCogging from './Pages/Health/AddCogging';
 import AddCoggingRenewal from './Pages/Services/AddCoggingReneal';
 import AddCoggingRnlDetail from './Pages/Services/AddCoggingRnlDetail';
 import AddNote from './Pages/Services/AddNote';
@@ -49,6 +49,15 @@ import ContactDetail from './Pages/Contact/ContactDetail';
 import HorseReport from './Pages/Report/HorseReport';
 import OwnerGroup from './Pages/Contact/OwnerGroup';
 import GroupInfoandMembers from './Pages/Contact/GroupInfoMembers';
+import SelectHorse from './Pages/Health/SelectHorse';
+import AddDental from './Pages/Health/AddDental';
+import AddDeworming from './Pages/Health/AddDeworming';
+import Injury from './Pages/Health/Injury';
+import AddTherapy from './Pages/Health/AddTherapy';
+import AddVaccination from './Pages/Health/AddVaccination';
+import AddVitals from './Pages/Health/AddVitals';
+import JointInjection from './Pages/Health/JointInjection';
+import AddDiognostic from './Pages/Health/AddDiognostic';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -76,7 +85,7 @@ function App() {
             <Route path='/basicInfo' element={<BasicInfo/>}/>
             <Route path='/forgetpassword' element={<ForgetPassword/>}/>
             <Route path='/horsedetail' element={<HorseDetail/>}/>
-            <Route path='/cogging' element={<AddCogging/>}/>
+            <Route path='/dashboard/cogging' element={<AddCogging/>}/>
             <Route path='/addservices' element={<AddServices/>}/>
             <Route path='/servicesrecord'  element={<AddServicesRecord/>}/>
             <Route path="/bodyclip/:index" element={<BodyClip />} />
@@ -112,6 +121,35 @@ function App() {
            <Route path='/dashboard/horsereport' element={<HorseReport/>}/>
            <Route path='/ownergroup' element={ <OwnerGroup/>}/>
            <Route path='/groupinfomember' element={ <GroupInfoandMembers/>}/>
+           //Health page routes
+           <Route path='/dashboard/selecthorse' element={ <SelectHorse/>}/>
+           <Route path='/dashboard/adddental' element={ <AddDental/>}/>
+           <Route path='/dashboard/deworming' element={ <AddDeworming/>}/>
+           <Route path='/dashboard/injury' element={ <Injury/>}/>
+           <Route path='/dashboard/therapy' element={ <AddTherapy/>}/>
+           <Route path='/dashboard/vaccination' element={ <AddVaccination/>}/>
+           <Route path='/dashboard/vitals' element={ <AddVitals/>}/>
+           <Route path='/dashboard/joint-injection' element={ <JointInjection/>}/>
+           <Route path='/dashboard/diagnostics' element={ <AddDiognostic/>}/>
+
+
+         
+
+
+          
+
+
+          
+
+    
+
+
+
+        
+
+
+
+
 
 
 

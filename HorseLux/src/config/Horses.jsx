@@ -185,6 +185,63 @@ export const popOver = [
   { text: "German Riding Pony" },
   { text: "Gelderland" },
 ];
+
+export const dewormingRecor= [
+  { text: "ivercare - ivermectin" },
+  { text: "generic - ivermectin" },
+  { text: "panacur - fenbendazole" },
+  { text: "panacur - powerpac - fenbendazole" },
+  { text: "primex equine liquid wormer pyrantel pamoate " },
+  { text: "generic - pyrantel pamoate" },
+  { text: "pyrantel paste - pyrantel pamoat" },
+ 
+];
+export const InjuryData= [
+  { text: "Abrasion" },
+  { text: "Colic" },
+  { text: "Dehydration" },
+  { text: "Eye infection" },
+  { text: "Eye injury " },
+  { text: "Heat stroke" },
+  { text: "Hoof" },
+ 
+];
+export const vitalsRecord= [
+  { text: "Height" },
+  { text: "Pulse" },
+  { text: "Respiration" },
+  { text: "Temprature" },
+ 
+ 
+];
+export const therapyData= [
+  { text: "Acupressure" },
+  { text: "Acupuncture" },
+  { text: "Bodywork" },
+  { text: "Bodywork" },
+  { text: "Electro-stimulation " },
+  { text: "Footpad" },
+ 
+];
+export const addDiognostic= [
+  { text: "Blood Chemistry" },
+  { text: "Bone Scan" },
+  { text: "CBC" },
+  { text: "Fecal" },
+  { text: "Lyme Titer  " },
+  { text: "MRI  " },
+
+  { text: "Radiograph" },
+ 
+];
+export const vaccinationData= [
+  { text: "eastern/western equine encephalomyel.." },
+  { text: "equine herpesvirus (ehv)" },
+  { text: "influenze (flu/rhino)" },
+  { text: "potomac horse fever (phf)" },
+  { text: "rabies " },
+ 
+];
 export const sex = [
   { text: "Gelding" },
   { text: "Mare" },
@@ -238,67 +295,78 @@ export const HorseColor = [
   { text: " Criollo Horse" },
 ];
 
-export const health = [
+export const  health = [
   {
-    id: 1,
+    id: 0,
     img: glass,
     text: "Cogging",
+    link: "/dashboard/selecthorse",
   },
-
   {
-    id: 2,
+    id: 1,
     img: dental,
     text: "Dental",
+    link: "/dashboard/selecthorse",
+  },
+  {
+    id: 2,
+    img: deworming,
+    text: "Deworming",
+    link: "/dashboard/deworming",
   },
   {
     id: 3,
-    img: deworming,
-    text: "Deworming",
+    img: injury,
+    text: "Injury",
+    link: "/dashboard/injury",
   },
   {
     id: 4,
-    img: injury,
-    text: "Injury",
+    img: hand,
+    text: "Therapy",
+    link: "/dashboard/therapy",
   },
   {
     id: 5,
-    img: hand,
-    text: "Therapy",
+    img: veccination,
+    text: "Vaccination",
+    link: "/dashboard/vaccination",
   },
   {
     id: 6,
-    img: veccination,
-    text: "Vaccination",
+    img: vitals,
+    text: "Vitals",
+    link: "/dashboard/vitals",
   },
   {
     id: 7,
-    img: vitals,
-    text: "Vitals",
+    img: joint,
+    text: "Joint Injection",
+    link: "/dashboard/joint-injection",
   },
   {
     id: 8,
-    img: joint,
-    text: "Joint Injection",
+    img: diognostics,
+    text: "Diagnostics",
+    link: "/dashboard/diagnostics",
   },
   {
     id: 9,
-    img: diognostics,
-    text: "Diognostics",
+    img: ferrier,
+    text: "Ferrier",
+    link: "/dashboard/ferrier",
   },
   {
     id: 10,
-    img: ferrier,
-    text: "Ferrier",
+    img: healthimg,
+    text: "General Health",
+    link: "/dashboard/general-health",
   },
   {
     id: 11,
-    img: healthimg,
-    text: "Genral Health",
-  },
-  {
-    id: 12,
     img: medical,
     text: "Med/Supplement",
+    link: "/dashboard/med-supplement",
   },
 ];
 
@@ -412,6 +480,49 @@ export const addservicesData=[
 ]
 
 export const contactType=[
+  {
+    contactType:"Brand Member"
+  },
+  {
+    contactType:"Dentist"
+  },  {
+    contactType:"Forrier"
+  },  {
+    contactType:"Health Provider"
+  },  {
+    contactType:"Bill Payer"
+  },  {
+    contactType:"Barn Manager"
+  },  {
+    contactType:"Horse Owner"
+  },  {
+    contactType:"Lesse"
+  },  {
+    contactType:"Parent"
+  },  {
+    contactType:"Lesson student"
+  },  {
+    contactType:"Rider"
+  },  {
+    contactType:"Veterinarian"
+  },
+  {
+    contactType:"Staff"
+  }, {
+    contactType:"Trainer"
+  }, {
+    contactType:"Vedor"
+  }, {
+    contactType:"Volunteer"
+  },
+
+  {
+    contactType:"Other"
+  },
+
+]
+
+export const dewormingRecord=[
   {
     contactType:"Brand Member"
   },
