@@ -17,7 +17,7 @@ const Contact = () => {
     navigate('/contactdetail')
   }
 
-  const gotoOwnerGroup = () => {
+  const   gotoOwnerGroup = () => {
     navigate("/ownergroup")
   }
 

@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const NewOwner = () => {
   const navigate = useNavigate();
 
-  const toHome = () => {
+  const groupinfomember = () => {
     navigate("/groupinfomember");
   };
 
@@ -133,7 +133,7 @@ const NewOwner = () => {
 
               <button
                 type="submit"
-                onClick={toHome}
+                onClick={groupinfomember}
                 className="bg-[#000032] w-1/2 mt-2 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
               >
                 Save  

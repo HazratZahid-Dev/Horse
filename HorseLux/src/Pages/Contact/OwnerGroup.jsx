@@ -4,15 +4,12 @@ import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import { Button } from "@mui/material";
 
 
 const OwnerGroup = () => {
   const navigate = useNavigate();
 
-  const gotoContact = () => {
+  const gotoContact = () => {   
     navigate('/contact')
   }
 
@@ -40,7 +37,7 @@ const OwnerGroup = () => {
         {/* top menu Start */}
         <div className=" flex w-full items-center  justify-between h-[60px]">
           <div>
-            <h1 className="text-3xl font-black text-[#000000]">CONTACTS </h1>
+            <h1 className="text-3xl font-black text-[#000000]">CONTACTS   </h1>
           </div>
           <div className="flex items-center flex-row gap-x-3">
             <div>

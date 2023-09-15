@@ -110,7 +110,8 @@ function App() {
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
            <Route path='/dashboard/horsereport' element={<HorseReport/>}/>
-
+           <Route path='/ownergroup' element={ <OwnerGroup/>}/>
+           <Route path='/groupinfomember' element={ <GroupInfoandMembers/>}/>
 
 
 
