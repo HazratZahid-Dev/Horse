@@ -109,6 +109,7 @@ function App() {
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
+           <Route path='/dashboard/horsereport' element={<HorseReport/>}/>
 
 
 
