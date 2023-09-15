@@ -23,7 +23,7 @@ const Sidebar = () => {
         <Link  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={Schedule} className="w-[34px] h-[38px]"/>Schedule</Link>
         </li>
         <li>
-        <Link  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={combo} className="w-[31px] h-[38px]"/>Reports</Link>
+        <Link to="/dashboard/horsereport"  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={combo} className="w-[31px] h-[38px]"/>Reports</Link>
         </li>
       </ul>
     </div>

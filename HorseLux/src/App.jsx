@@ -46,6 +46,7 @@ import Foaling from './Pages/HorseSelection/Foaling';
 import AddFoal from './Pages/Services/Breading/AddFoal';
 import ContactInfo from './Pages/Contact/ContactInfo';
 import ContactDetail from './Pages/Contact/ContactDetail';
+import HorseReport from './Pages/Report/HorseReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -106,6 +107,9 @@ function App() {
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
+           //report page
+           <Route path='/dashboard/horsereport' element={<HorseReport/>} />
+
 
 
 
