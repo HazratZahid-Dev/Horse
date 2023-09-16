@@ -80,8 +80,7 @@ const Contact = () => {
               </form>
             </div>
             <div className="flex flex-row gap-x-3">
-              <MdFilterAlt size={30} />
-              <FiPlusCircle aria-describedby={id} variant="contained" onClick={handleClick} size={30} />
+              <MdFilterAlt aria-describedby={id} variant="contained" onClick={handleClick}  size={30} />
               <Popover
                 id={id}
                 style={{marginTop:'60px',marginRight:'10px'}}
@@ -121,6 +120,9 @@ const Contact = () => {
                </div>
               </div>
               </Popover>
+              
+              <FiPlusCircle size={30} onClick={navigateto}/>
+              
             </div>
           </div>
         </div>
@@ -152,27 +154,27 @@ const Contact = () => {
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+            <HiOutlineChevronRight className="text-lg"  />
           </div>
 
           <div className="pt-5 flex justify-between gap-x">
             <h1 className="font-bold">Avalyun Bruce</h1>
-            <HiOutlineChevronRight onClick={navigateto} className="text-lg" />
+            <HiOutlineChevronRight  className="text-lg" />
           </div>
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Alonso Bravo</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+            <HiOutlineChevronRight className="text-lg"  />
           </div>
 
           <div className="pt-5 flex  justify-between gap-x-">
             <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+            <HiOutlineChevronRight className="text-lg"  />
           </div>
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Avery McConnell</h1>
-            <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+            <HiOutlineChevronRight className="text-lg"  />
           </div>
 
           <div className="mt-6">
@@ -183,17 +185,17 @@ const Contact = () => {
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Brayden Harrington</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+              <HiOutlineChevronRight className="text-lg"  />
             </div>
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Braxton Jefferson</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+              <HiOutlineChevronRight className="text-lg"  />
             </div>
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Bridget Gonzales</h1>
-              <HiOutlineChevronRight className="text-lg" onClick={navigateto} />
+              <HiOutlineChevronRight className="text-lg"  />
             </div>
           </div>
         </div>
@@ -203,3 +205,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
