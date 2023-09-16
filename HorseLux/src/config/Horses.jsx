@@ -354,7 +354,7 @@ export const  health = [
     id: 9,
     img: ferrier,
     text: "Ferrier",
-    link: "/dashboard/ferrier",
+    link: "/dashboard/addferrier",
   },
   {
     id: 10,
@@ -366,7 +366,7 @@ export const  health = [
     id: 11,
     img: medical,
     text: "Med/Supplement",
-    link: "/dashboard/med-supplement",
+    link: "/dashboard/medSupplement",
   },
 ];
 

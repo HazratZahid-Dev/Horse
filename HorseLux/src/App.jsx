@@ -58,6 +58,9 @@ import AddVaccination from './Pages/Health/AddVaccination';
 import AddVitals from './Pages/Health/AddVitals';
 import JointInjection from './Pages/Health/JointInjection';
 import AddDiognostic from './Pages/Health/AddDiognostic';
+import AddFerrier from './Pages/Health/AddFerrier';
+import AddMedSupp from './Pages/Health/AddMedSupp';
+import NewMedSupp from './Pages/Health/NewMedSupp';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -114,7 +117,7 @@ function App() {
             <Route path="/eventservices" element={<Services/>} />
             <Route path="/appointmet" element={<Appointment/>} />
             <Route path="/task" element={<Task/>} />
-            <Route path='/contactinfo' element={<ContactInfo/> }/>
+            <Route path='/contactinfo' element={<Contact  Info/> }/>
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
@@ -131,9 +134,9 @@ function App() {
            <Route path='/dashboard/vitals' element={ <AddVitals/>}/>
            <Route path='/dashboard/joint-injection' element={ <JointInjection/>}/>
            <Route path='/dashboard/diagnostics' element={ <AddDiognostic/>}/>
-
-
-         
+           <Route path='/dashboard/addferrier' element={<AddFerrier/>}/>
+           <Route path='/dashboard/medSupplement' element={<AddMedSupp/>}/>
+           <Route path='/NewMedSupp' element={<NewMedSupp/>}/> 
 
 
           

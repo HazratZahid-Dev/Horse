@@ -1,47 +1,42 @@
 import React, { useState } from "react";
-import Sidebar from "../../../Compunents/Sidebar";
-import h1 from "../../../Images/h1.png";
+import Sidebar from "../../Compunents/Sidebar";
+import h1 from "../../Images/h1.png";
 import Popover from "@mui/material/Popover";
 
-import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
-import { useNavigate, useParams } from "react-router-dom";
-import { contactType } from "../../../config/Horses";
-import { milktestProprties } from "../../../config/HorseDetail";
 
-const MilkTest = () => {
+
+import { AiFillCaretDown, AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
+import { useNavigate, useParams } from "react-router-dom";
+// import { contactType } from "../../../config/Horses";
+// import { milktestProprties } from "../../../config/HorseDetail";
+
+const AddMedSupp = () => {
  
 
   const navigate = useNavigate();
+  const navigateto = () => {
+    navigate('/NewMedSupp')
+  }
 
+const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [selectedProperty, setSelectedProperty] = useState(null);
-  const handlePropertySelect = (property) => {
-    setSelectedProperty(property);
-    setAnchorEl(null); // Close the popover when an item is selected
-  };
+const handleClick = (event) => {
+  setAnchorEl(event.currentTarget);
+};
 
- 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+const handleClose = () => {
+  setAnchorEl(null);
+};
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+const open = Boolean(anchorEl);
+const id = open ? "simple-popover" : undefined;
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-
-  
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-       Add Milk Test
+       ADD MED/SUPPLEMENTS
         </h2>
 
         <div className="px-10">
@@ -83,23 +78,67 @@ const MilkTest = () => {
                   </div>
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                    Milk Test Properties <span className="text-red-500 text-xl">*</span>
+                    Med/supplements <span className="text-red-500 text-xl">*</span>
                     </label>
                     <br />
-              <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
+              <div className="py-1 flex  items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
                 <input
-                  aria-describedby={id}
                   variant="contained"
-                  onClick={handleClick}
                   className="outline-none w-full h-full"
                   type=" text"
-                  value={selectedProperty || ""}
                   placeholder="Select"
                 ></input>
-                <AiFillCaretRight className="text-2xl text-gray-300" />
+                <AiFillCaretDown aria-describedby={id} variant="contained" onClick={handleClick} className="text-2xl  text-black" />
+
+                <Popover
+                id={id}
+                style={{marginTop:'10px',marginRight:'px'}}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+              <div className="bg-[#000032] w-80 text-white rounded-xl">
+                <h1 className="text-[18px] text-center flex py-2 pl-28 font-[700] leading-[27px]">Med/Supplements <AiOutlinePlus onClick={navigateto} className="ml-6 mt-1 text-[20px] font-[700]"/></h1>
+                <div className="flex items-center justify-center">
+                  <hr className="w-[90%]"/>
+                </div>
+               <div className="p-4 ">
+                <div className="font-[500]">
+                  <h1>Banamine</h1>
+                  <p>Drug: Flunixin Meglumine</p>
+                </div>
+
+                <div className="font-[500] pt-3">
+                  <h1>Banamine</h1>
+                  <p>Drug: Flunixin Meglumine</p>
+                </div>
+
+                <div className="font-[500] pt-3">
+                  <h1>Banamine</h1>
+                  <p>Drug: Flunixin Meglumine</p>
+                </div>
+               {/* <button  className="border-white px-3 py-1 rounded border-2" >Brand member</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Dentist</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Bill Pair</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Farrier</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Bam Manager</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Health Provider</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Horse Owner</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Lesse</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Parent</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Lessen Student</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Rider</button> */}
+               
+               </div>
+              </div>
+              </Popover>
               </div>
 
-              <Popover
+              {/* <Popover
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -125,59 +164,59 @@ const MilkTest = () => {
                     </div>
                   ))}
                 </div>
-              </Popover>
+              </Popover> */}
                   </div>
                 </div>
-                <div className="flex justify-between mt-2  ">
+                <div className="flex justify-between mt-5  ">
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                    Account
+                    Next Due Date <span className="text-red-500 text-xl">*</span>
                     </label>
                     <br />
                     <input
                      type="text"
                 //   onChange={handleQuantityChange}
                 //   value={quantity}
-                      placeholder="Adam"
+                      placeholder="Select..."
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
                   <div className="w-[45%]">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                      Milk Test Ph
+                        Price
                     </label>
                     <br />
                     <input
                      type="text"
               
-                      placeholder="adamsmith@gmail.com"
+                      placeholder="$Price"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
                   </div>
                 </div>
-                <div className="flex justify-between mt-2  ">
+                <div className="flex justify-between mt-5  ">
                   <div className="w-[45%] ">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                      Price
+                  <label className="px-[14px]   text-[16px] font-[600] ">
+                        Administrated By
                     </label>
-                    <br />
-                    <input
-                      type=" text"
-                      placeholder="Smith"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                  <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
+                <input
+                  variant="contained"
+                  className="outline-none w-full h-full"
+                  type=" text"
+                  placeholder="Select Contacts..."
+                ></input>
+                <AiFillCaretRight className="text-2xl text-gray-300" />
+              </div>
                   </div>
-                  <div className="w-[45%] ">
+                  
+                  <div className=" justify-between mt-1   w-[45%]  ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
-                      Under Development
+                      Comments
                     </label>
-                    <br />
-                    <input
-                      type=" text"
-                      placeholder="Under Development"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "></textarea>
                   </div>
+
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -199,21 +238,15 @@ const MilkTest = () => {
                       style={{ display: "none" }}
                     //   onChange={handleFileChange}
                     />
-                    {selectedFile && (
+                    {/* {selectedFile && ( */}
                       <button className=" text-[12px] font-[600] ml-2">
-                        {" "}
-                        {selectedFile.name}
+                       
                       </button>
-                    )}
+                    {/* )} */}
                   </div>
                 </div>
 
-                <div className=" justify-between mt-1   w-[45%]  ">
-                <label className="px-[14px]   text-[16px] font-[600] ">
-                      Comments
-                    </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "></textarea>
-                </div>
+               
                 </div>
                 <button
                   type="submit"
@@ -230,4 +263,4 @@ const MilkTest = () => {
   );
 };
 
-export default MilkTest;
+export default AddMedSupp;
