@@ -102,7 +102,7 @@ const id = open ? "simple-popover" : undefined;
                 }}
               >
               <div className="bg-[#000032] w-80 text-white rounded-xl">
-                <h1 className="text-[18px] text-center flex py-2 pl-28 font-[700] leading-[27px]">Med/Supplements <AiOutlinePlus onClick={navigateto} className="ml-6 mt-1 text-[20px] font-[700]"/></h1>
+                <h1 className="text-[18px] text-center flex py-2 pl-16 font-[700] leading-[27px]">Med/Supplements <AiOutlinePlus onClick={navigateto} className="ml-6 mt-1 text-[20px] font-[700]"/></h1>
                 <div className="flex items-center justify-center">
                   <hr className="w-[90%]"/>
                 </div>
