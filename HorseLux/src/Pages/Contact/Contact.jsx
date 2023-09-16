@@ -3,19 +3,13 @@ import Sidebar from "../../Compunents/Sidebar";
 import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
 const Contact = () => {
   const navigate = useNavigate();
-  const navigateto = () => {
-    navigate("/contactinfo");
-  };
 
-  const gotoContactdetail = () => {
-    navigate('/contactdetail')
-  }
 
   const   gotoOwnerGroup = () => {
     navigate("/ownergroup")
@@ -98,31 +92,33 @@ const Contact = () => {
                   <hr className="w-[90%]"/>
                 </div>
                <div className="p-4 flex gap-3 flex-wrap ">
-               <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Brand member</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Dentist</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Bill Pair</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Farrier</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Bam Manager</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Health Provider</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Horse Owner</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Lesse</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Parent</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Lessen Student</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Rider</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Veterinarian</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Staff</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Brand member</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Trainer</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Vendor</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Volunteer</button>
-                <button  className="border-white px-3 py-1 rounded border-2" onClick = {gotoContactdetail}>Other</button>
+               <button  className="border-white px-3 py-1 rounded border-2" >Brand member</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Dentist</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Bill Pair</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Farrier</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Bam Manager</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Health Provider</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Horse Owner</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Lesse</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Parent</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Lessen Student</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Rider</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Veterinarian</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Staff</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Brand member</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Trainer</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Vendor</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Volunteer</button>
+                <button  className="border-white px-3 py-1 rounded border-2" >Other</button>
 
                </div>
               </div>
               </Popover>
               
-              <FiPlusCircle size={30} onClick={navigateto}/>
-              
+  
+<Link to='/contactdetail'>
+  <FiPlusCircle className="text-3xl"/>
+</Link>              
             </div>
           </div>
         </div>
