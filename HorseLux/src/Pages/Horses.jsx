@@ -60,31 +60,32 @@ const Horses = () => {
               <div className="flex   justify-between mt-4  w-full">
                 {horse.map((items, index) => (
                   <>
-                    <div
+                    <Link
                       key={index}
-                      // onClick={() => handleOpen(index)}
-                      onClick={
-                        index === 0
-                          ? () => (window.location = "/basicInfo")
-                          : index === 1
-                          ? handleOpen
-                          : index === 2
-                          ? () => (window.location = "/addservices")
-                          : index === 3
-                          ? () => (window.location = "/chooserecordtype")
-                          : index === 4
-                          ? () => (window.location = "/addnote")
-                          : index === 5
-                          ? () => (window.location = "/addtemp")
-                          : index === 6
-                          ? () => (window.location = "/breading")
-                          : ""
-                      }
+                      to={items.link}
+                      onClick={() => handleOpen(index)}
+                      // onClick={
+                      //   index === 0
+                      //     ? () => (window.location = "/basicInfo")
+                      //     : index === 1
+                      //     ? handleOpen
+                      //     : index === 2
+                      //     ? () => (window.location = "/addservices")
+                      //     : index === 3
+                      //     ? () => (window.location = "/chooserecordtype")
+                      //     : index === 4
+                      //     ? () => (window.location = "/addnote")
+                      //     : index === 5
+                      //     ? () => (window.location = "/addtemp")
+                      //     : index === 6
+                      //     ? () => (window.location = "/breading")
+                      //     : ""
+                      // }
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
-                    </div>
+                    </Link>
                     <Modal
                       open={open}
                       onClose={handleClose}

@@ -40,36 +40,49 @@ export const horse = [
     id: 1,
     img: horse1,
     text: "Horse",
+    link:"/basicInfo"
   },
   {
     id: 2,
     img: horse2,
     text: "Health",
+    // link:"/basicInfo"
+
   },
   {
     id: 3,
     img: horse3,
     text: "Services",
+    link:"/addservices"
+
   },
   {
     id: 4,
     img: horse4,
     text: "Renewal",
+    link:"/chooserecordtype"
+
   },
   {
     id: 5,
     img: horse5,
     text: "Notes",
+    link:"/addnote"
+
   },
   {
     id: 6,
     img: horse6,
     text: "Temprature",
+    link:"/addtemp"
+
   },
   {
     id: 6,
     img: horse7,
     text: "Breeding",
+    link:"/breading"
+
   },
 ];
 
