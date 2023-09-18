@@ -10,16 +10,16 @@ const Sidebar = () => {
       {/* <h2 className="text-xl font-bold mb-4">Dashboard</h2> */}
       <ul className="space-y-4">
         <li>
-          <Link  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={img} className="w-[38px] h-[38px]"/>Horses</Link>
+          <Link  to='/dashboard' className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={img} className="w-[38px] h-[38px]"/>Horses</Link>
         </li>
         <li>
-        <Link to="/contact" className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={contact} className="w-[31px] h-[38px]"/>Contact</Link>
+        <Link to="/contact" className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={contact} className="w-[31px] h-[38px]"/>Contact</Link>
         </li>
         <li>
-        <Link  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={Schedule} className="w-[34px] h-[38px]"/>Schedule</Link>
+        <Link  className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={Schedule} className="w-[34px] h-[38px]"/>Schedule</Link>
         </li>
         <li>
-        <Link to="/dashboard/horsereport"  className="hover:text-[#000032] flex gap-x-2 items-center text-[16px] font-[500]"><img src={combo} className="w-[31px] h-[38px]"/>Reports</Link>
+        <Link to="/dashboard/horsereport"  className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={combo} className="w-[31px] h-[38px]"/>Reports</Link>
         </li>
       </ul>
     </div>

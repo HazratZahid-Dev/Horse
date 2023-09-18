@@ -1,0 +1,28 @@
+/* Define scrollbar styles */
+.breadScroll::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+  }
+  
+  .breadScroll::-webkit-scrollbar-thumb {
+    background-color: #ffffff; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Set the border radius of the thumb */
+  }
+  
+  .breadScroll::-webkit-scrollbar-thumb:hover {
+    background-color: #cccccc; /* Change the thumb color on hover */
+  }
+  
+  .breadScroll::-webkit-scrollbar-track {
+    background-color: #000032; /* Set the color of the scrollbar track */
+  }
+  
+  /* Hide the default scrollbar */
+  .breadScroll {
+    scrollbar-width: thin; /* Firefox */
+  }
+  
+  /* Optional: Hide the scrollbar in WebKit browsers */
+  .::-webkit-scrollbar {
+    display: none;
+  }
+  

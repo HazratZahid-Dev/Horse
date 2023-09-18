@@ -4,16 +4,15 @@ import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 const Contact = () => {
   const navigate = useNavigate();
 
-
-  const   gotoOwnerGroup = () => {
-    navigate("/ownergroup")
-  }
+  const gotoOwnerGroup = () => {
+    navigate("/ownergroup");
+  };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -74,10 +73,15 @@ const Contact = () => {
               </form>
             </div>
             <div className="flex flex-row gap-x-3">
-              <MdFilterAlt aria-describedby={id} variant="contained" onClick={handleClick}  size={30} />
+              <MdFilterAlt
+                aria-describedby={id}
+                variant="contained"
+                onClick={handleClick}
+                size={32}
+              />
               <Popover
                 id={id}
-                style={{marginTop:'60px',marginRight:'10px'}}
+                style={{ marginTop: "60px", marginRight: "10px" }}
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
@@ -86,39 +90,75 @@ const Contact = () => {
                   horizontal: "left",
                 }}
               >
-              <div className="bg-[#000032] w-96 text-white">
-                <h1 className="text-[18px] text-center py-2 font-[700] leading-[27px]">Filter Contacts</h1>
-                <div className="flex items-center justify-center">
-                  <hr className="w-[90%]"/>
+                <div className="bg-[#000032] w-96 text-white">
+                  <h1 className="text-[18px] text-center py-2 font-[700] leading-[27px]">
+                    Filter Contacts
+                  </h1>
+                  <div className="flex items-center justify-center">
+                    <hr className="w-[90%]" />
+                  </div>
+                  <div className="p-4 flex gap-3 flex-wrap ">
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Brand member
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Dentist
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Bill Pair
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Farrier
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Bam Manager
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Health Provider
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Horse Owner
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Lesse
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Parent
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Lessen Student
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Rider
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Veterinarian
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Staff
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Brand member
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Trainer
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Vendor
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Volunteer
+                    </button>
+                    <button className="border-white px-3 py-1 rounded border-2">
+                      Other
+                    </button>
+                  </div>
                 </div>
-               <div className="p-4 flex gap-3 flex-wrap ">
-               <button  className="border-white px-3 py-1 rounded border-2" >Brand member</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Dentist</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Bill Pair</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Farrier</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Bam Manager</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Health Provider</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Horse Owner</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Lesse</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Parent</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Lessen Student</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Rider</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Veterinarian</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Staff</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Brand member</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Trainer</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Vendor</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Volunteer</button>
-                <button  className="border-white px-3 py-1 rounded border-2" >Other</button>
-
-               </div>
-              </div>
               </Popover>
-              
-  
-<Link to='/contactdetail'>
-  <FiPlusCircle className="text-3xl"/>
-</Link>              
+
+              <Link to="/contactdetail">
+                <FiPlusCircle className="text-[32px]" />
+              </Link>
             </div>
           </div>
         </div>
@@ -150,27 +190,27 @@ const Contact = () => {
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg"  />
+            <HiOutlineChevronRight className="text-lg" />
           </div>
 
           <div className="pt-5 flex justify-between gap-x">
             <h1 className="font-bold">Avalyun Bruce</h1>
-            <HiOutlineChevronRight  className="text-lg" />
+            <HiOutlineChevronRight className="text-lg" />
           </div>
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Alonso Bravo</h1>
-            <HiOutlineChevronRight className="text-lg"  />
+            <HiOutlineChevronRight className="text-lg" />
           </div>
 
           <div className="pt-5 flex  justify-between gap-x-">
             <h1 className="font-bold">Ainhoa York</h1>
-            <HiOutlineChevronRight className="text-lg"  />
+            <HiOutlineChevronRight className="text-lg" />
           </div>
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Avery McConnell</h1>
-            <HiOutlineChevronRight className="text-lg"  />
+            <HiOutlineChevronRight className="text-lg" />
           </div>
 
           <div className="mt-6">
@@ -181,17 +221,17 @@ const Contact = () => {
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Brayden Harrington</h1>
-              <HiOutlineChevronRight className="text-lg"  />
+              <HiOutlineChevronRight className="text-lg" />
             </div>
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Braxton Jefferson</h1>
-              <HiOutlineChevronRight className="text-lg"  />
+              <HiOutlineChevronRight className="text-lg" />
             </div>
 
             <div className="pt-5 flex justify-between gap-x-">
               <h1 className="font-bold">Bridget Gonzales</h1>
-              <HiOutlineChevronRight className="text-lg"  />
+              <HiOutlineChevronRight className="text-lg" />
             </div>
           </div>
         </div>
@@ -201,4 +241,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

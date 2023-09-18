@@ -132,7 +132,7 @@ const OwnerGroup = () => {
           </button>
           <button
             type="button"
-            class="px-4 py-2 text-sm font-medium   border border-gray-900 rounded-sm bg-gray-900 text-white h-[46px] "
+            class="px-4 py-2 text-sm font-medium   border border-gray-900 rounded-tr-md rounded-br-md bg-gray-900 text-white h-[46px] "
           >
             Owner group
           </button>

@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { HorseColor, popOver, sex } from "../../config/Horses";
 // import Button from '@mui/material/Button';
 import {AiFillCaretDown} from 'react-icons/ai'
+import '../../Style/Scrollbar.css'
 
 const BasicInfo = () => {
   const [selectedBreed, setSelectedBreed] = useState("");
@@ -133,7 +134,7 @@ const BasicInfo = () => {
                   horizontal: "left",
                 }}
               >
-                <div className="bg-[#000032] text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
+                <div className="bg-[#000032] breadScroll text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
                   <h2 className="text-[18px] font-[700]">Select Horse Breed</h2>
                   <hr />
                   {popOver.map((item, index) => (
@@ -173,7 +174,7 @@ const BasicInfo = () => {
                   horizontal: "left",
                 }}
               >
-                <div className="bg-[#000032] text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
+                <div className="bg-[#000032] breadScroll text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
                   <h2 className="text-[18px] font-[700]">Select Horse Breed</h2>
                   <hr />
                   {HorseColor.map((item, index) => (
@@ -218,7 +219,7 @@ const BasicInfo = () => {
                   horizontal: "left",
                 }}
               >
-                <div className="bg-[#000032]  text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
+                <div className="bg-[#000032] breadScroll  text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
                   <h2 className="text-[18px] font-[700]">Select Horse Breed</h2>
                   <hr />
                   {sex.map((item, index) => (
