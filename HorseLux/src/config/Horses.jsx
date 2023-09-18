@@ -4,6 +4,7 @@ import horse2 from "../Images/heart.png";
 import horse3 from "../Images/services.png";
 import horse4 from "../Images/renewable@2x.png";
 import horse5 from "../Images/edit.png";
+
 import horse6 from "../Images/thermometer.png";
 import horse7 from "../Images/Beehive.png";
 import horse8 from "../Images/Contacts.png";
@@ -29,6 +30,26 @@ import ferrier from "../Images/hand.png";
 import healthimg from "../Images/healthimg.png";
 import medical from "../Images/diognostics.png";
 import { BsChevronRight } from "react-icons/bs";
+
+import cogg from "../Images/cogg.png";
+import allr1 from "../Images/allr1.png";
+import allr2 from "../Images/allr2.png";
+import allr3 from "../Images/allr3.png";
+import allr4 from "../Images/allr4.png";
+import allr5 from "../Images/allr5.png";
+import allr6 from "../Images/allr6.png";
+import allr7 from "../Images/allr7.png";
+import allr8 from "../Images/allr8.png";
+import allr9 from "../Images/allr9.png";
+import alr10 from "../Images/alr10.png";
+import allr11 from "../Images/alr11.png";
+import diagnostic from "../Images/diagnostic.png";
+
+// diagnostic
+
+
+
+
 
 
 
@@ -578,3 +599,220 @@ export const dewormingRecord=[
 
 ]
 
+
+export const  allRecordType=[
+  {
+    id:1,
+    coggins:'Coggins Record',
+    img:cogg
+  
+  },
+  {
+    id:2,
+    coggins:'Dental Records ',
+    img:allr1
+  
+  },
+  {
+    id:3,
+    coggins:'Deworming Records',
+    img:allr2
+  
+  }, {
+    id:4,
+    coggins:'Therapy Records',
+    img:allr4
+  
+  },
+  {
+    id:5,
+    coggins:'Vaccination Records',
+    img:allr5
+  
+  },
+  {
+    id:6,
+    coggins:'Vitals Records',
+    img:allr6
+  
+  },
+  {
+    id:7,
+    coggins:'Diagnostic Records',
+    img:diagnostic
+  
+  },
+  {
+    id:8,
+    coggins:'Farrier Records',
+    img:allr8
+  
+  },
+  {
+    id:9,
+    coggins:'General Health...',
+    img:allr7
+  
+  },
+  {
+    id:10,
+    coggins:'Injury Records',
+    img:allr9
+  
+  },
+  {
+    id:11,
+    coggins:'Joint Injection...',
+    img:allr11
+  
+  },
+  {
+    id:12,
+    coggins:'Med/supplements...',
+    img:alr10
+  
+  },
+  {
+    id:13,
+    coggins:'Milk Test',
+    img:cogg
+  
+  },
+  {
+    id:14,
+    coggins:'Notes',
+    img:cogg
+  
+  }, {
+    id:15,
+    coggins:'Passport Renewal',
+    img:cogg
+  
+  }, {
+    id:16,
+    coggins:'Fooling Record',
+    img:cogg
+  
+  }, {
+    id:17,
+    coggins:'Medication',
+    img:cogg
+  
+  }, {
+    id:18,
+    coggins:'Pregnancy Test',
+    img:cogg
+  
+  }, {
+    id:19,
+    coggins:'FEI Renewal',
+    img:cogg
+  
+  }, {
+    id:20,
+    coggins:'Insemination',
+    img:cogg
+  
+  }, {
+    id:21,
+    coggins:'Semen Collection',
+    img:cogg
+  
+  },
+]
+
+
+export const contactData=[
+  
+    {
+      id:1,
+      name:"Avalynn Bruce",
+  },
+  {
+    id:2,
+      name:"Avalynn Bruce",
+
+  }
+  ,
+  {
+    id:3,
+    name:"Avalynn Bruce",
+
+  }
+  
+]
+
+export const  healthRecordType=[
+  {
+    id:1,
+    coggins:'Coggins ',
+    img:cogg
+  
+  },
+  {
+    id:2,
+    coggins:'Dental  ',
+    img:allr1
+  
+  },
+  {
+    id:3,
+    coggins:'Deworming ',
+    img:allr2
+  
+  }, {
+    id:4,
+    coggins:'Therapy ',
+    img:allr4
+  
+  },
+  {
+    id:5,
+    coggins:'Vaccination ',
+    img:allr5
+  
+  },
+  {
+    id:6,
+    coggins:'Vitals ',
+    img:allr6
+  
+  },
+  {
+    id:7,
+    coggins:'Diagnostic ',
+    img:diagnostic
+  
+  },
+  {
+    id:8,
+    coggins:'Farrier ',
+    img:allr8
+  
+  },
+  {
+    id:9,
+    coggins:'General',
+    img:allr7
+  
+  },
+  {
+    id:10,
+    coggins:'Injury ',
+    img:allr9
+  
+  },
+  {
+    id:11,
+    coggins:'Joint',
+    img:allr11
+  
+  },
+  {
+    id:12,
+    coggins:'Med/supplements...',
+    img:alr10
+  
+  },
+  
+]

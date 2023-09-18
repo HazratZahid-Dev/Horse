@@ -63,6 +63,7 @@ import AddMedSupp from './Pages/Health/AddMedSupp';
 import NewMedSupp from './Pages/Health/NewMedSupp';
 import Activity from './Pages/Report/Activity';
 import Coggins from './Pages/Report/Coggins';
+import HorseHealthReport from './Pages/Report/HorseHealthReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -139,8 +140,11 @@ function App() {
            <Route path='/dashboard/addferrier' element={<AddFerrier/>}/>
            <Route path='/dashboard/medSupplement' element={<AddMedSupp/>}/>
            <Route path='/NewMedSupp' element={<NewMedSupp/>}/> 
+           {/* Activity Routes */}
            <Route path='/report/activity' element={<Activity/>}/> 
            <Route path='/report/coggins' element={<Coggins/>}/> 
+           <Route path='/report/health' element={<HorseHealthReport/>}/> 
+
 
 
 
