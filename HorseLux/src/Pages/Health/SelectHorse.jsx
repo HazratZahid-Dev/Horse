@@ -7,9 +7,7 @@ import data from "../../config/Data";
 
 const SelectHorse = () => {
     const navigate=useNavigate()
-    const toRecord=()=>{
-        navigate('/dashboard/cogging')
-    }
+ 
     const location = useLocation();
     const headingText = getHeadingText(location.pathname);
     function getHeadingText(pathname) {

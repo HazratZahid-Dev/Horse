@@ -21,7 +21,7 @@ const HorseReport = () => {
         <h2 className='text-[35px] font-[700] leading-[45px]'>Horse Report</h2>
         <hr/>
         <div className='w-[30%] mt-5 flex items-center justify-between flex-wrap  gap-6'>
-        <Link className='border hover:border-gray-400 w-[140px] hover:scale-105 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
+        <Link to='/report/activity' className='border hover:border-gray-400 w-[140px] hover:scale-105 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
            <img src={dTime} alt='dTime' className='w-[63px] hover:scale-110 h-[63px]'/>
         </Link>
         <Link className='border hover:border-gray-400 w-[140px] hover:scale-105 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
