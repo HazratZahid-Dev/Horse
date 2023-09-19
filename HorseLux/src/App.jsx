@@ -69,6 +69,13 @@ import HorseHealthResult from './Pages/Report/HorseHealthResult';
 import Summary from './Pages/Report/Summary';
 import DuedateReport from './Pages/Report/DueDateReport';
 import DueDateHorse from './Pages/Report/DueDateHorse';
+import HorseTemprature from './Pages/Report/HorseTemprature';
+import HorseTemp from './Pages/Report/HorseTemp';
+import HorseOwner from './Pages/Report/HorseOwner';
+import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
+import Feed from './Pages/Report/Feed/Feed';
+import FeedHarry from './Pages/Report/Feed/FeedHarry';
+// import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -153,9 +160,20 @@ function App() {
            <Route path='/report/horsehealthresult' element={<HorseHealthResult/>}/> 
            <Route path='/report/summary' element={<Summary/>}/> 
            <Route path='/report/selectduedatehorse' element={<DueDateHorse/>}/> 
-
-
            <Route path='/report/duedatereport' element={<DuedateReport/>}/> 
+           <Route path='/report/horse-temprature' element={<HorseTemprature/>}/> 
+           <Route path='/report/horse-temp' element={<HorseTemp/>}/> 
+           <Route path='/report/horse-owner' element={<HorseOwner/>}/>
+           <Route path='/report/horse-owner-report' element={<HorseOwnerReport/>}/>
+           <Route path='/report/feed' element={<Feed/>}/> 
+           <Route path='/report/feedharry' element={<FeedHarry/>}/> 
+
+
+
+
+
+
+
 
 
 

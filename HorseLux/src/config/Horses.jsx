@@ -44,6 +44,8 @@ import allr9 from "../Images/allr9.png";
 import alr10 from "../Images/alr10.png";
 import allr11 from "../Images/alr11.png";
 import diagnostic from "../Images/diagnostic.png";
+import temp from "../Images/M1.png";
+
 
 // diagnostic
 
@@ -828,4 +830,14 @@ export const  healthRecordType=[
   
   },
   
+]
+
+export const horseTemp=[
+  {
+    id:1,
+    name:"Harry",
+    img:temp,
+    time:"04:40 PM",
+    temp:"90"
+  }
 ]
