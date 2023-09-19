@@ -268,6 +268,19 @@ export const addDiognostic= [
   { text: "Radiograph" },
  
 ];
+export const addContactType= [
+  { text: "Brand  Number" },
+  { text: "Dentist" },
+  { text: "Forrier" },
+  { text: "Health Provider" },
+  { text: "Bill Pair  " },
+  { text: "Barn Manager  " },
+
+  { text: "Horse Owner" },
+  { text: "Lessee" },
+
+ 
+];
 export const vaccinationData= [
   { text: "eastern/western equine encephalomyel.." },
   { text: "equine herpesvirus (ehv)" },

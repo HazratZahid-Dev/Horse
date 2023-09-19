@@ -3,6 +3,8 @@ import Sidebar from "../../Compunents/Sidebar";
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { AiFillEye } from "react-icons/ai";
 
 const Coggins = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -12,6 +14,10 @@ const Coggins = () => {
     nextDueDate: Yup.string().required("Next Due Date is required"),
     comments: Yup.string(),
   });
+const navigate=useNavigate()
+  const handleCoggins=()=>{
+    navigate('/report/summary')
+  }
 
   return (
     <div className="flex">
@@ -21,9 +27,14 @@ const Coggins = () => {
           <h2 className="text-[35px] font-[700] leading-[45px] py-1">
             Coggins
           </h2>
+       <div className="flex items-center gap-x-4">
+       <button type="button">
+            <AiFillEye className="text-2xl" />
+          </button>
           <button type="button">
             <BsFillTrash3Fill className="text-2xl" />
           </button>
+       </div>
         </div>
         <hr />
         <div className="py-12">
@@ -114,6 +125,7 @@ const Coggins = () => {
 
                 <button
                   type="submit"
+                  onClick={handleCoggins}
                   className="bg-[#000032] mt-2 text-white w-[100%] px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
                 >
                   Save

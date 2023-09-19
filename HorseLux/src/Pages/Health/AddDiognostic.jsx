@@ -83,8 +83,7 @@ const AddDiognostic = () => {
                 type="text"
                 placeholder="Select"
                 className="outline-none w-full"
-                value={selectedBreed}
-                onChange={(e) => setSelectedBreed(e.target.value)}
+             
              
               />
                 <button type="button" className=" text-xl outline-none"><AiFillCaretDown/></button>

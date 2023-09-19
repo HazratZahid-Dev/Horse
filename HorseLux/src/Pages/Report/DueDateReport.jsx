@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { NavLink, useNavigate } from 'react-router-dom';
 
-const HorseHealthReport = () => {
+const DuedateReport = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endtDate, setEndtDate] = useState(new Date());
 const navigate=useNavigate()
@@ -18,13 +18,11 @@ const navigate=useNavigate()
   return (
     <div className='flex'>
       <Sidebar/>
-      <div className='w-full px-12 '>
-      <h2 className='text-[30px] font-[700] text-center leading-[45px]'>Horse Health Record</h2>
+      <div className='w-full px-12 py-2 '>
+      <h2 className='text-[30px] font-[700] text-center leading-[45px]'>DUE DATE REPORTS</h2>
       <h2  className='text-[24px] font-[700]  leading-[36px]'>Time Frame</h2>
       <div className='flex px-5 gap-x-8 py-1'>
       <DatePicker className='outline-none text-[16px] font-[600]  w-28' selected={startDate} onChange={(date) => setStartDate(date)} />
-        <h4 className='text-[16px] font-[600]'>To</h4>
-        <DatePicker  className='outline-none text-[16px] font-[600]'  selected={endtDate} onChange={(date) => setEndtDate(date)} />
 
       </div>
       <hr/>
@@ -89,4 +87,4 @@ const navigate=useNavigate()
   )
 }
 
-export default HorseHealthReport
+export default DuedateReport

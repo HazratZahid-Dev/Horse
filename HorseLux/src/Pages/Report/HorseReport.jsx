@@ -25,12 +25,12 @@ const HorseReport = () => {
            <img src={dTime} alt='dTime' className='w-[63px] hover:scale-110 h-[63px]'/>
            <h3 className='text-[12px] font-[600] text-center'>Activity</h3>
         </Link>
-        <Link to='/report/health' className='border hover:border-gray-400 w-[140px] hover:scale-105 flex-col space-y-1 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
+        <Link to='/report/selecthorse' className='border hover:border-gray-400 w-[140px] hover:scale-105 flex-col space-y-1 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
            <img src={heart} alt='dTime' className='w-[63px] hover:scale-110 h-[63px]'/>
            <h3 className='text-[12px] font-[600] text-center'>Health</h3>
 
         </Link>
-        <Link className='border hover:border-gray-400 flex-col space-y-1 w-[140px] hover:scale-105 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
+        <Link to='/report/selectduedatehorse' className='border hover:border-gray-400 flex-col space-y-1 w-[140px] hover:scale-105 cursor-pointer flex items-center justify-center shadow-xl h-[150px] rounded-[18px]'>
            <img src={dateTo} alt='dTime' className='w-[63px] hover:scale-110 h-[63px]'/>
            <h3 className='text-[12px] font-[600] text-center'>Due Date</h3>
 

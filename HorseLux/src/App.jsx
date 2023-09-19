@@ -64,6 +64,11 @@ import NewMedSupp from './Pages/Health/NewMedSupp';
 import Activity from './Pages/Report/Activity';
 import Coggins from './Pages/Report/Coggins';
 import HorseHealthReport from './Pages/Report/HorseHealthReport';
+import SelectHorseHealth from './Pages/Report/SelectHorse';
+import HorseHealthResult from './Pages/Report/HorseHealthResult';
+import Summary from './Pages/Report/Summary';
+import DuedateReport from './Pages/Report/DueDateReport';
+import DueDateHorse from './Pages/Report/DueDateHorse';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
 
@@ -144,6 +149,18 @@ function App() {
            <Route path='/report/activity' element={<Activity/>}/> 
            <Route path='/report/coggins' element={<Coggins/>}/> 
            <Route path='/report/health' element={<HorseHealthReport/>}/> 
+           <Route path='/report/selecthorse' element={<SelectHorseHealth/>}/> 
+           <Route path='/report/horsehealthresult' element={<HorseHealthResult/>}/> 
+           <Route path='/report/summary' element={<Summary/>}/> 
+           <Route path='/report/selectduedatehorse' element={<DueDateHorse/>}/> 
+
+
+           <Route path='/report/duedatereport' element={<DuedateReport/>}/> 
+
+
+
+
+
 
 
 
