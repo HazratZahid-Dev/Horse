@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../Compunents/Sidebar";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { activityData, cardData, horseData } from "../config/HorseDetail";
+import { Link } from "react-router-dom";
 
 const HorseDetail = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -95,7 +96,7 @@ const HorseDetail = () => {
                                     
                                   </div>
                                   <div>
-                                      <button className="w-[20px] h-[20px] flex items-center justify-center text-2xl">{items.arr}</button>
+                                      <Link to='/report/activity-detail' className="w-[20px] h-[20px] flex items-center justify-center text-2xl">{items.arr}</Link>
                                     </div>
                                 </div>
                                 <div className="w-full h-[1px] mt-2 bg-[#CACACA]"></div>

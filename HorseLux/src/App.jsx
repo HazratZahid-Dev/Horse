@@ -75,6 +75,7 @@ import HorseOwner from './Pages/Report/HorseOwner';
 import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 import Feed from './Pages/Report/Feed/Feed';
 import FeedHarry from './Pages/Report/Feed/FeedHarry';
+import ActivityDetail from './Pages/ActivityDetail';
 // import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
@@ -167,6 +168,8 @@ function App() {
            <Route path='/report/horse-owner-report' element={<HorseOwnerReport/>}/>
            <Route path='/report/feed' element={<Feed/>}/> 
            <Route path='/report/feedharry' element={<FeedHarry/>}/> 
+           <Route path='/report/activity-detail' element={<ActivityDetail/>}/> 
+
 
 
 

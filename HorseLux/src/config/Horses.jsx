@@ -300,6 +300,15 @@ export const sex = [
   { text: " Weanling" },
   { text: "Yearling" },
 ];
+
+export const units = [
+  { text: "buckets" },
+  { text: "cups" },
+  { text: "Flakes" },
+  { text: "haynet" },
+  { text: "pounds" },
+  { text: " quarts" },
+];
 export const HorseColor = [
   { text: "Appaloosa" },
   { text: "Bay" },
@@ -342,6 +351,16 @@ export const HorseColor = [
   { text: " Connemara Pony" },
   { text: " Comtois Horse" },
   { text: " Criollo Horse" },
+];
+
+export const fraction = [
+  { text: "1/4" },
+  { text: "1/2" },
+  
+  { text: "3/4" },
+
+  
+  
 ];
 
 export const  health = [
@@ -839,5 +858,31 @@ export const horseTemp=[
     img:temp,
     time:"04:40 PM",
     temp:"90"
+  }
+]
+
+export const feedData=[
+  {
+    id:1,
+    feed:"alfalfa cubes",
+  },
+  {
+    id:2,
+    feed:"barley",
+  } , {
+    id:3,
+    feed:"beet pulp",
+  },  {
+    id:4,
+    feed:"bran",
+  } , {
+    id:5,
+    feed:"bran mash",
+  } , {
+    id:6,
+    feed:"cob (corn oats barley)",
+  } , {
+    id:7,
+    feed:"complete",
   }
 ]
