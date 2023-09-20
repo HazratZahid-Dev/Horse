@@ -46,6 +46,9 @@ import allr11 from "../Images/alr11.png";
 import diagnostic from "../Images/diagnostic.png";
 import temp from "../Images/M1.png";
 
+import h1 from "../Images/h1.png";
+
+
 
 // diagnostic
 
@@ -884,5 +887,19 @@ export const feedData=[
   } , {
     id:7,
     feed:"complete",
+  }
+]
+
+
+export const scheduleData=[
+  {
+    time:"6:00 PM",
+    officeFee:"Paying Fee",
+    parti:"Adam Smith",
+    horse:"Jupiter",
+    admin:"John Son",
+    desc:"Lorem Ipsum is simply dummy text of the printing and.",
+    img:h1,
+    name:"Ferris"
   }
 ]

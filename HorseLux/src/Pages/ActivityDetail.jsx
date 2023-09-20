@@ -21,11 +21,11 @@ const ActivityDetail = () => {
             </div>
           </div>
           <hr className="mt-2 px-12 " />
-<h3 className="text-[24px] font-[700]">DETAILS</h3>
+          <h3 className="text-[24px] font-[700]">DETAILS</h3>
 
           <form className="w-full flex flex-col xl:flex-row gap-x-12">
-          <div className="xl:w-1/2">
-          <div className=" pt-2">
+            <div className="xl:w-1/2">
+              <div className=" pt-2">
                 <label className="px-[20px]  text-[14px] font-[600] ">
                   Date <span className="text-red-500 text-xl">*</span>
                 </label>
@@ -78,15 +78,13 @@ const ActivityDetail = () => {
                     placeholder="Select Dentist..."
                   ></input>
                 </div>
-                <button className="h-[55px] mt-3 text-white bg-[#000032] w-full text-[18px] font-[600] rounded-full">
-              Save
-            </button>
+                <button className="h-[55px] mt-5 text-white bg-[#000032] w-full text-[18px] font-[600] rounded-full">
+                  Save
+                </button>
               </div>
-              
-          </div>
-          <div className="xl:w-1/2 mt-[11px]">
-            
-         <div className="">
+            </div>
+            <div className="xl:w-1/2 mt-[11px]">
+              <div className="">
                 <label className="px-[14px]   text-[16px] font-[600] ">
                   Price
                 </label>
@@ -96,7 +94,7 @@ const ActivityDetail = () => {
                   placeholder="200$"
                   className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                 ></input>
-              </div> 
+              </div>
               <div className="mt-[5px] ">
                 <label className="px-[14px] mt-2   text-[16px] font-[600] ">
                   Comments
@@ -118,8 +116,7 @@ const ActivityDetail = () => {
                   className="w-[90%] mt-1 h-[180px] rounded-[15px] mr-[40px]"
                 />
               </div>
-          </div>
-            
+            </div>
           </form>
         </div>
       </div>
@@ -128,7 +125,3 @@ const ActivityDetail = () => {
 };
 
 export default ActivityDetail;
-
-
-
-

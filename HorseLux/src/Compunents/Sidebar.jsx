@@ -16,7 +16,7 @@ const Sidebar = () => {
         <Link to="/contact" className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={contact} className="w-[31px] h-[38px]"/>Contact</Link>
         </li>
         <li>
-        <Link  className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={Schedule} className="w-[34px] h-[38px]"/>Schedule</Link>
+        <Link to='/dashboard/schedule'  className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={Schedule} className="w-[34px] h-[38px]"/>Schedule</Link>
         </li>
         <li>
         <Link to="/dashboard/horsereport"  className="hover:text-[#000032] hover:scale-105 hover:font-semibold flex gap-x-2 items-center text-[16px] font-[500]"><img src={combo} className="w-[31px] h-[38px]"/>Reports</Link>
