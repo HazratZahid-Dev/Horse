@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: "https://hurseluxprojectupdate-production.up.railway.app",
   withCredentials: true,
   headers: {
     "Content-type": "application/json",
