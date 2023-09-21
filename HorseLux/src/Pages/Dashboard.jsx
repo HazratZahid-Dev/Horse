@@ -25,7 +25,6 @@ const Dashboard = () => {
   const toHorsesDetail = () => {
     navigate("/horsedetail");
   };
-  console.log(User.data);
   return (
     <div className="flex">
       <Sidebar />
