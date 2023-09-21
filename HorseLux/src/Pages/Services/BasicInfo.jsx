@@ -157,7 +157,7 @@ const BasicInfo = () => {
                  disabled={setColor ? true : false}
                 type="text"
                 placeholder="Color"
-                className="outline-none"
+                className="outline-none bg-white"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
               />
@@ -204,7 +204,7 @@ const BasicInfo = () => {
                   value={selectedSex}
                   onChange={(e) => setSelectedSex(e.target.value)}
                   placeholder="Sex"
-                  className=" w-full outline-none"
+                  className=" w-full bg-white outline-none"
                 ></input>
                 <button type="button" className=" text-xl"><AiFillCaretDown/></button>
               </div>
