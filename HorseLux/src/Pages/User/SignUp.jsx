@@ -67,9 +67,7 @@ const SignUp = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  // const toDashboard = () => {
-  //
-  // };
+ 
 
   const handleTogglePass = () => {
     setShowPass((prevShowPass) => !prevShowPass);

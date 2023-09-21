@@ -71,28 +71,32 @@ export const chooseRecordtype=[
     {
         id:1,
         img:choose,
-        cate:"Coggings"
+        cate:"Coggings",
+        link:"/dashboard/cogginsrenewal"
 
 
     },
     {
         id:2,
         img:choose,
-        cate:"FEI"
+        cate:"FEI",
+        link:"/dashboard/fieRenewal"
 
 
     },
     {
         id:3,
         img:choose,
-        cate:"Lease"
+        cate:"Lease",
+        link:"/dashboard/leaserenewal"
 
 
     },
     {
         id:4,
         img:choose,
-        cate:"Passport"
+        cate:"Passport",
+        link:"/dashboard/passportrenewal"
 
 
     }
