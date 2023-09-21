@@ -139,7 +139,7 @@ function App() {
             <Route path="/eventservices" element={<Services/>} />
             <Route path="/appointmet" element={<Appointment/>} />
             <Route path="/task" element={<Task/>} />
-            <Route path='/contactinfo' element={<Contact  Info/> }/>
+            <Route path='/contactinfo' element={<ContactInfo/> }/>
            //Contact page Routes
            <Route path="/dashboard/contact" element={<Contact/>} />
            <Route path='/contactdetail' element={<ContactDetail/>} />
@@ -182,6 +182,7 @@ function App() {
            <Route path='/dashboard/fieRenewal' element={<FieRenewal/>}/> 
            <Route path='/dashboard/leaserenewal' element={<LeaseRenewal/>}/> 
            <Route path='/dashboard/passportrenewal' element={<PassportRenewal/>}/> 
+           
 
 
 
