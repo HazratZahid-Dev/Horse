@@ -11,7 +11,7 @@ import axios from "axios";
 const SignUp = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showPass, setShowPass] = React.useState(false);
-  const[message,setMessage]=useState('');
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
@@ -38,18 +38,24 @@ const SignUp = () => {
 
   const onSubmit = (values) => {
     console.log(values);
-    const res=axios.post("https://hurseluxprojectupdate-production.up.railway.app/user",values).
-    then(response=>{setMessage(response.values)});
-    if(!message){
+    const res = axios
+      .post(
+        "https://hurseluxprojectupdate-production.up.railway.app/user",
+        values
+      )
+      .then((response) => {
+        setMessage(response.values);
+        console.log(response);
+      });
+    if (!message) {
       setMessage(res.values);
       setTimeout(() => {
-        navigate("/dashboard");
+        // navigate("/dashboard");
       }, 1000);
-    
-    }else{
-      setMessage("some things went wrong!")
+    } else {
+      setMessage("some things went wrong!");
     }
-  
+
     // Add your navigation logic here, e.g., navigate("/dashboard")
   };
 
@@ -58,7 +64,7 @@ const SignUp = () => {
   };
 
   // const toDashboard = () => {
-  //  
+  //
   // };
 
   const handleTogglePass = () => {
@@ -148,13 +154,13 @@ const SignUp = () => {
                     placeholder="adamsmith@gmail.com"
                     className="rounded-2xl py-2 outline-none px-4 bg-[#EBEEF2] w-full"
                   />
-               <p className="w-full text-start">
-               <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-               </p>
+                  <p className="w-full text-start">
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-600 text-sm"
+                    />
+                  </p>
                 </div>
                 <div className="flex flex-col gap-y-2 w-full items-center justify-center">
                   <div className="text-start  w-full px-3 text-white">
