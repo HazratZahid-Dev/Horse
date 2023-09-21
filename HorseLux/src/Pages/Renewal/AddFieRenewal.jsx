@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const FieRenewal = () => {
   // const { index } = useParams();
- 
 
   const navigate = useNavigate();
   const toHome = () => {
@@ -19,14 +18,13 @@ const FieRenewal = () => {
     const file = event.target.files[0];
     setSelectedFile(file);
   };
- 
-  
+
   return (
     <div className="flex">
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] uppercase w-full py-3  font-[700] text-center">
-        add fei renewal
+          add fei renewal
         </h2>
 
         <div className="px-10">
@@ -47,72 +45,66 @@ const FieRenewal = () => {
               </h2>
               <form className="w-full">
                 <div className="flex gap-x-16">
-                <div className="w-1/2">
-                <div className="flex justify-between  ">
-                  <div className="w-full ">
-                    <label className="px-[14px]  text-[16px] font-[600] ">
-                      Date
-                    </label>
-                    <br />
-                    <input
-                      type=" text"
-                      placeholder="22-jun-2023"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                  <div className="w-1/2">
+                    <div className="flex justify-between  ">
+                      <div className="w-full ">
+                        <label className="px-[14px]  text-[16px] font-[600] ">
+                          Date
+                        </label>
+                        <br />
+                        <input
+                          type=" text"
+                          placeholder="22-jun-2023"
+                          className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                        ></input>
+                      </div>
+                    </div>
+                    <div className="flex justify-between mt-2  ">
+                      <div className=" w-full">
+                        <label className="px-[14px]   text-[16px] font-[600] ">
+                          Next Due Date
+                        </label>
+                        <br />
+                        <input
+                          type="text"
+                          //   onChange={handleQuantityChange}
+                          //   value={quantity}
+                          placeholder="24 July 2023"
+                          className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                        ></input>
+                      </div>
+                    </div>
+                    <div className="flex justify-between mt-2  "></div>
+
+                    <div className=" justify-between   w-[45%]   ">
+                      <label className="px-1  py-3 text-[16px] font-[600] ">
+                        Add Attachments
+                      </label>
+                      <div className="flex items-center ">
+                        <label
+                          htmlFor="fileInput"
+                          className="custom-file-upload border text-[12px] font-[600] flex items-center h-[33px] rounded-[5px] gap-x-1 px-2"
+                        >
+                          <AiOutlinePlus />
+                          Add Attachments
+                        </label>
+                        <input
+                          type="file"
+                          id="fileInput"
+                          style={{ display: "none" }}
+                          onChange={handleFileChange}
+                        />
+                        {selectedFile && (
+                          <button className=" text-[12px] font-[600] ml-2">
+                            {" "}
+                            {selectedFile.name}
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                 
-                </div>
-                <div className="flex justify-between mt-2  ">
-                  <div className=" w-full">
-                    <label className="px-[14px]   text-[16px] font-[600] ">
-                    Next Due Date
-                    </label>
-                    <br />
-                    <input
-                     type="text"
-                //   onChange={handleQuantityChange}
-                //   value={quantity}
-                      placeholder="24 July 2023"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
-                  </div>
-                
-                </div>
-                <div className="flex justify-between mt-2  ">
-             
                 </div>
 
-                <div className=" justify-between   w-[45%]   ">
-                  <label className="px-1  py-3 text-[16px] font-[600] ">
-                    Add Attachments
-                  </label>
-                  <div className="flex items-center ">
-                    <label
-                      htmlFor="fileInput"
-                      className="custom-file-upload border text-[12px] font-[600] flex items-center h-[33px] rounded-[5px] gap-x-1 px-2"
-                    >
-                      <AiOutlinePlus />
-                      Add Attachments
-                    </label>
-                    <input
-                      type="file"
-                      id="fileInput"
-                      style={{ display: "none" }}
-                      onChange={handleFileChange}
-                    />
-                    {selectedFile && (
-                      <button className=" text-[12px] font-[600] ml-2">
-                        {" "}
-                        {selectedFile.name}
-                      </button>
-                    )}
-                  </div>
-                </div>
-                </div>
-
-              
-                </div>
-              
                 <button
                   type="submit"
                   onClick={toHome}

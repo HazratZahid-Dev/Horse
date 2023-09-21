@@ -5,28 +5,7 @@ import h1 from "../../Images/h1.png";
 import Sidebar from "../../Compunents/Sidebar";
 import data from "../../config/Data";
 
-const SelectHorse = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const headingText = getHeadingText(location.pathname);
-  function getHeadingText(pathname) {
-    switch (pathname) {
-      case "/dashboard/selecthorse":
-        return "ADD COGGINS";
-      case "/dashboard/adddental":
-        return "ADD DENTAL";
-      // Add more cases for other locations as needed
-      default:
-        return "Default Heading";
-    }
-  }
-  const navigateToDifferentPath = () => {
-    if (headingText === "ADD COGGINS") {
-      navigate("/dashboard/adddental");
-    } else if (headingText === "ADD DENTAL") {
-      navigate("/dashboard/adddental");
-    }
-  };
+const HorseSelection = ({ headingText, navigateTo }) => {
   return (
     <div className="flex">
       <Sidebar />
@@ -84,11 +63,9 @@ const SelectHorse = () => {
                 <hr />
               </>
             ))}
-
-            <div></div>
           </div>
           <button
-            onClick={navigateToDifferentPath}
+            onClick={navigateTo}
             className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
           >
             Next
@@ -100,4 +77,4 @@ const SelectHorse = () => {
   );
 };
 
-export default SelectHorse;
+export default HorseSelection;

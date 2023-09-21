@@ -3,6 +3,7 @@ import { FaTimes, FaBars, FaSearch } from "react-icons/fa";
 import "../Style/NavBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../Images/logo.png";
+import { useSelector } from "react-redux";
 const NavBar = () => {
   const [icon, seticon] = useState(false);
 
@@ -12,11 +13,13 @@ const NavBar = () => {
     navigate("/");
   };
 
+  const User = useSelector((state) => state.auth);
+
   return (
     <div className="cloths-navbar bg-[#000032]   w-full py-2 flex justify-between ">
       <Link
         // onclick={toHome}
-        to='/'
+        to="/"
         className=" cursor-pointer w-[33.33%]  gap-x-3 flex items-center justify-start  "
       >
         <img src={img} className="w-[70px] h-[70px] " />
@@ -68,24 +71,28 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <div className="  w-[20.33%] flex gap-x-3 items-center justify-center">
-        <Link to="/signin">
-          <button
-            className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
-            type="button"
-          >
-            Sign in
-          </button>
-        </Link>
-        <Link to="/signup">
-          <button
-            className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
-            type="button"
-          >
-            Sign up
-          </button>
-        </Link>
-      </div>
+      {!User.auth ? (
+        <div className="  w-[20.33%] flex gap-x-3 items-center justify-center">
+          <Link to="/signin">
+            <button
+              className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+              type="button"
+            >
+              Sign in
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button
+              className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+              type="button"
+            >
+              Sign up
+            </button>
+          </Link>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className="menu__icon text-white">
         <span
