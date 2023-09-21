@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { SetAuth } from "../../store/Slices/AuthSlice";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +33,8 @@ const SignIn = () => {
       .required("Password is required"),
   });
 
+  const dispatch = useDispatch();
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
@@ -39,6 +43,8 @@ const SignIn = () => {
       );
       if (response.status === 200) {
         console.log("API response:", response.status);
+        console.log(response.data.User);
+        dispatch(SetAuth(response.data.User));
         navigate("/dashboard");
       }
     } catch (error) {
