@@ -190,7 +190,10 @@ const Contact = () => {
 
           <div className="pt-5 flex justify-between gap-x-">
             <h1 className="font-bold">Ainhoa York</h1>
+            <Link to='/contactinfo'>
             <HiOutlineChevronRight className="text-lg" />
+
+            </Link>
           </div>
 
           <div className="pt-5 flex justify-between gap-x">

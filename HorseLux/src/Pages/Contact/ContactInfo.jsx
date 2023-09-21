@@ -29,18 +29,18 @@ const ContactInfo = () => {
         <div className='flex'>
             <Sidebar/>
             <div className='w-full px-12 py-8 '>
-                <h1 className='text-3xl font-black text-[#000000] text-center'>CONTACTS</h1>
-                <div className='py-5 flex gap-x-10'>
-                    <h1 className='font-bold text-2xl'>ADAM SMITH</h1>
-                    <div className='h-7 w-1 bg-black'></div>
-                    <h1 className='font-bold text-xl'>Horse Owner</h1>
-                    <div className='h-7 w-1 bg-black'></div>
+                <h1 className='text-[30px] font-[700] text-[#000000] text-center'>CONTACTS</h1>
+                <div className='py-5 flex items-center gap-x-10'>
+                    <h1 className='font-[700] text-[22px]'>ADAM SMITH</h1>
+                    <div className='h-5 w-[2px] bg-black'></div>
+                    <h1 className=' text-[18px] font-[700]'>Horse Owner</h1>
+                    <div className='h-5 w-[2px] bg-black'></div>
                     <MdCall className='border-2 rounded-2xl border-black p-1 text-3xl'/>
                     <BiSolidMessageDetail className='border-2 rounded-2xl border-black p-1 text-3xl'/>
                 </div>
 
                 <div className='pt-4 '>
-                    <h1 className='text-2xl font-bold'>Owned Horses</h1>
+                    <h1 className='text-[20px] font-[700]'>Owned Horses</h1>
                     <div className="w-[39px] h-[39px] rounded-full mt-2 ml-3">
                         <img
                           className="h-full w-full rounded-full object-fill "
@@ -55,9 +55,9 @@ const ContactInfo = () => {
                 </div>
 
                 <div className='mt-10'>
-                    <h1 className='font-bold text-2xl'>CONTACT INFORMATION</h1>
-                    <div className='mt-8 w-1/3 flex gap-x-16'>
-                        <p className='text-md font-[600]'>Primary Phone: <span className='font-[400]'> 08198128192891 </span></p>
+                    <h1 className='font-[700] text-[20px]'>CONTACT INFORMATION</h1>
+                    <div className='mt-8 w-[37%] flex gap-x-16'>
+                        <p className='text-[16px] flex gap-x-2  font-[600]'>Primary Phone:<span className='font-[400]'> 08198128192891 </span></p>
                         <div className='flex gap-x-2 '>
                         <MdCall className='border-2 rounded-2xl border-black p-1 text-3xl'/>
                         <BiSolidMessageDetail className='border-2 rounded-2xl border-black p-1 text-3xl'/>
