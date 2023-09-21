@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { api } from "../../https";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -36,25 +37,28 @@ const SignUp = () => {
     phone: "",
   };
 
-  const onSubmit = (values) => {
-    console.log(values);
-    const res = axios
-      .post(
-        "https://hurseluxprojectupdate-production.up.railway.app/user",
-        values
-      )
-      .then((response) => {
-        setMessage(response.values);
-        console.log(response);
-      });
-    if (!message) {
-      setMessage(res.values);
-      setTimeout(() => {
-        // navigate("/dashboard");
-      }, 1000);
-    } else {
-      setMessage("some things went wrong!");
-    }
+  const onSubmit =async (values) => {
+    const res = api.post('/user',values)
+
+    console.log(res);
+
+    // const res = axios
+    //   .post(
+    //     "https://hurseluxprojectupdate-production.up.railway.app/user",
+    //     values
+    //   )
+    //   .then((response) => {
+    //     setMessage(response.values);
+    //     console.log(response);
+    //   });
+    // if (!message) {
+    //   setMessage(res.values);
+    //   setTimeout(() => {
+    //     // navigate("/dashboard");
+    //   }, 1000);
+    // } else {
+    //   setMessage("some things went wrong!");
+    // }
 
     // Add your navigation logic here, e.g., navigate("/dashboard")
   };
