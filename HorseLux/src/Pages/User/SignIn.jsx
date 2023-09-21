@@ -33,14 +33,16 @@ const SignIn = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      console.log(values);
-      console.log(setSubmitting);
-      // const response = await axios.post(
-      // "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
-      // values
-      // );
-      // console.log("API response:", response.data);
+      const response = await axios.post(
+        "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
+        values
+      );
+      if (response.status === 200) {
+        console.log("API response:", response.status);
+        navigate("/dashboard");
+      }
     } catch (error) {
+      console.log("API response:", error.request.status);
       console.error("API error:", error);
       console.log("show error error:", error);
     }
@@ -68,7 +70,7 @@ const SignIn = () => {
               >
                 {({ isSubmitting }) => (
                   <Form className="w-full">
-                    <div className="flex flex-col gap-y-2 w-[70%] m-auto items-start justify-center">
+                    <div className="flex flex-col gap-y-1 w-[70%] m-auto items-start justify-center">
                       <div className="text-start  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
                           Email
@@ -87,7 +89,7 @@ const SignIn = () => {
                           className="text-red-600 text-sm"
                         />
                       </p>
-                      <div className="text-start mt-3  w-full  px-3 text-white">
+                      <div className="text-start mt-1  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
                           Password
                         </label>
@@ -119,18 +121,20 @@ const SignIn = () => {
                           className="text-red-600 text-sm"
                         />
                       </p>
-                      <div className="flex items-center gap-x-2  w-full py-3">
+                      <div className="flex items-center gap-x-2  w-full pt-2 pb-1">
                         <input type="checkbox" />
                         <label className="text-white text-[14px] font-[600]">
                           Remember me
                         </label>
                       </div>
-                      <button
-                        onClick={toForget}
-                        className="text-white text-[16px] font-[600]"
-                      >
-                        Forgot the Password?
-                      </button>
+                      <div className="flex justify-center items-center w-full">
+                        <button
+                          onClick={toForget}
+                          className="text-white text-[16px] font-[600]"
+                        >
+                          Forgot the Password?
+                        </button>
+                      </div>
                       <button
                         className="w-full text-[quacksand] mt-4 py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
                         type="submit"
