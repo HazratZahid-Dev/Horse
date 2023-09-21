@@ -12,4 +12,4 @@ export const api = axios.create({
 // =====================================
 // signup requests
 // =====================================
-const SignUp = (data) => api.post("/user", data);
+export const callSignUp = (data) => api.post("/user", data);
