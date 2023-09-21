@@ -47,7 +47,7 @@ const SignIn = () => {
               Welcome
             </h1>
             <p className="font-[Quicksand] text-[22px] font-[600]  text-white">
-              Sign in to continue Zain
+              Sign in to continue
             </p>
           </div>
 
