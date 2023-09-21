@@ -77,6 +77,11 @@ import Feed from './Pages/Report/Feed/Feed';
 import FeedHarry from './Pages/Report/Feed/FeedHarry';
 import ActivityDetail from './Pages/ActivityDetail';
 import Schedule from './Pages/Schedule/Schedule';
+import CogginsReneval from './Pages/Renewal/CogginsRenewal';
+import CogginsRe from './Pages/Renewal/AddCogginsRe';
+import FieRenewal from './Pages/Renewal/AddFieRenewal';
+import LeaseRenewal from './Pages/Renewal/LeaseRenewal';
+import PassportRenewal from './Pages/Renewal/PassportRenewal';
 // import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
@@ -171,6 +176,17 @@ function App() {
            <Route path='/report/feedharry' element={<FeedHarry/>}/> 
            <Route path='/report/activity-detail' element={<ActivityDetail/>}/> 
            <Route path='/dashboard/schedule' element={<Schedule/>}/> 
+           {/* add coggins renewal */}
+           <Route path='/dashboard/cogginsrenewal' element={<CogginsReneval/>}/> 
+           <Route path='/dashboard/cogginsre' element={<CogginsRe/>}/>
+           <Route path='/dashboard/fieRenewal' element={<FieRenewal/>}/> 
+           <Route path='/dashboard/leaserenewal' element={<LeaseRenewal/>}/> 
+           <Route path='/dashboard/passportrenewal' element={<PassportRenewal/>}/> 
+
+
+
+
+
 
 
 

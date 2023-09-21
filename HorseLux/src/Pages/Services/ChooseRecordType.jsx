@@ -5,7 +5,7 @@ import h1 from "../../Images/h1.png";
 import { BsSearch } from 'react-icons/bs';
 import { chooseRecordtype } from '../../config/HorseDetail';
 import {BiChevronRight} from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -43,7 +43,9 @@ const toRenewal=()=>{
                  <p className="text-[15px] font-[600]">{items.cate}</p>
                  
                  </div>
-                  <BiChevronRight className='text-3xl cursor-pointer'/>
+              <Link to={items.link}>
+              <BiChevronRight className='text-3xl cursor-pointer'/>
+              </Link>
                 </div>
             
 

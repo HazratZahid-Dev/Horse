@@ -38,38 +38,34 @@ const SignUp = () => {
   };
 
   const onSubmit =async (values) => {
-    const res = api.post('/user',values)
+    // const res =await api.post('/user',values)
 
-    console.log(res);
+    // console.log(res);
 
-    // const res = axios
-    //   .post(
-    //     "https://hurseluxprojectupdate-production.up.railway.app/user",
-    //     values
-    //   )
-    //   .then((response) => {
-    //     setMessage(response.values);
-    //     console.log(response);
-    //   });
-    // if (!message) {
-    //   setMessage(res.values);
-    //   setTimeout(() => {
-    //     // navigate("/dashboard");
-    //   }, 1000);
-    // } else {
-    //   setMessage("some things went wrong!");
-    // }
-
-    // Add your navigation logic here, e.g., navigate("/dashboard")
+    const res = axios
+      .post(
+        "https://hurseluxprojectupdate-production.up.railway.app/user",
+        values
+      )
+      .then((response) => {
+        setMessage(response.values);
+        console.log(response);
+      });
+    if (!message) {
+      setMessage(res.values);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } else {
+      setMessage("some things went wrong!");
+    }
   };
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  // const toDashboard = () => {
-  //
-  // };
+ 
 
   const handleTogglePass = () => {
     setShowPass((prevShowPass) => !prevShowPass);
