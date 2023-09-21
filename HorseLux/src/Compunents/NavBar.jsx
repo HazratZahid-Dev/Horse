@@ -4,6 +4,22 @@ import "../Style/NavBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../Images/logo.png";
 import { useSelector } from "react-redux";
+import { BsSearch } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
+// side bar
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import {FiUser} from 'react-icons/fi'
+import { drawyer } from "../config/Horses";
 const NavBar = () => {
   const [icon, seticon] = useState(false);
 
@@ -14,9 +30,69 @@ const NavBar = () => {
   };
 
   const User = useSelector((state) => state.auth);
+  // Drawyer
+    const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+// ******************
+const list = (anchor) => (
+ <div className="mt-5">
+
+<Box
+    sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+    role="presentation"
+    onClick={toggleDrawer(anchor, false)}
+    onKeyDown={toggleDrawer(anchor, false)}
+  >
+    <List>
+      {drawyer.map((text, index) => (
+        <ListItem key={text} disablePadding>
+          <Link to={text.link} className="flex  w-full hover:bg-[#000032] hover:text-white  px-4 py-2 items-center gap-x-4">
+              <p className="text-[20px]">{text.icons}</p>
+            <p className="text-[20px] font-[600]">{text.text}</p>
+            <Divider />
+          </Link>
+        </ListItem>
+      ))}
+    </List>
+    
+  </Box>
+ </div>
+);
 
   return (
     <div className="cloths-navbar bg-[#000032]   w-full py-2 flex justify-between ">
+     {
+      User.auth && <div className="pl-3 pr-5">
+       
+        {['left'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>  <GiHamburgerMenu className="text-[#AE8625] text-[30px]" /></Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+      </div>
+     }
+     <div>
+    
+    </div>
       <Link
         // onclick={toHome}
         to="/"
@@ -28,70 +104,77 @@ const NavBar = () => {
         </h1>
       </Link>
 
-      <div className="  w-[43.33%] flex items-center justify-start">
-        <ul
-          className={icon ? "menu active" : "menu flex   items-center "}
-          onclick={() => seticon(!icon)}
-        >
-          <li>
-            <Link
-              to="/about"
-              className="text-white font-[Josefin Sans]  font-normal text-[20px]"
-              onClick={() => seticon(!icon)}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/services"
-              className="text-white font-[Josefin Sans]  font-normal text-[20px]"
-              onClick={() => seticon(!icon)}
-            >
-              Sevices
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/madi-care"
-              className="text-white font-[Josefin Sans]  font-normal text-[20px]"
-              onClick={() => seticon(!icon)}
-            >
-              Medi-Care
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/blog"
-              className="text-white font-[Josefin Sans]  font-normal text-[20px]  "
-              onClick={() => seticon(!icon)}
-            >
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </div>
       {!User.auth ? (
-        <div className="  w-[20.33%] flex gap-x-3 items-center justify-center">
-          <Link to="/signin">
-            <button
-              className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
-              type="button"
+        <>
+          <div className="  w-[43.33%] flex items-center justify-start">
+            <ul
+              className={icon ? "menu active" : "menu flex   items-center "}
+              onclick={() => seticon(!icon)}
             >
-              Sign in
-            </button>
-          </Link>
-          <Link to="/signup">
-            <button
-              className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
-              type="button"
-            >
-              Sign up
-            </button>
-          </Link>
-        </div>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-white font-[Josefin Sans]  font-normal text-[20px]"
+                  onClick={() => seticon(!icon)}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-white font-[Josefin Sans]  font-normal text-[20px]"
+                  onClick={() => seticon(!icon)}
+                >
+                  Sevices
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/madi-care"
+                  className="text-white font-[Josefin Sans]  font-normal text-[20px]"
+                  onClick={() => seticon(!icon)}
+                >
+                  Medi-Care
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-white font-[Josefin Sans]  font-normal text-[20px]  "
+                  onClick={() => seticon(!icon)}
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="  w-[20.33%] flex gap-x-3 items-center justify-center">
+            <Link to="/signin">
+              <button
+                className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+                type="button"
+              >
+                Sign in
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button
+                className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+                type="button"
+              >
+                Sign up
+              </button>
+            </Link>
+          </div>
+        </>
       ) : (
-        <></>
+        <div className=" flex w-full justify-end">
+          <div className="w-[360px] bg-white  px-3 flex items-center justify-between h-[45px] rounded-full">
+            <input className="w-full outline-none" type="text"></input>
+            <BsSearch />
+          </div>
+        </div>
       )}
 
       <div className="menu__icon text-white">

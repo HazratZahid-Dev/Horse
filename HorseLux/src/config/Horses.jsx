@@ -47,6 +47,10 @@ import diagnostic from "../Images/diagnostic.png";
 import temp from "../Images/M1.png";
 
 import h1 from "../Images/h1.png";
+import { FiUser } from "react-icons/fi";
+import { IoMdRefresh } from "react-icons/io";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
+import { MdContactPage, MdLogout } from "react-icons/md";
 
 
 
@@ -901,5 +905,34 @@ export const scheduleData=[
     desc:"Lorem Ipsum is simply dummy text of the printing and.",
     img:h1,
     name:"Ferris"
+  }
+]
+
+
+export const drawyer=[
+  {
+    text:"Profile",
+    link:"/profile",
+    icons:<FiUser/>
+  },
+  {
+    text:"Subscription",
+    link:"/subscription",
+    icons:<IoMdRefresh/>
+  },
+  {
+    text:"About",
+    link:"/about",
+    icons:<AiOutlineExclamationCircle/>
+  },
+  {
+    text:"Contact Us",
+    link:"/contactus",
+    icons:<MdContactPage/>
+  },
+  {
+    text:"Logout",
+    link:"/logout",
+    icons:<MdLogout/>
   }
 ]
