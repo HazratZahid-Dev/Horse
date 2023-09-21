@@ -4,7 +4,7 @@ import face from "../../Images/face.png";
 import Frame from "../../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -21,18 +21,26 @@ const SignIn = () => {
   const toDashboard = () => {
     navigate("/dashboard");
   };
-  // const validationSchema = Yup.object().shape({
-  //   email: Yup.string().email("Invalid email").required("Email is required"),
-  //   password: Yup.string().required("Password is required"),
-  // });
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+  });
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(
-        "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
-        values
-      );
-      console.log("API response:", response.data);
-    }  catch (error) {
+      console.log(values);
+      console.log(setSubmitting);
+      // const response = await axios.post(
+      // "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
+      // values
+      // );
+      // console.log("API response:", response.data);
+    } catch (error) {
       console.error("API error:", error);
       console.log("show error error:", error);
     }
@@ -55,12 +63,12 @@ const SignIn = () => {
             <div className="flex flex-col gap-y-2 w-full items-center justify-center">
               <Formik
                 initialValues={{ email: "", password: "" }}
-                // validationSchema={validationSchema}
+                validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
                 {({ isSubmitting }) => (
                   <Form className="w-full">
-                    <div className="flex flex-col gap-y-2 w-[70%] m-auto items-center justify-center">
+                    <div className="flex flex-col gap-y-2 w-[70%] m-auto items-start justify-center">
                       <div className="text-start  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
                           Email
@@ -72,7 +80,13 @@ const SignIn = () => {
                         placeholder="adamsmith@gmail.com"
                         className="rounded-2xl py-2 w-full outline-none px-4 bg-[#EBEEF2] "
                       ></Field>
-                      <ErrorMessage name="email" component="div" />
+                      <p className=" w-full text-start ml-[15px]">
+                        <ErrorMessage
+                          name="email"
+                          component="div"
+                          className="text-red-600 text-sm"
+                        />
+                      </p>
                       <div className="text-start mt-3  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
                           Password
@@ -85,7 +99,7 @@ const SignIn = () => {
                           placeholder="*****************"
                           className=" py-2 rounded-2xl outline-none px-4 bg-[#EBEEF2] w-[70%]"
                         />
-                        <ErrorMessage name="password" component="div" />
+
                         <button
                           type="button"
                           className="absolute right-2 top-1/2 transform -translate-y-1/2"
@@ -98,11 +112,25 @@ const SignIn = () => {
                           )}
                         </button>
                       </div>
+                      <p className=" w-full text-start ml-[15px]">
+                        <ErrorMessage
+                          name="password"
+                          component="div"
+                          className="text-red-600 text-sm"
+                        />
+                      </p>
                       <div className="flex items-center gap-x-2  w-full py-3">
-                        <input type="checkbox"/>
-                        <label className="text-white text-[14px] font-[600]">Remember me</label>
+                        <input type="checkbox" />
+                        <label className="text-white text-[14px] font-[600]">
+                          Remember me
+                        </label>
                       </div>
-                      <button onClick={toForget} className="text-white text-[16px] font-[600]">Forgot the Password?</button>
+                      <button
+                        onClick={toForget}
+                        className="text-white text-[16px] font-[600]"
+                      >
+                        Forgot the Password?
+                      </button>
                       <button
                         className="w-full text-[quacksand] mt-4 py-2 border justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
                         type="submit"

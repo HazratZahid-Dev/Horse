@@ -37,28 +37,28 @@ const SignUp = () => {
     phone: "",
   };
 
-  const onSubmit =async (values) => {
-    const res = api.post('/user',values)
+  const onSubmit = async (values) => {
+    // const res = api.post('/user',values)
 
-    console.log(res);
+    // console.log(res);
 
-    // const res = axios
-    //   .post(
-    //     "https://hurseluxprojectupdate-production.up.railway.app/user",
-    //     values
-    //   )
-    //   .then((response) => {
-    //     setMessage(response.values);
-    //     console.log(response);
-    //   });
-    // if (!message) {
-    //   setMessage(res.values);
-    //   setTimeout(() => {
-    //     // navigate("/dashboard");
-    //   }, 1000);
-    // } else {
-    //   setMessage("some things went wrong!");
-    // }
+    const res = axios
+      .post(
+        "https://hurseluxprojectupdate-production.up.railway.app/user",
+        values
+      )
+      .then((response) => {
+        setMessage(response.values);
+        console.log(response);
+      });
+    if (!message) {
+      setMessage(res.values);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } else {
+      setMessage("some things went wrong!");
+    }
 
     // Add your navigation logic here, e.g., navigate("/dashboard")
   };
@@ -103,7 +103,7 @@ const SignUp = () => {
                     placeholder="Adam Smith"
                     className="rounded-2xl py-2 outline-none px-4 bg-[#EBEEF2] w-full"
                   />
-                  <p className="w-full text-start">
+                  <p className="w-full text-start ml-[32px]">
                     <ErrorMessage
                       name="name"
                       component="div"
@@ -135,14 +135,12 @@ const SignUp = () => {
                       )}
                     </button>
                   </div>
-                  <p className="text-start w-full">
-                    <p className="text-start w-full">
+                    <p className="text-start w-full ml-[32px]">
                       <ErrorMessage
                         name="password"
                         component="div"
                         className="text-red-600 text-sm"
                       />
-                    </p>
                   </p>
                 </div>
               </div>
@@ -158,7 +156,7 @@ const SignUp = () => {
                     placeholder="adamsmith@gmail.com"
                     className="rounded-2xl py-2 outline-none px-4 bg-[#EBEEF2] w-full"
                   />
-                  <p className="w-full text-start">
+                  <p className="w-full text-start ml-[32px]">
                     <ErrorMessage
                       name="email"
                       component="div"
@@ -186,7 +184,7 @@ const SignUp = () => {
                       {showPass ? <BiHide size={20} /> : <BiShow size={20} />}
                     </button>
                   </div>
-                  <p className="w-full  text-start">
+                  <p className="w-full  text-start ml-[32px]">
                     <ErrorMessage
                       name="confirmPassword"
                       component="div"
@@ -207,11 +205,11 @@ const SignUp = () => {
                     placeholder="+44 943456779"
                     className="rounded-2xl py-2 outline-none px-4 bg-[#EBEEF2] w-full"
                   />
-                  <p className=" w-full text-start">
+                  <p className=" w-full text-start ml-[32px]">
                     <ErrorMessage
                       name="phone"
                       component="div"
-                      className="text-red-600 text-xs"
+                      className="text-red-600 text-sm"
                     />
                   </p>
                 </div>
