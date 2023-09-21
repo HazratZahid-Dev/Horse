@@ -37,7 +37,10 @@ const SignIn = () => {
         "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
         values
       );
-      console.log("API response:", response.data.User);
+      if (response.status === 200) {
+        console.log("API response:", response.status);
+        navigate("/dashboard");
+      }
     } catch (error) {
       console.log("API response:", error.request.status);
       console.error("API error:", error);
