@@ -922,7 +922,7 @@ export const drawyer=[
   },
   {
     text:"About",
-    link:"/about",
+    link:"/aboutus",
     icons:<AiOutlineExclamationCircle/>
   },
   {
@@ -932,7 +932,7 @@ export const drawyer=[
   },
   {
     text:"Logout",
-    link:"/logout",
+    // link:"/logout",
     icons:<MdLogout/>
   }
 ]

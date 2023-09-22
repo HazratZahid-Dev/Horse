@@ -83,6 +83,9 @@ import FieRenewal from './Pages/Renewal/AddFieRenewal';
 import LeaseRenewal from './Pages/Renewal/LeaseRenewal';
 import PassportRenewal from './Pages/Renewal/PassportRenewal';
 import Profile from './Drawer/Profile';
+import AboutUs from './Drawer/AboutUs';
+import ContactUs from './Drawer/ContactUs';
+import Subscription from './Drawer/Subscription/Subscription';
 // import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
 
@@ -185,6 +188,12 @@ function App() {
            <Route path='/dashboard/passportrenewal' element={<PassportRenewal/>}/>
            {/* Drawer pages routes */}
            <Route path='/profile' element={<Profile/>}/>
+           <Route path='/aboutus' element={<AboutUs/>}/>
+           <Route path='/contactus' element={<ContactUs/>}/>
+           <Route path='/subscription' element={<Subscription/>}/>
+
+
+
 
 
 

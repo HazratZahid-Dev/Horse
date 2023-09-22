@@ -1,4 +1,5 @@
 
+import { AiFillStar } from "react-icons/ai";
 import d1 from "../Images/horsedetail/d1.png";
 import d2 from "../Images/horsedetail/d2.png";
 import d3 from "../Images/horsedetail/d3.png";
@@ -176,4 +177,27 @@ export const edimaLevel=[
         id:6,
         property:"Grade 6"
     },
+]
+
+export const bronze=[
+    {
+        id:1,
+        text:"Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sed do eiusmod temp or incididunt ut labore et dolore mag",
+        star:   <AiFillStar size={30} className="text-[#EB7604]" />
+    },
+    {
+        id:2,
+        text:"Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sed do eiusmod temp or incididunt ut labore et dolore mag",
+        star:   <AiFillStar size={30} className="text-[#EB7604]" />
+    },
+    {
+        id:3,
+        text:"Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sed do eiusmod temp or incididunt ut labore et dolore mag",
+        star:   <AiFillStar size={30} className="text-[#EB7604]" />
+    },
+    {
+        id:4,
+        text:"Lorem ipsum dolor sit amet, consectet ur adipiscing elit, sed do eiusmod temp or incididunt ut labore et dolore mag",
+        star:   <AiFillStar size={30} className="text-[#EB7604]" />
+    }
 ]
