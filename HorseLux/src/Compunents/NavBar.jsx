@@ -13,15 +13,34 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import {FiUser} from 'react-icons/fi'
 import { drawyer } from "../config/Horses";
+import { MdLogout } from "react-icons/md";
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Logout from "./Logout";
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 657,
+  height:371,
+  borderRadius:10,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 const NavBar = () => {
   const [icon, seticon] = useState(false);
+
+  // ************Modal********
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
 
   const navigate = useNavigate();
 
@@ -65,6 +84,11 @@ const list = (anchor) => (
           </Link>
         </ListItem>
       ))}
+      <div  onClick={handleOpen} className="flex  w-full hover:bg-[#000032] hover:text-white  px-4 py-2 items-center gap-x-4">
+              <p className="text-[20px]"><MdLogout/></p>
+            <p className="text-[20px] font-[600]">Logout</p>
+            <Divider />
+          </div>
     </List>
     
   </Box>
@@ -103,6 +127,17 @@ const list = (anchor) => (
           HORSELUX
         </h1>
       </Link>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+   
+      >
+        <Box sx={style}>
+         <Logout/>
+        </Box>
+      </Modal>
 
       {!User.auth ? (
         <>

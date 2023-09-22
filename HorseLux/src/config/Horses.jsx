@@ -930,9 +930,9 @@ export const drawyer=[
     link:"/contactus",
     icons:<MdContactPage/>
   },
-  {
-    text:"Logout",
-    // link:"/logout",
-    icons:<MdLogout/>
-  }
+  // {
+  //   text:"Logout",
+  //   // link:"/logout",
+  //   icons:<MdLogout/>
+  // }
 ]
