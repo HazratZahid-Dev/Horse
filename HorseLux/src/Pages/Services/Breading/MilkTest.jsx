@@ -11,7 +11,6 @@ import { milktestProprties } from "../../../config/HorseDetail";
 const MilkTest = () => {
  
 
-  const navigate = useNavigate();
 
 
   const [selectedFile, setSelectedFile] = useState(null);

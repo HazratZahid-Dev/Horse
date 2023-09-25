@@ -70,7 +70,7 @@ const AddSeman = () => {
                         type="text"
                         placeholder="choose"
                       />
-                      <AiFillCaretRight className="text-2xl text-gray-500" />
+                      {/* <AiFillCaretRight className="text-2xl text-gray-500" /> */}
                     </div>
 
                   </div>

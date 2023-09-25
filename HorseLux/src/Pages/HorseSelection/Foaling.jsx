@@ -15,7 +15,7 @@ const Foaling = () => {
       <Sidebar />
       <div className="w-full p-5">
         <div className="text-[30px] font-[700] text-center">
-          ADD FOOLING
+          ADD FOALING
         </div>
         <div className="w-1/2">
           <div className="w-full">

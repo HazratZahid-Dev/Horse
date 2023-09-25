@@ -128,6 +128,23 @@ export const milktestProprties=[
         property:"Yellow Tint"
     },
 ]
+export const titleData=[
+    {
+        id:1,
+        property:"Mr"
+    },
+    {
+        id:2,
+        property:"Mrs"
+    },
+    {
+        id:3,
+        property:"Ms"
+    },  {
+        id:4,
+        property:"Dr"
+    }
+]
 
 export const inseminationType=[
     {
