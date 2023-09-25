@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import Sidebar from "../../../Compunents/Sidebar";
 import h1 from "../../../Images/h1.png";
 import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
-import { useNavigate, useParams } from "react-router-dom";
-import { contactType } from "../../../config/Horses";
-import { edimaLevel, milktestProprties } from "../../../config/HorseDetail";
 
 const AddSeman = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -16,7 +13,7 @@ const AddSeman = () => {
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-          ADD SEMAN COLLECTION 
+          ADD SEMEN COLLECTION 
         </h2>
 
         <div className="px-10">
@@ -144,7 +141,7 @@ const AddSeman = () => {
                     <input
                       type="text"
                       placeholder="   Intended Mare"
-                      className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                      className="py-1 w-full border  shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     />
                   </div>
                 </div>

@@ -8,6 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { api } from "../../https";
+import { baseUrl } from "../../config/BaseUrl";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -38,13 +39,9 @@ const SignUp = () => {
   };
 
   const onSubmit = async (values) => {
-    // const res = api.post('/user',values)
-
-    // console.log(res);
-
     const res = axios
       .post(
-        "https://hurseluxprojectupdate-production.up.railway.app/user",
+        `${baseUrl}/user`,
         values
       )
       .then((response) => {

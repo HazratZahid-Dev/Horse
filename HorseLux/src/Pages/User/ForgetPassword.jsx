@@ -6,9 +6,13 @@ import { BiHide, BiShow } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { SetAuth } from "../../store/Slices/AuthSlice";
+import { baseUrl } from "../../config/BaseUrl";
 
 const ForgetPassword = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -20,8 +24,30 @@ const ForgetPassword = () => {
       .required("Email is required"),
   });
 
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const response = await axios.post(
+        `${baseUrl}/forgot-password`,
+        values
+      );
+      if (response.status === 200) {
+        console.log("API response:", response.status);
+        // console.log(response.data.User);
+        console.log("the values is********",values)
+        dispatch(SetAuth(response.data.User));
+        navigate("/forgotpassword");
+      }
+    } catch (error) {
+      console.log("API response:", error.request.status);
+      console.error("API error:", error);
+      console.log("show error error:", error);
+      alert('Email not Exist Password')
+    }
+    setSubmitting(false);
+  };
+
   const toDashboard = () => {
-    navigate("/forgotpassword");
+   
   };
 
   return (
@@ -43,13 +69,11 @@ const ForgetPassword = () => {
               email: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-              // Handle form submission here
-              // You can access the form values in the 'values' parameter
-              console.log(values);
-              // Redirect to the desired route
-              toDashboard();
-            }}
+            // onSubmit={(values) => {
+            //   console.log(values);
+            //   toDashboard();
+            // }}
+            onSubmit={handleSubmit}
           >
             <Form>
               <div className="flex flex-col gap-y-5 py-3 w-full items-center justify-center">

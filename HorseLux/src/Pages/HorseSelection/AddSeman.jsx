@@ -15,7 +15,7 @@ const Addseman = () => {
       <Sidebar />
       <div className="w-full p-5">
         <div className="text-[30px] font-[700] text-center">
-        SEMAN COLLECTION
+        SEMEN COLLECTION
         </div>
         <div className="w-1/2">
           <div className="w-full">

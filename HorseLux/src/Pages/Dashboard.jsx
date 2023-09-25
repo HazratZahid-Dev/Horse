@@ -25,6 +25,24 @@ const Dashboard = () => {
   const toHorsesDetail = () => {
     navigate("/horsedetail");
   };
+
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   // Define the URL you want to fetch data from
+  //   const apiUrl = 'https://hurseluxprojectupdate-production.up.railway.app/addnewhorse-data/64d38f949ed7fb061dc22c70';
+
+  //   // Make the GET request
+  //   axios.get(apiUrl)
+  //     .then(response => {
+  //       // Handle the successful response here
+  //       setData(response.data);
+  //     })
+  //     .catch(error => {
+  //       // Handle any errors that occur during the request
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }, []);
   return (
     <div className="flex">
       <Sidebar />
@@ -37,7 +55,7 @@ const Dashboard = () => {
                 <div className="flex items-center justify-between ">
                   <div className="flex items-center gap-x-4 ">
                     <img
-                      src={items.img}
+                      src="https://firebasestorage.googleapis.com/v0/b/horselux-167fb.appspot.com/o/horses%2F1000000033.jpg?alt=media&token=ebaaf231-3d8e-4fa5-abe9-0b5f971e4fd0"
                       className="w-[106px] h-[106px] rounded-full"
                     />
                     <div>

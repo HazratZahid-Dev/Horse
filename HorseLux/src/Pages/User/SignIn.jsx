@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { SetAuth } from "../../store/Slices/AuthSlice";
+import { baseUrl } from "../../config/BaseUrl";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +39,7 @@ const SignIn = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        "https://hurseluxprojectupdate-production.up.railway.app/user-singin",
+        `${baseUrl}/user-singin`,
         values
       );
       if (response.status === 200) {
