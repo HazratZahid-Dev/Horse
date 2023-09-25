@@ -93,8 +93,9 @@ const ForggotPassword = () => {
                     key={index}
                     type="text"
                     name={`number${index + 1}`}
+                    autocomplete="off"
                     onChange={(event) => handleInputChange(event, index)}
-                    className="w-[83px] h-[68px] text-[29px] font-[600] font-[Source Sans Pro] rounded-[20px] text-center outline-none"
+                    className="w-[83px]  h-[68px] text-[29px] font-[600] font-[Source Sans Pro] rounded-[20px] text-center outline-none"
                     ref={inputRef}
                     maxLength="1" // Limit input to one character
                   />
