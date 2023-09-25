@@ -119,16 +119,21 @@ export const horse = [
 export const contact = [
   {
     id: 1,
+    link:"/contact",
     img: horse14,
     text: "Contact",
   },
   {
     id: 2,
+    link:"/uploadcontact",
+
     img: horse15,
     text: "Upload",
   },
   {
     id: 3,
+    link:"/newowner",
+
     img: horse9,
     text: "Owner Group",
   },
@@ -136,16 +141,19 @@ export const contact = [
 export const schedule = [
   {
     id: 1,
+    link:"/eventservices",
     img: horse10,
     text: "Services",
   },
   {
     id: 2,
+    link:"/appointmet",
     img: horse11,
     text: "Appointment",
   },
   {
     id: 3,
+    link:"/task",
     img: horse12,
     text: "Task",
   },

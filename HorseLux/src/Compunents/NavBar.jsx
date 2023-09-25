@@ -187,7 +187,7 @@ const list = (anchor) => (
           <div className="  w-[20.33%] flex gap-x-3 items-center justify-center">
             <Link to="/signin">
               <button
-                className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+                className="text-[20px] flex items-center justify-center hover:bg-gradient-to-r from-[#AE8625] via-[#615f36] to-[#D2AC47] hover:scale-105  font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
                 type="button"
               >
                 Sign in
@@ -195,7 +195,7 @@ const list = (anchor) => (
             </Link>
             <Link to="/signup">
               <button
-                className="text-[20px] flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
+                className="text-[20px] hover:bg-gradient-to-r from-[#AE8625] via-[#615f36] to-[#D2AC47] hover:scale-105  flex items-center justify-center font-[Quicksand] text-white border-2 border-[#fff] px-4 py-2 rounded-full"
                 type="button"
               >
                 Sign up

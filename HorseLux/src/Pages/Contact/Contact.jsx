@@ -64,12 +64,12 @@ const Contact = () => {
                   <input
                     type="text"
                     id="voice-search"
-                    class="bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-3xl  focus:border-blue-500 h-[45px] block w-[380px] p-3.5   "
+                    class="bg-gray-50 outline-none shadow border-gray-300 text-gray-900 text-sm rounded-3xl  focus:border-blue-500 h-[45px] block w-[380px] p-3.5   "
                     placeholder="Search"
                   />
                   <button
                     type="button"
-                    class="absolute inset-y-0 right-0 flex items-center pr-3"
+                    class="absolute  inset-y-0 right-0 flex items-center pr-3"
                   >
                     <svg
                       class="w-4 h-4 mr-2"
@@ -90,12 +90,13 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="flex flex-row gap-x-3">
+            <div className="flex   flex-row gap-x-3">
               <MdFilterAlt
                 aria-describedby={id}
                 variant="contained"
                 onClick={handleClick}
                 size={32}
+                className="hover:scale-125  cursor-pointer"
               />
               <Popover
                 id={id}
@@ -175,7 +176,7 @@ const Contact = () => {
               </Popover>
 
               <Link to="/contactdetail">
-                <FiPlusCircle className="text-[32px]" />
+                <FiPlusCircle className="text-[32px] hover:scale-125" />
               </Link>
             </div>
           </div>
@@ -187,11 +188,11 @@ const Contact = () => {
                 <label for="voice-search" class="sr-only">
                   Search
                 </label>
-                <div class="relative w-full">
+                <div class="relative outline-none w-full">
                   <input
                     type="text"
                     id="voice-search"
-                    class="bg-gray-50  border-gray-300 text-gray-900 text-sm rounded-3xl  focus:border-blue-500 h-[45px] block w-[380px] p-3.5   "
+                    class="bg-gray-50 outline-none shadow border-gray-300 text-gray-900 text-sm rounded-3xl  focus:border-blue-500 h-[45px] block w-[380px] p-3.5   "
                     placeholder="Search"
                   />
                   <button
@@ -222,6 +223,7 @@ const Contact = () => {
                 aria-describedby={id}
                 variant="contained"
                 onClick={handleClick}
+                className="hover:scale-125"
                 size={32}
               />
               <Popover
@@ -302,7 +304,7 @@ const Contact = () => {
               </Popover>
 
               <Link to="/contactdetail">
-                <FiPlusCircle className="text-[32px]" />
+                <FiPlusCircle className="text-[32px] hover:scale-125" />
               </Link>
             </div>
           </div>
@@ -323,7 +325,7 @@ const Contact = () => {
           <button
             type="button"
             className={`px-4 py-2 text-sm bg-white font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
-          activeButton === 'ownerGroup' ? ' bg-[#000031] text-white' : 'bg-white text-gray-900'
+          activeButton === 'ownerGroup' ? ' bg-[#12122a] text-white' : 'bg-white text-gray-900'
         }`}     
                onClick={ownerGroup}
           >

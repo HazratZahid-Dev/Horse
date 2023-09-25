@@ -68,7 +68,7 @@ const Dashboard = () => {
         <div className="w- px-8 absolute right-10 top-10">
           <button
             onClick={toHorses}
-            className=" text-[#000032] font-bold  text-[48px] flex items-center justify-center rounded-full"
+            className=" text-[#000032] font-bold  hover:bg-gradient-to-r from-[#AE8625] via-[#615f36] to-[#D2AC47] hover:text-white hover:scale-105  text-[48px] flex items-center justify-center rounded-full"
           >
             {!showHorse ? <AiOutlinePlusCircle /> : <AiOutlineMinusCircle />}
           </button>

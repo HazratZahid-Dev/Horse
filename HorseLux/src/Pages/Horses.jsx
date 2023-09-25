@@ -21,10 +21,7 @@ const style = {
 };
 
 const Horses = () => {
-  const navi = useNavigate();
-  const toBasicInfo = () => {
-    navi("/basicInfo");
-  };
+ 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,9 +32,7 @@ const Horses = () => {
     setModals(newModals);
   };
   const navigate = useNavigate();
-  const toCogging = () => {
-    navigate("/cogging");
-  };
+ 
 
   const [selectedItemIndex, setSelectedItemIndex] = useState(null); 
 
@@ -64,23 +59,7 @@ const Horses = () => {
                       key={index}
                       to={items.link}
                       onClick={() => handleOpen(index)}
-                      // onClick={
-                      //   index === 0
-                      //     ? () => (window.location = "/basicInfo")
-                      //     : index === 1
-                      //     ? handleOpen
-                      //     : index === 2
-                      //     ? () => (window.location = "/addservices")
-                      //     : index === 3
-                      //     ? () => (window.location = "/chooserecordtype")
-                      //     : index === 4
-                      //     ? () => (window.location = "/addnote")
-                      //     : index === 5
-                      //     ? () => (window.location = "/addtemp")
-                      //     : index === 6
-                      //     ? () => (window.location = "/breading")
-                      //     : ""
-                      // }
+                      
                       className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
@@ -93,7 +72,7 @@ const Horses = () => {
                       aria-describedby="modal-modal-description"
                     >
                       <Box sx={style}>
-                        <div className="bg-[#000032] text-white rounded-3xl">
+                        <div className=" text-white rounded-3xl">
                           <h2 className="text-center text-[18px] font-[700] py-3">
                             Report Record
                           </h2>
@@ -136,23 +115,15 @@ const Horses = () => {
               <div className="flex justify-between mt-4  w-full">
                 {contact.map((items, index) => (
                   <>
-                    <div
+                    <Link
                       key={index}
-                      // onClick={() => handleOpen(index)}
-                      onClick={
-                        index === 0
-                          ? () => (window.location = "/contact")
-                          : index === 1
-                          ? () => (window.location = "/uploadcontact")
-                          : index === 2
-                          ? () => (window.location = "/newowner")
-                          : ""
-                      }
+                      to={items.link}
+                   
                       className=" h-[65px] w-[115px] cursor-pointer  flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
-                    </div>
+                    </Link>
                   </>
                 ))}
               </div>
@@ -165,23 +136,15 @@ const Horses = () => {
               <div className="flex justify-between mt-4  w-full">
                 {schedule.map((items, index) => (
                   <>
-                    <div
+                    <Link
                       key={index}
-                      // onClick={() => handleOpen(index)}
-                      onClick={
-                        index === 0
-                          ? () => (window.location = "/eventservices")
-                          : index === 1
-                          ? () => (window.location = "/appointmet")
-                          : index === 2
-                          ? () => (window.location = "/task")
-                          : ""
-                      }
+                      to={items.link}
+                    
                       className=" h-[65px] cursor-pointer w-[75px] space-y-2 flex flex-col items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
                       <p>{items.text}</p>
-                    </div>
+                    </Link>
                   </>
                 ))}
               </div>
