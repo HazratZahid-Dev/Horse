@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../Compunents/Sidebar";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
@@ -11,56 +11,26 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import axios from "axios";
+let token=localStorage.getItem("token")
+let user=localStorage.getItem("user")
+console.log(token);
+console.log(JSON.parse(user));
+const BasicInfo = ({id}) => {
+// const getData=async (req, res)=>{
+// let data =await axios.post("url",body,{
+//   headers:{
+//   Authorisation: `Bearer ${token}`
+//   }
+// })
+// }
 
-const BasicInfo = () => {
-  const [selectedBreed, setSelectedBreed] = useState("");
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-  const handleBreedSelect = (breed) => {
-    setSelectedBreed(breed);
-    setAnchorEl(null);
-  };
-  const [selectedSex, setSelectedSex] = useState("");
-  const [anchorSex, setAnchorSex] = useState(null);
-  const handleSex = (event) => {
-    setAnchorSex(event.currentTarget);
-  };
-  const handleCloseSex = () => {
-    setAnchorSex(null);
-  };
-  const openSex = Boolean(anchorSex);
-  const idSex = openSex ? "simple-popover" : undefined;
-  const handleSelectSex = (sex) => {
-    setSelectedSex(sex);
-    setAnchorSex(null);
-  };
-  // Color
-  const [selectedColor, setSelectedColor] = useState(""); // Changed the state name to selectedColor
-  const [anchorColor, setAnchorColor] = useState(null);
-
-  const handleColor = (event) => {
-    setAnchorColor(event.currentTarget);
-  };
-
-  const handleCloseColor = () => {
-    setAnchorColor(null);
-  };
-  const openColor = Boolean(anchorColor);
-  const idColor = openColor ? "color-popover" : undefined; // Changed the ID to be unique
-
-  const handleSelectColor = (color) => {
-    setSelectedColor(color);
-    setAnchorColor(null);
-  };
+//   useEffect(()=>{
+// getData()
+//   },[])
+  // const header:{
+  // heaerid:"r34534646"
+  // }
 
   return (
     <div className="flex">
@@ -121,6 +91,7 @@ const BasicInfo = () => {
                   </label>
                   <Field
                     type=" text"
+                    autofill="false"
                     name="owner"
                     placeholder="Owner"
                     className="border outline-none h-[44px] bg-white rounded-[10px] py-1 px-2 shadow-md"
@@ -139,157 +110,175 @@ const BasicInfo = () => {
                     className="border outline-none bg-white  h-[44px] rounded-[10px] py-1 px-2 shadow-md"
                   ></Field>
                 </div>
-
-                <FormControl sx={{ mt: 4 }} size="small">
-                  <InputLabel id="demo-select-small-label">Breed</InputLabel>
-                  <Select
-                    labelId="demo-select-small-label"
-                    id="demo-select-small"
-                    value={values.breed}
-                    label="Breed"
-                    name="breed"
-                    onChange={handleChange}
-                    className="h-72 breadScroll"
-                    sx={{ height: 44, borderRadius: 3 }}
-                    MenuProps={{
-                      style: {
-                        maxHeight: 400,
-                      },
-                    }}
-                  >
-                    <MenuItem
-                      className="custom-menu-item"
-                      sx={{
-                        bgcolor: "#000032",
-                        color: "white",
+                <div className="flex flex-col">
+                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
+                    Breed <span className="text-red-500">*</span>
+                  </label>
+                  <FormControl size="small">
+                    <InputLabel id="demo-select-small-label">Breed</InputLabel>
+                    <Select
+                      labelId="demo-select-small-label"
+                      id="demo-select-small"
+                      value={values.breed}
+                      label="Breed"
+                      name="breed"
+                      onChange={handleChange}
+                      className="h-72 shadow-md breadScroll"
+                      sx={{ height: 44, borderRadius: 3 }}
+                      MenuProps={{
+                        style: {
+                          maxHeight: 400,
+                        },
                       }}
-                      value=""
                     >
-                      <em className="border-b-2 w-full text-center">
-                        Select Breed
-                      </em>
-                    </MenuItem>
-                    {/* <div className="h-72 breadScroll"> */}
-                    {popOver.map((items, index) => (
                       <MenuItem
+                        className="custom-menu-item"
                         sx={{
                           bgcolor: "#000032",
                           color: "white",
-                          fontFamily: "quicksand",
-                          textSizeAdjust: 18,
-                          fontWeight: "700",
-                          display: "flex",
-                          gap: 1,
                         }}
-                        value={items.text}
+                        value=""
                       >
-                        {items.text}
+                        <em className="border-b-2 w-full text-center">
+                          Select Breed
+                        </em>
                       </MenuItem>
-                    ))}
-                    {/* </div> */}
-                  </Select>
-                </FormControl>
+                      {/* <div className="h-72 breadScroll"> */}
+                      {popOver.map((items, index) => (
+                        <MenuItem
+                          sx={{
+                            bgcolor: "#000032",
+                            color: "white",
+                            fontFamily: "quicksand",
+                            textSizeAdjust: 18,
+                            fontWeight: "700",
+                            display: "flex",
+                            gap: 1,
+                          }}
+                          value={items.text}
+                        >
+                          {items.text}
+                        </MenuItem>
+                      ))}
+                      {/* </div> */}
+                    </Select>
+                  </FormControl>
+                </div>
 
-                <FormControl sx={{ mt: 4 }} size="small">
-                  <InputLabel id="demo-select-small-label">Color</InputLabel>
-                  <Select
-                    labelId="demo-select-small-label"
-                    id="demo-select-small"
-                    value={values.color}
-                    label="color"
-                    name="color"
-                    onChange={handleChange}
-                    className="h-72 breadScroll"
-                    sx={{ height: 44, borderRadius: 3 }}
-                    MenuProps={{
-                      style: {
-                        maxHeight: 400,
-                      },
-                    }}
-                  >
-                    <MenuItem
-                      className="custom-menu-item"
-                      sx={{
-                        bgcolor: "#000032",
-                        color: "white",
+                <div className="flex flex-col">
+                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
+                    Color <span className="text-red-500">*</span>
+                  </label>
+                  <FormControl sx={{}} size="small">
+                    <InputLabel id="demo-select-small-label">Color</InputLabel>
+                    <Select
+                      labelId="demo-select-small-label"
+                      id="demo-select-small"
+                      value={values.color}
+                      label="color"
+                      name="color"
+                      onChange={handleChange}
+                      className="h-72 shadow-md breadScroll"
+                      sx={{ height: 44, borderRadius: 3 }}
+                      MenuProps={{
+                        style: {
+                          maxHeight: 400,
+                        },
                       }}
-                      value=""
                     >
-                      <em className="border-b-2 w-full text-center">
-                        Select Breed
-                      </em>
-                    </MenuItem>
-                    {/* <div className="h-72 breadScroll"> */}
-                    {HorseColor.map((items, index) => (
                       <MenuItem
+                        className="custom-menu-item"
                         sx={{
                           bgcolor: "#000032",
                           color: "white",
-                          fontFamily: "quicksand",
-                          textSizeAdjust: 18,
-                          fontWeight: "700",
-                          display: "flex",
-                          gap: 1,
                         }}
-                        value={items.text}
+                        value=""
                       >
-                        {items.text}
+                        <em className="border-b-2  w-full text-center">
+                          Select Breed
+                        </em>
                       </MenuItem>
-                    ))}
-                    {/* </div> */}
-                  </Select>
-                </FormControl>
+                      {/* <div className="h-72 breadScroll"> */}
+                      {HorseColor.map((items, index) => (
+                        <MenuItem
+                          sx={{
+                            bgcolor: "#000032",
+                            color: "white",
+                            fontFamily: "quicksand",
+                            textSizeAdjust: 18,
+                            fontWeight: "700",
+                            display: "flex",
+                            gap: 1,
+                          }}
+                          value={items.text}
+                        >
+                          {items.text}
+                        </MenuItem>
+                      ))}
+                      {/* </div> */}
+                    </Select>
+                  </FormControl>
+                </div>
               </div>
               <div className="grid grid-cols-3 gap-x-5">
-                <FormControl sx={{ mt: 4 }} size="small">
-                  <InputLabel id="demo-select-small-label">Sex</InputLabel>
-                  <Select
-                    labelId="demo-select-small-label"
-                    id="demo-select-small"
-                    value={values.sex}
-                    label="Sex"
-                    name="sex"
-                    onChange={handleChange}
-                    className="h-72 breadScroll"
-                    sx={{ height: 44,backgroundColor:"[#000032]", borderRadius: 3 }}
-                    MenuProps={{
-                      style: {
-                        maxHeight: 400,
-                      },
-                    }}
-                  >
-                    <MenuItem
-                      className="custom-menu-item"
+                <div className=" flex flex-col">
+                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
+                    Color <span className="text-red-500">*</span>
+                  </label>
+                  <FormControl size="small">
+                    <InputLabel id="demo-select-small-label">Sex</InputLabel>
+                    <Select
+                      labelId="demo-select-small-label"
+                      id="demo-select-small"
+                      value={values.sex}
+                      label="Sex"
+                      name="sex"
+                      onChange={handleChange}
+                      className="h-72 breadScroll shadow-md"
                       sx={{
-                        bgcolor: "#000032",
-                        color: "white",
+                        height: 44,
+                        backgroundColor: "[#000032]",
+                        borderRadius: 3,
                       }}
-                      value=""
+                      MenuProps={{
+                        style: {
+                          maxHeight: 400,
+                        },
+                      }}
                     >
-                      <em className="border-b-2 bg-[#00032] font-[] w-full text-center">
-                        Select Horse Sex
-                      </em>
-                    </MenuItem>
-                    {/* <div className="h-72 breadScroll"> */}
-                    {sex.map((items, index) => (
                       <MenuItem
+                        className="custom-menu-item"
                         sx={{
                           bgcolor: "#000032",
                           color: "white",
-                          fontFamily: "quicksand",
-                          textSizeAdjust: 18,
-                          fontWeight: "700",
-                          display: "flex",
-                          gap: 1,
                         }}
-                        value={items.text}
+                        value=""
                       >
-                        {items.text}
+                        <em className="border-b-2 bg-[#00032] font-[] w-full text-center">
+                          Select Horse Sex
+                        </em>
                       </MenuItem>
-                    ))}
-                    {/* </div> */}
-                  </Select>
-                </FormControl>
+                      {/* <div className="h-72 breadScroll"> */}
+                      {sex.map((items, index) => (
+                        <MenuItem
+                          sx={{
+                            bgcolor: "#000032",
+                            color: "white",
+                            fontFamily: "quicksand",
+                            textSizeAdjust: 18,
+                            fontWeight: "700",
+                            display: "flex",
+                            gap: 1,
+                          }}
+                          value={items.text}
+                        >
+                          {items.text}
+                        </MenuItem>
+                      ))}
+                      {/* </div> */}
+                    </Select>
+                  </FormControl>
+                </div>
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                     Photo <span className="text-red-500">*</span>

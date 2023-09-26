@@ -45,6 +45,8 @@ const SignIn = () => {
       if (response.status === 200) {
         console.log("API response:", response.status);
         console.log(response.data.User);
+        localStorage.setItem("user", JSON.stringify(response.data.User));
+        localStorage.setItem("token", response.data.token);
         dispatch(SetAuth(response.data.User));
         navigate("/dashboard");
       }
