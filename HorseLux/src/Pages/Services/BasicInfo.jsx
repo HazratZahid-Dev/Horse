@@ -12,25 +12,52 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
-let token=localStorage.getItem("token")
-let user=localStorage.getItem("user")
-console.log(token);
-console.log(JSON.parse(user));
-const BasicInfo = ({id}) => {
-// const getData=async (req, res)=>{
-// let data =await axios.post("url",body,{
-//   headers:{
-//   Authorisation: `Bearer ${token}`
-//   }
-// })
-// }
+import { baseUrl } from "../../config/BaseUrl";
+let token = localStorage.getItem("token");
+let user = localStorage.getItem("user");
+const BasicInfo = ({ id }) => {
+  // const getData=async (req, res)=>{
+  // let data =await axios.post("url",body,{
+  // headers:{
+  // Authorisation: `Bearer ${token}`
+  // }
+  // })
+  // }
 
-//   useEffect(()=>{
-// getData()
-//   },[])
+  //   useEffect(()=>{
+  // getData()
+  //   },[])
   // const header:{
   // heaerid:"r34534646"
   // }
+
+  const HandleSubmit = async (values) => {
+    console.log(values);
+    const response = await axios.post(
+      `${baseUrl}/addnewhorse-data`,
+      {
+        neckName: values.neckName,
+        showName: values.showName,
+        owner: values.owner,
+        ownerId: "1234",
+        billPayer: values.billPayer,
+        billPayerId: "5678",
+        bread: values.breed,
+        color: values.color,
+        sex: values.sex,
+        img: values.file,
+        microchip: values.chip,
+        paddockLocation: values.paddockLocation,
+        stallNotes: values.stallNotes,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response);
+  };
 
   return (
     <div className="flex">
@@ -56,9 +83,7 @@ const BasicInfo = ({id}) => {
             paddockLocation: "",
             paddockNotes: "",
           }}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
+          onSubmit={HandleSubmit}
         >
           {({ handleSubmit, setFieldValue, handleChange, values }) => (
             <Form className="flex flex-col gap-y-2">

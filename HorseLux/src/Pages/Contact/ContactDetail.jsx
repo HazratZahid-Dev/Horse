@@ -8,6 +8,8 @@ import { milktestProprties, titleData } from "../../config/HorseDetail";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
 
+const token = localStorage.getItem("token");
+
 const ContactDetail = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedBreed, setSelectedBreed] = useState("");
@@ -16,16 +18,27 @@ const ContactDetail = () => {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
+  console.log(token);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(`${baseUrl}`)
-    console.log(selectedBreed);
-    console.log(selectedProperty);
-    console.log(PrimaryPhone);
-    console.log(FirstName);
-    console.log(Email);
-    console.log(LastName);
+    const response = await axios.post(
+      `${baseUrl}/add-contact-data`,
+      {
+        contact_type: selectedBreed,
+        title: selectedProperty,
+        first_name: FirstName,
+        last_name: LastName,
+        primary_phone: PrimaryPhone,
+        email: Email,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response);
   };
 
   const handleClick = (event) => {
