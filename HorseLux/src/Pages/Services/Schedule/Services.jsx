@@ -128,6 +128,7 @@ console.log(params.state.value);
                    <Link to='/servicesrecord'>
                    <input
                       type="text"
+                      value={params.state.value}
                       placeholder="Select..."
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
                     ></input>
