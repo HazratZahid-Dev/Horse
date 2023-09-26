@@ -35,7 +35,7 @@ const AddServicesRecord = () => {
               {addservicesData.slice(0, 9).map((items, index) => (
                 <div  className="w-full space-y-4">
                   <div className="flex w-full justify-between ">
-                    <p className="text-[15px] font-[600]">{items.service}</p>
+                    <p className="text-[15px] font-[600]" onClick={e=>navigate("/eventservices",{state:{value:e.target.innerText}})}>{items.service}</p>
                     <div className="flex items-center gap-x-3">
                       <p className="text-[15px] font-[400]">{items.price}</p>
                       <h2 onClick={() => toBodyclip(index,items.price)} className="font-[800] cursor-pointer">{items.arrow}</h2>

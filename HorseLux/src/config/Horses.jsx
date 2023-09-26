@@ -298,6 +298,25 @@ export const addContactType= [
 
  
 ];
+export const eventType= [
+  { 
+    id:1,
+    link:"/task",
+    text: "Task"
+   },
+  {id:2,
+    link:"/appointmet",
+     text: "Appointment"
+     },
+  {
+    id:3,
+    link:"/eventservices",
+     text: "Services"
+     },
+ 
+
+ 
+];
 export const vaccinationData= [
   { text: "eastern/western equine encephalomyel.." },
   { text: "equine herpesvirus (ehv)" },

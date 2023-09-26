@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "../../../Compunents/Sidebar";
 import { AiFillCaretRight, AiOutlinePlus } from "react-icons/ai";
-import { useNavigate, useParams } from "react-router-dom";
-
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Popover from "@mui/material/Popover";
+import { contactType, eventType } from "../../../config/Horses";
 const Task = () => {
   const navigate = useNavigate();
   const toHome = () => {
@@ -15,6 +16,24 @@ const Task = () => {
     const newColor = e.target.value;
     setSelectedColor(newColor);
   };
+
+  
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedBreed, setSelectedBreed] = useState(eventType[eventType.length - 3].text);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+  const handleBreedSelect = (breed) => {
+    setSelectedBreed(breed);
+    setAnchorEl(null);
+  };
+
 
   return (
     <div className="flex">
@@ -31,20 +50,57 @@ const Task = () => {
             
               <form className="w-full">
                 <div className="flex justify-between  ">
-                  <div className="w-[45%] ">
-                    <label className="px-[14px]  text-[16px] font-[600] ">
-                      Event Type <span className="text-red-500">*</span>
+                <div className="w-[45%] ">
+                    <label className="px-[14px]   text-[16px] font-[600] ">
+                      Event Type
+                      <span className="text-red-500 text-xl">*</span>
                     </label>
                     <br />
-                    <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
-                <input
-                  variant="contained"
-                  className="outline-none w-full h-full"
-                  type=" text"
-                  placeholder="Task"
-                ></input>
-                <AiFillCaretRight className="text-2xl text-gray-300" />
-              </div>
+                    <div
+                      aria-describedby={id}
+                      variant="contained"
+                      onClick={handleClick}
+                      className="py-1 flex items-center justify-between   w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                    >
+                      <input
+                        variant="contained"
+                        className="outline-none  w-full h-full"
+                        type=" text"
+                        placeholder="Choose..."
+                        value={selectedBreed}
+                        onChange={(e) => setSelectedBreed(e.target.value)}
+                      ></input>
+                      <AiFillCaretRight className="text-2xl text-gray-500" />
+                    </div>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      className="mt-2"
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "left",
+                      }}
+                    >
+                      <div className="bg-[#000032] breadScroll text-white w-[355px] h-auto overflow-y-auto py-2 px-5 font-[Quicksand]">
+                        <h2 className="text-[18px] text-center py-1 font-[700]">
+                          Event Type
+                        </h2>
+                        <hr />
+                        {eventType.map((item, index) => (
+                          <div
+                            className="flex gap-x-2 px-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
+                            key={index}
+                            onClick={() => handleBreedSelect(item.text)}
+                          >
+                            <Link to={item.link} className="text-[16px] font-[700] font-[Quicksand]">
+                              {item.text}
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </Popover>
                   </div>
                   <div className="w-[45%]">
                     <label className="px-[14px]   text-[16px] font-[600] ">
