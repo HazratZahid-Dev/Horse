@@ -18,6 +18,22 @@ const Dashboard = () => {
   const [showHorse, setShowHorse] = useState(false);
   const [harry, setHarry] = useState(true);
 
+  const FetchData = async () => {
+    const response = await axios.get(
+      `https://hurseluxprojectupdate-production.up.railway.app/addnewhorse-data/64d38f949ed7fb061dc22c70`,
+      {
+        headers: {
+          "Content-Type": "application/json", // Adjust the content type as needed
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Z…g0OH0.3tQ7Rfn04TELF55udT2fyXpnaSNwer45PDdI5GRElOI", // Add any custom headers you need
+        },
+      }
+    );
+  };
+
+  useEffect(() => {
+    FetchData();
+  }, []);
+
   const toHorses = () => {
     setShowHorse(!showHorse);
     setHarry(!harry);
@@ -26,7 +42,6 @@ const Dashboard = () => {
   const toHorsesDetail = () => {
     navigate("/horsedetail");
   };
-
 
   return (
     <div className="flex">
