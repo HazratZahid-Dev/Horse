@@ -20,7 +20,7 @@ const SignIn = () => {
   };
   const navigate = useNavigate();
   const toForget = () => {
-    navigate("/forgetpassword");
+    // navigate("/forgetpassword");
   };
   const toDashboard = () => {
     navigate("/dashboard");
@@ -102,7 +102,7 @@ const SignIn = () => {
                 onSubmit={handleSubmit}
               >
                 {({ isSubmitting }) => (
-                  <Form className="w-full">
+                  <Form className="w-full" >
                     <div className="flex flex-col gap-y-1 w-[70%] m-auto items-start justify-center">
                       <div className="text-start  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
