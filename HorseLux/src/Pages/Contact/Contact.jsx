@@ -302,7 +302,7 @@ const Contact = () => {
                   </div>
                 </Popover>
 
-                <Link to="/contactdetail">
+                <Link to="/newowner">
                   <FiPlusCircle className="text-[32px] hover:scale-125" />
                 </Link>
               </div>
