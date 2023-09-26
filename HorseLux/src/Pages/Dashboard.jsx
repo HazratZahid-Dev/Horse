@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../Compunents/Sidebar";
-import data from "../config/Data";
+import Newdata from "../config/Data";
 import {
   AiOutlineMinusCircle,
   AiOutlinePlus,
@@ -12,25 +12,35 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
+import { baseUrl } from "../config/BaseUrl";
+let token = localStorage.getItem("token");
+
 
 const Dashboard = () => {
   const User = useSelector((state) => state.auth);
   const [showHorse, setShowHorse] = useState(false);
   const [harry, setHarry] = useState(true);
 
-  const FetchData = async () => {
-    const response = await axios.get(
-      `https://hurseluxprojectupdate-production.up.railway.app/addnewhorse-data/64d38f949ed7fb061dc22c70`,
-      {
+  const [responseData, setResponseData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/addnewhorse-data`, {
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Z…g0OH0.3tQ7Rfn04TELF55udT2fyXpnaSNwer45PDdI5GRElOI", // Add any custom headers you need
+          Authorization: `Bearer ${token}`,
         },
-      }
-    );
+      });
+      setResponseData(response.data);
+      console.log("My data********:", response.data);
+    } catch (err) {
+      setError(err);
+      console.log('errrrrrrr',err);
+    }
   };
 
   useEffect(() => {
-    FetchData();
+    fetchData();
   }, []);
 
   const toHorses = () => {
@@ -49,7 +59,7 @@ const Dashboard = () => {
       <div className="flex w-full relative">
         {harry && (
           <div className="space-y-4 w-full py-12 px-12">
-            {data.map((items) => (
+            {Newdata.map((items) => (
               <div className="pr-44">
                 <div className="flex items-center justify-between ">
                   <div className="flex items-center gap-x-4 ">

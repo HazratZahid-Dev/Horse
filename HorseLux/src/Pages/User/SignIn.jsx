@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/Home.css";
 import face from "../../Images/face.png";
 import Frame from "../../Images/Frame.png";
@@ -13,6 +13,7 @@ import { baseUrl } from "../../config/BaseUrl";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -36,6 +37,22 @@ const SignIn = () => {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    // Load email and password from localStorage if "Remember me" is checked
+    if (rememberMe) {
+      const savedEmail = localStorage.getItem("email");
+      const savedPassword = localStorage.getItem("password");
+      if (savedEmail) {
+        // Set the email field value
+        setFieldValue("email", savedEmail);
+      }
+      if (savedPassword) {
+        // Set the password field value
+        setFieldValue("password", savedPassword);
+      }
+    }
+  }, [rememberMe]);
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(`${baseUrl}/user-singin`, values);
@@ -47,6 +64,14 @@ const SignIn = () => {
         localStorage.setItem("token", response.data.token);
         dispatch(SetAuth(response.data.User));
         navigate("/dashboard");
+        if (rememberMe) {
+          localStorage.setItem("email", values.email);
+          localStorage.setItem("password", values.password);
+        } else {
+          // Clear email and password from localStorage if "Remember me" is unchecked
+          localStorage.removeItem("email");
+          localStorage.removeItem("password");
+        }
       }
     } catch (error) {
       console.log("API response:", error.request.status);
@@ -72,7 +97,7 @@ const SignIn = () => {
           <div className="flex flex-col gap-y-3 py-3 w-full items-center justify-center">
             <div className="flex flex-col gap-y-2 w-full items-center justify-center">
               <Formik
-                initialValues={{ email: "", password: "" }}
+                initialValues={{ email: "", password: "",rememberMe:false }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
@@ -130,7 +155,7 @@ const SignIn = () => {
                         />
                       </p>
                       <div className="flex items-center gap-x-2  w-full pt-2 pb-1">
-                        <input type="checkbox" />
+                        <input type="checkbox" name="rememberMe" />
                         <label className="text-white text-[14px] font-[600]">
                           Remember me
                         </label>
@@ -163,10 +188,15 @@ const SignIn = () => {
                   <img src={face} className="w-[24px] h-[24px]" />
                   <p>Facebook</p>
                 </div>
-                <div className="flex text-white items-center gap-x-2">
+                <a 
+                 href="https://mail.google.com" // Replace with the appropriate Gmail URL
+              target="/" // Opens the link in a new tab/window
+              rel="noopener noreferrer" // Recommended for security reasons
+                
+                type="button" className="flex  text-white items-center gap-x-2">
                   <img src={Frame} className="w-[24px] h-[24px]" />
                   <p>Google</p>
-                </div>
+                </a>
               </div>
             </div>
           </div>
