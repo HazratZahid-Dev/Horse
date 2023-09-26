@@ -38,10 +38,8 @@ const SignIn = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(
-        `${baseUrl}/user-singin`,
-        values
-      );
+      const response = await axios.post(`${baseUrl}/user-singin`, values);
+      console.log(response.data);
       if (response.status === 200) {
         console.log("API response:", response.status);
         console.log(response.data.User);
@@ -52,7 +50,7 @@ const SignIn = () => {
       console.log("API response:", error.request.status);
       console.error("API error:", error);
       console.log("show error error:", error);
-      alert('Incorrect Password')
+      alert("Incorrect Password");
     }
     setSubmitting(false);
   };

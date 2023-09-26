@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useLocation, useNavigate } from "react-router-dom";
 import h1 from "../../Images/h1.png";
@@ -8,8 +8,12 @@ import { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import { baseUrl } from "../../config/BaseUrl";
+import axios from "axios";
 
+let token = localStorage.getItem("token");
 const HorseSelection = ({ headingText, navigateTo }) => {
+  const [HorseData, setHorseData] = useState([]);
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
@@ -22,7 +26,6 @@ const HorseSelection = ({ headingText, navigateTo }) => {
     }
     setSelectAll(!selectAll);
   };
-
   const handleOptionChange = (event) => {
     const optionValue = event.target.value;
 
@@ -34,6 +37,21 @@ const HorseSelection = ({ headingText, navigateTo }) => {
       setSelectedOptions([...selectedOptions, optionValue]);
     }
   };
+  const FetchData = async () => {
+    const response = await axios.get(
+      `https://hurseluxprojectupdate-production.up.railway.app/addnewhorse-data/64d38f949ed7fb061dc22c70`,
+      {
+        headers: {
+          "Content-Type": "application/json", // Adjust the content type as needed
+          Authorization: "Bearer YourAccessToken", // Add any custom headers you need
+        },
+      }
+    );
+    console.log("Response", response);
+    // console.log(response.data);
+  };
+
+  FetchData();
 
   return (
     <div className="flex">

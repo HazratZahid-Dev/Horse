@@ -5,10 +5,28 @@ import { addContactType, addDiognostic } from "../../config/Horses";
 import { Popover } from "@mui/material";
 import "../../Style/Scrollbar.css";
 import { milktestProprties, titleData } from "../../config/HorseDetail";
+import axios from "axios";
+import { baseUrl } from "../../config/BaseUrl";
 
 const ContactDetail = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedBreed, setSelectedBreed] = useState("");
+  const [title, setTitle] = useState("");
+  const [PrimaryPhone, setPrimaryPhone] = useState("");
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [Email, setEmail] = useState("");
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.post(`${baseUrl}`)
+    console.log(selectedBreed);
+    console.log(selectedProperty);
+    console.log(PrimaryPhone);
+    console.log(FirstName);
+    console.log(Email);
+    console.log(LastName);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -133,8 +151,10 @@ const ContactDetail = () => {
                         variant="contained"
                         aria-describedby={idTitle}
                         value={selectedProperty || ""}
+                        // value={title}
+                        // onChange={(e) => setTitle(e.target.value)}
                         className="outline-none w-full h-full"
-                        type=" text"
+                        type="text"
                         placeholder="Select..."
                         onClick={handleClickTitle}
                       ></input>
@@ -183,6 +203,8 @@ const ContactDetail = () => {
                       type="text"
                       placeholder="+44832938298921"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                      value={PrimaryPhone}
+                      onChange={(e) => setPrimaryPhone(e.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -196,6 +218,8 @@ const ContactDetail = () => {
                       type=" text"
                       placeholder="Adam"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                      value={FirstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     ></input>
                   </div>
                   <div className="w-[45%] ">
@@ -207,6 +231,8 @@ const ContactDetail = () => {
                       type=" text"
                       placeholder="adamsmith@gmail.com"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
+                      value={Email}
+                      onChange={(e) => setEmail(e.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -223,6 +249,8 @@ const ContactDetail = () => {
                         className="outline-none w-full h-full"
                         type=" text"
                         placeholder="Smith"
+                        value={LastName}
+                        onChange={(e) => setLastName(e.target.value)}
                       ></input>
                     </div>
                   </div>
@@ -231,6 +259,7 @@ const ContactDetail = () => {
                 <button
                   type="submit"
                   className="bg-[#000032] w-[45%] mt-5 text-white px-8 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
+                  onClick={onSubmit}
                 >
                   Save
                 </button>
