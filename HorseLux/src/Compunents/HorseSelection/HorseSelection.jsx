@@ -5,12 +5,16 @@ import h1 from "../../Images/h1.png";
 import Sidebar from "../../Compunents/Sidebar";
 import data from "../../config/Data";
 import { useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 
 const HorseSelection = ({ headingText, navigateTo }) => {
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
-  const toggleSelectAll = () => {
+  const toggleSelectAll = (e) => {
+    console.log(e.target);
     if (selectAll) {
       setSelectedOptions([]);
     } else {
@@ -58,11 +62,16 @@ const HorseSelection = ({ headingText, navigateTo }) => {
             <div className="flex gap-x-2">
               {/* select all */}
               <label className="text-[15px] font-[600]">Select all</label>
-              <input
+              <Checkbox
+                icon={<RadioButtonUncheckedIcon />}
+                checkedIcon={<RadioButtonCheckedIcon />}
+                onChange={toggleSelectAll}
+              />
+              {/* <input
                 type="radio"
                 checked={selectAll}
                 onChange={toggleSelectAll}
-              />
+              /> */}
             </div>
           </div>
           <div className="flex h-[45px] bg-[#F4F6F9] mt-5 w-full items-center justify-between border shadow-sm rounded-3xl px-4">
@@ -89,8 +98,9 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                         {items.onwer}
                       </p>
                     </div>
-                    <input
-                      type="radio"
+                    <Checkbox
+                      icon={<RadioButtonUncheckedIcon />}
+                      checkedIcon={<RadioButtonCheckedIcon />}
                       value={items.name}
                       onChange={handleOptionChange}
                       checked={selectedOptions.includes(items.name)}
