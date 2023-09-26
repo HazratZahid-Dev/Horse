@@ -162,13 +162,7 @@ const BasicInfo = () => {
                         maxHeight: 400,
                       },
                     }}
-                    inputProps={{
-        sx: {
-          "&.MuiOutlinedInput-input:hover": {
-            border: "2px solid green"
-          }
-        }
-      }}
+    
                   >
                     <MenuItem
                       className="custom-menu-item"
