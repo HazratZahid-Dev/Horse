@@ -7,6 +7,10 @@ import { HorseColor, popOver, sex } from "../../config/Horses";
 import { AiFillCaretDown } from "react-icons/ai";
 import "../../Style/Scrollbar.css";
 import { Formik, Field, Form } from "formik";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const BasicInfo = () => {
   const [selectedBreed, setSelectedBreed] = useState("");
@@ -85,7 +89,7 @@ const BasicInfo = () => {
             console.log(values);
           }}
         >
-          {({ handleSubmit, setFieldValue }) => (
+          {({ handleSubmit, setFieldValue, handleChange, values }) => (
             <Form className="flex flex-col gap-y-2">
               <div className="grid grid-cols-3 gap-x-5">
                 <div className="flex flex-col">
@@ -122,7 +126,7 @@ const BasicInfo = () => {
                   ></Field>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-x-5">
+              <div className="grid grid-cols-3 items-center gap-x-5">
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                     Bill Payer{" "}
@@ -134,14 +138,72 @@ const BasicInfo = () => {
                     className="border outline-none bg-white  h-[44px] rounded-[10px] py-1 px-2 shadow-md"
                   ></Field>
                 </div>
-                <div className="flex flex-col">
-                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
+                {/* <div className="flex flex-col"> */}
+                {/* <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                     Breed
                     <span Show Name="text-red-500">
                       *
                     </span>
-                  </label>
-                  <div
+                  </label> */}
+
+                <FormControl sx={{ mt: 4 }} size="small">
+                  <InputLabel id="demo-select-small-label">Breed</InputLabel>
+                  <Select
+                    labelId="demo-select-small-label"
+                    id="demo-select-small"
+                    value={values.breed}
+                    label="Breed"
+                    name="breed"
+                    onChange={handleChange}
+                    className="h-72 breadScroll"
+                    sx={{ height: 44, borderRadius: 3 }}
+                    MenuProps={{
+                      style: {
+                        maxHeight: 400,
+                      },
+                    }}
+                    inputProps={{
+        sx: {
+          "&.MuiOutlinedInput-input:hover": {
+            border: "2px solid green"
+          }
+        }
+      }}
+                  >
+                    <MenuItem
+                      className="custom-menu-item"
+                      sx={{
+                        bgcolor: "#000032",
+                        color: "white",
+                      }}
+                      value=""
+                    >
+                      <em className="border-b-2 w-full text-center">
+                        Select Breed
+                      </em>
+                    </MenuItem>
+                    {/* <div className="h-72 breadScroll"> */}
+                    {popOver.map((items, index) => (
+                      <MenuItem
+                        sx={{
+                          bgcolor: "#000032",
+                          color: "white",
+                          fontFamily: "quicksand",
+                          textSizeAdjust: 18,
+                          fontWeight: "700",
+                          display: "flex",
+                          gap: 1,
+                        }}
+                        value={items.text}
+                      >
+                       {items.text}
+                      </MenuItem>
+                    ))}
+                    {/* </div> */}
+                  </Select>
+                </FormControl>
+
+                {/* <div
                     onClick={handleClick}
                     className="flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md"
                   >
@@ -163,6 +225,7 @@ const BasicInfo = () => {
                   <Popover
                     id={id}
                     open={open}
+                    onChange={handleChange}
                     anchorEl={anchorEl}
                     onClose={handleClose}
                     className="mt-2"
@@ -192,8 +255,8 @@ const BasicInfo = () => {
                         </div>
                       ))}
                     </div>
-                  </Popover>
-                </div>
+                  </Popover> */}
+                {/* </div> */}
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                     Color <span className="text-red-500">*</span>
