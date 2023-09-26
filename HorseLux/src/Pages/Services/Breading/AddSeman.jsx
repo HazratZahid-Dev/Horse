@@ -13,7 +13,7 @@ const AddSeman = () => {
       <Sidebar />
       <div className="w-full">
         <h2 className="text-[30px] w-full py-3 font-[700] text-center">
-          ADD SEMEN COLLECTION 
+          {/* ADD SEMEN COLLECTION  */}
         </h2>
 
         <div className="px-10">
