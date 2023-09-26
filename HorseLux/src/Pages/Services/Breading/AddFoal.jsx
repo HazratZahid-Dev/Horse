@@ -206,21 +206,20 @@ const AddFoal = () => {
 
                 <form className="border border-black flex flex-col space-y-4 py-4 rounded-md w-1/3 pl-2 ml-12 mb-6">
                   <h2 className="text-[16px] font-[600] ">Foal Details:</h2>
-                  <div>
+                  <div className="px-2">
                     <label className="font-semibold">Name</label>
                     <input
                       type=" text"
                       placeholder="Full name"
-                      // className="py-1 w-full border px-3 shadow mt-1 outline-none h-12 rounded-[10px]"
                       className="w-full h-5   border-b border-gray-300 rounded-none resize-none  focus:outline-none "
                       label="Name"
                     ></input>
                   </div>
-                  <div>
-                    <label className="font-semibold ml-2 ">Sex</label>
+                  <div className="px-2">
+                    <label className="font-semibold ">Sex</label>
                     <div
                       onClick={handleSex}
-                      className=" flex items-center justify-between  outline-none  rounded-[10px]  px-2 "
+                      className=" flex items-center border-b border-gray-300 justify-between  outline-none     "
                     >
                       <input
                         disabled={selectedSex ? true : false}
@@ -228,7 +227,7 @@ const AddFoal = () => {
                         value={selectedSex}
                         onChange={(e) => setSelectedSex(e.target.value)}
                         placeholder="Sex"
-                        className="w-full h-5 bg-white border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                        className="w-full h-5 bg-white   focus:outline-none "
                         label="Name"
                       ></input>
                       <button type="button" className=" text-md ">
@@ -270,20 +269,20 @@ const AddFoal = () => {
                     </Popover>
                   </div>
 
-                <div>
+                <div className="px-2">
                    
-                <label className="text-[16px] pt-1 px-2 font-[600] text-[#2C3A4B]">
+                <label className="text-[16px] pt-1 font-[600] text-[#2C3A4B]">
                     Color <span className="text-red-500">*</span>
                   </label>
                   <div
                     onClick={handleColor}
-                    className="flex items-center justify-between  outline-none  rounded-[10px]  px-2 "
+                    className="flex items-center border-b border-gray-300 justify-between  outline-none  "
                   >
                     <input
                       disabled={setColor ? true : false}
                       type="text"
                       placeholder="Color"
-                      className="w-full h-5 bg-white  border-b border-gray-300 rounded-none resize-none  focus:outline-none "
+                      className="w-full h-5 bg-white   rounded-none resize-none  focus:outline-none "
                       value={color}
                       onChange={(e) => setColor(e.target.value)}
                     />
