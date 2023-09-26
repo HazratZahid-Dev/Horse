@@ -61,6 +61,7 @@ const BasicInfo = () => {
     setSelectedColor(color);
     setAnchorColor(null);
   };
+
   return (
     <div className="flex">
       <Sidebar />
@@ -138,13 +139,6 @@ const BasicInfo = () => {
                     className="border outline-none bg-white  h-[44px] rounded-[10px] py-1 px-2 shadow-md"
                   ></Field>
                 </div>
-                {/* <div className="flex flex-col"> */}
-                {/* <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
-                    Breed
-                    <span Show Name="text-red-500">
-                      *
-                    </span>
-                  </label> */}
 
                 <FormControl sx={{ mt: 4 }} size="small">
                   <InputLabel id="demo-select-small-label">Breed</InputLabel>
@@ -162,7 +156,6 @@ const BasicInfo = () => {
                         maxHeight: 400,
                       },
                     }}
-    
                   >
                     <MenuItem
                       className="custom-menu-item"
@@ -190,175 +183,113 @@ const BasicInfo = () => {
                         }}
                         value={items.text}
                       >
-                       {items.text}
+                        {items.text}
                       </MenuItem>
                     ))}
                     {/* </div> */}
                   </Select>
                 </FormControl>
 
-                {/* <div
-                    onClick={handleClick}
-                    className="flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md"
-                  >
-                    <Field
-                      type="text"
-                      name="breed"
-                      placeholder="Breed"
-                      className="outline-none w-full"
-                      value={selectedBreed}
-                      onChange={(e) => {
-                        setSelectedBreed(e.target.value); // Update the selectedBreed state
-                        setFieldValue("breed", e.target.value); // Set the form field value
-                      }}
-                    />
-                    <button type="button" className=" text-xl outline-none">
-                      <AiFillCaretDown />
-                    </button>
-                  </div>
-                  <Popover
-                    id={id}
-                    open={open}
+                <FormControl sx={{ mt: 4 }} size="small">
+                  <InputLabel id="demo-select-small-label">Color</InputLabel>
+                  <Select
+                    labelId="demo-select-small-label"
+                    id="demo-select-small"
+                    value={values.color}
+                    label="color"
+                    name="color"
                     onChange={handleChange}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    className="mt-2"
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
+                    className="h-72 breadScroll"
+                    sx={{ height: 44, borderRadius: 3 }}
+                    MenuProps={{
+                      style: {
+                        maxHeight: 400,
+                      },
                     }}
                   >
-                    <div className="bg-[#000032] breadScroll text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
-                      <h2 className="text-[18px] font-[700]">
-                        Select Horse Breed
-                      </h2>
-                      <hr />
-                      {popOver.map((item, index) => (
-                        <div
-                          onClick={() => handleBreedSelect(item.text)}
-                          className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
-                          key={index}
-                        >
-                          <input type="radio" />
-                          <p
-                            onClick={() => handleBreedSelect(item.text)}
-                            className="text-[16px] font-[700] font-[Quicksand]"
-                          >
-                            {item.text}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </Popover> */}
-                {/* </div> */}
-                <div className="flex flex-col">
-                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
-                    Color <span className="text-red-500">*</span>
-                  </label>
-                  <div
-                    onClick={handleColor}
-                    className="flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md"
-                  >
-                    <Field
-                      name="color"
-                      disabled={selectedColor ? true : false}
-                      type="text"
-                      placeholder="Color"
-                      className="outline-none bg-white"
-                      value={selectedColor}
-                      onChange={(e) => setSelectedColor(e.target.value)}
-                    />
-                    <button type="button" className=" text-xl outline-none">
-                      <AiFillCaretDown />
-                    </button>
-                  </div>
-                  <Popover
-                    id={idColor}
-                    open={openColor}
-                    anchorEl={anchorColor}
-                    onClose={handleCloseColor}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                  >
-                    <div className="bg-[#000032] breadScroll text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
-                      <h2 className="text-[18px] font-[700]">
-                        Select Horse Breed
-                      </h2>
-                      <hr />
-                      {HorseColor.map((item, index) => (
-                        <div
-                          onClick={() => handleSelectColor(item.text)}
-                          className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
-                          key={index}
-                        >
-                          <input type="radio" />
-                          <p className="text-[16px] hover:text-yellow-600 font-[700] font-[Quicksand]">
-                            {item.text}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </Popover>
-                </div>
+                    <MenuItem
+                      className="custom-menu-item"
+                      sx={{
+                        bgcolor: "#000032",
+                        color: "white",
+                      }}
+                      value=""
+                    >
+                      <em className="border-b-2 w-full text-center">
+                        Select Breed
+                      </em>
+                    </MenuItem>
+                    {/* <div className="h-72 breadScroll"> */}
+                    {HorseColor.map((items, index) => (
+                      <MenuItem
+                        sx={{
+                          bgcolor: "#000032",
+                          color: "white",
+                          fontFamily: "quicksand",
+                          textSizeAdjust: 18,
+                          fontWeight: "700",
+                          display: "flex",
+                          gap: 1,
+                        }}
+                        value={items.text}
+                      >
+                        {items.text}
+                      </MenuItem>
+                    ))}
+                    {/* </div> */}
+                  </Select>
+                </FormControl>
               </div>
               <div className="grid grid-cols-3 gap-x-5">
-                <div className="flex flex-col">
-                  <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
-                    Sex <span className="text-red-500">*</span>
-                  </label>
-                  <div
-                    onClick={handleSex}
-                    className=" flex items-center justify-between border outline-none h-[44px] rounded-[10px] py-1 px-2 shadow-md"
-                  >
-                    <Field
-                      name="sex"
-                      disabled={selectedSex ? true : false}
-                      type=" text"
-                      value={selectedSex}
-                      onChange={(e) => setSelectedSex(e.target.value)}
-                      placeholder="Sex"
-                      className=" w-full bg-white outline-none"
-                    ></Field>
-                    <button type="button" className=" text-xl">
-                      <AiFillCaretDown />
-                    </button>
-                  </div>
-                  <Popover
-                    id={idSex}
-                    open={openSex}
-                    anchorEl={anchorSex}
-                    onClose={handleCloseSex}
-                    className="mt-0"
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
+                <FormControl sx={{ mt: 4 }} size="small">
+                  <InputLabel id="demo-select-small-label">Sex</InputLabel>
+                  <Select
+                    labelId="demo-select-small-label"
+                    id="demo-select-small"
+                    value={values.sex}
+                    label="Sex"
+                    name="sex"
+                    onChange={handleChange}
+                    className="h-72 breadScroll"
+                    sx={{ height: 44,backgroundColor:"[#000032]", borderRadius: 3 }}
+                    MenuProps={{
+                      style: {
+                        maxHeight: 400,
+                      },
                     }}
                   >
-                    <div className="bg-[#000032] breadScroll  text-white w-[355px] h-72 overflow-y-auto py-2 px-5 font-[Quicksand]">
-                      <h2 className="text-[18px] font-[700]">
-                        Select Horse Breed
-                      </h2>
-                      <hr />
-                      {sex.map((item, index) => (
-                        <div
-                          onClick={() => handleSelectSex(item.text)}
-                          className="flex gap-x-2 mt-1 hover:bg-slate-200 hover:text-yellow-600  rounded-md  py-1 cursor-pointer"
-                          key={index}
-                        >
-                          <input type="radio" />
-                          <p
-                            onClick={() => handleSelectSex(item.text)}
-                            className="text-[16px] hover:text-yellow-600 font-[700] font-[]"
-                          >
-                            {item.text}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </Popover>
-                </div>
+                    <MenuItem
+                      className="custom-menu-item"
+                      sx={{
+                        bgcolor: "#000032",
+                        color: "white",
+                      }}
+                      value=""
+                    >
+                      <em className="border-b-2 bg-[#00032] font-[] w-full text-center">
+                        Select Horse Sex
+                      </em>
+                    </MenuItem>
+                    {/* <div className="h-72 breadScroll"> */}
+                    {sex.map((items, index) => (
+                      <MenuItem
+                        sx={{
+                          bgcolor: "#000032",
+                          color: "white",
+                          fontFamily: "quicksand",
+                          textSizeAdjust: 18,
+                          fontWeight: "700",
+                          display: "flex",
+                          gap: 1,
+                        }}
+                        value={items.text}
+                      >
+                        {items.text}
+                      </MenuItem>
+                    ))}
+                    {/* </div> */}
+                  </Select>
+                </FormControl>
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
                     Photo <span className="text-red-500">*</span>
@@ -375,7 +306,7 @@ const BasicInfo = () => {
                 </div>
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
-                    Microchip{" "}
+                    Microchip
                   </label>
                   <Field
                     name="chip"
