@@ -3,11 +3,14 @@ import "../../Style/Home.css";
 import face from "../../Images/face.png";
 import Frame from "../../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { baseUrl } from "../../config/BaseUrl";
+import axios from "axios";
 
 const ResetPassword = () => {
+  const { email } = useParams();
   const [showPassword, setShowPassword] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const handleTogglePass = () => {
@@ -18,9 +21,6 @@ const ResetPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
   const navigate = useNavigate();
-  const toApp = () => {
-    navigate("/newapp");
-  };
 
   const validationSchema = Yup.object().shape({
     newPassword: Yup.string()
@@ -51,12 +51,20 @@ const ResetPassword = () => {
               rememberMe: false, // Initial checkbox value
             }}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-              // Handle form submission here
-              // You can access the form values in the 'values' parameter
-              console.log(values);
-              // Redirect to the desired route
-              toApp();
+            onSubmit={async (values) => {
+              try {
+                const response = await axios.post(`${baseUrl}/reset-password`, {
+                  email,
+                  password: values.newPassword,
+                  confirmPassword: values.confirmNewPassword,
+                });
+                if (response.status === 200) {
+                  alert("Password reset successfully");
+                  navigate("/signin");
+                }
+              } catch (err) {
+                console.log("Error:", err.message);
+              }
             }}
           >
             <Form>
@@ -136,7 +144,7 @@ const ResetPassword = () => {
                   </label>
                 </div>
                 <button
-                  onClick={toApp}
+                  // onClick={toApp}
                   className="w-[70%] py-2 border font-[Source Sans Pro] justify-center bg-gradient-to-r rounded-2xl font-semibold from-[#ae8625] via-f7ef8a to-[#edc967]"
                   type="submit"
                 >

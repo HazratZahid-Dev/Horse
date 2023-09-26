@@ -4,12 +4,39 @@ import { useLocation, useNavigate } from "react-router-dom";
 import h1 from "../../Images/h1.png";
 import Sidebar from "../../Compunents/Sidebar";
 import data from "../../config/Data";
+import { useState } from "react";
 
 const HorseSelection = ({ headingText, navigateTo }) => {
+  const navigate = useNavigate();
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+  const toggleSelectAll = () => {
+    if (selectAll) {
+      setSelectedOptions([]);
+    } else {
+      setSelectedOptions(data.map((option) => option.name));
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleOptionChange = (event) => {
+    const optionValue = event.target.value;
+
+    if (selectedOptions.includes(optionValue)) {
+      setSelectedOptions(
+        selectedOptions.filter((option) => option !== optionValue)
+      );
+    } else {
+      setSelectedOptions([...selectedOptions, optionValue]);
+    }
+  };
+
   return (
     <div className="flex">
       <Sidebar />
+      {/* main container */}
       <div className="w-full p-5">
+        {/* Header */}
         <div>
           <h2 className="text-[30px] font-[700] text-center">{headingText}</h2>
         </div>
@@ -29,8 +56,13 @@ const HorseSelection = ({ headingText, navigateTo }) => {
           <div className="flex items-center  mt-5 justify-between">
             <h3 className="text-[20px] font-[700] ">Select Horse</h3>
             <div className="flex gap-x-2">
+              {/* select all */}
               <label className="text-[15px] font-[600]">Select all</label>
-              <input type="radio" />
+              <input
+                type="radio"
+                checked={selectAll}
+                onChange={toggleSelectAll}
+              />
             </div>
           </div>
           <div className="flex h-[45px] bg-[#F4F6F9] mt-5 w-full items-center justify-between border shadow-sm rounded-3xl px-4">
@@ -57,7 +89,12 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                         {items.onwer}
                       </p>
                     </div>
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      value={items.name}
+                      onChange={handleOptionChange}
+                      checked={selectedOptions.includes(items.name)}
+                    />
                   </div>
                 </div>
                 <hr />
@@ -65,7 +102,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
             ))}
           </div>
           <button
-            onClick={navigateTo}
+            onClick={() => navigate(navigateTo)}
             className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
           >
             Next

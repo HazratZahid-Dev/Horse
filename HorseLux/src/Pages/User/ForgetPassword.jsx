@@ -26,29 +26,24 @@ const ForgetPassword = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(
-        `${baseUrl}/forgot-password`,
-        values
-      );
+      const response = await axios.post(`${baseUrl}/forgot-password`, values);
       if (response.status === 200) {
         console.log("API response:", response.status);
         // console.log(response.data.User);
-        console.log("the values is********",values)
+        console.log("the values is********", values);
         dispatch(SetAuth(response.data.User));
-        navigate("/forgotpassword");
+        navigate("/otp/" + values.email);
       }
     } catch (error) {
       console.log("API response:", error.request.status);
       console.error("API error:", error);
       console.log("show error error:", error);
-      alert('Email not Exist Password')
+      alert("Email not Exist Password");
     }
     setSubmitting(false);
   };
 
-  const toDashboard = () => {
-   
-  };
+  const toDashboard = () => {};
 
   return (
     <div>

@@ -3,14 +3,15 @@ import "../../Style/Home.css";
 import face from "../../Images/face.png";
 import Frame from "../../Images/Frame.png";
 import { BiHide, BiShow } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 import axios from "axios";
 import { SetAuth } from "../../store/Slices/AuthSlice";
 import { useDispatch } from "react-redux";
 import { baseUrl } from "../../config/BaseUrl";
 
-const ForggotPassword = () => {
+const OTP = () => {
+  const { email } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]; // Refs for input fields
@@ -26,13 +27,22 @@ const ForggotPassword = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(`${baseUrl}/verify-otp`, values);
+      const response = await axios.post(`${baseUrl}/verify-otp`, {
+        email,
+        otp:
+          values.numberOne +
+          values.numberTwo +
+          values.numberThree +
+          values.numberFour,
+      });
+      console.log(response.data);
+      console.log(inputRefs);
       if (response.status === 200) {
         console.log("API response:", response.status);
         // console.log(response.data.User);
         console.log("the values is********", values);
         dispatch(SetAuth(response.data.User));
-        navigate("/resetpassword");
+        navigate("/resetpassword/" + email);
       }
     } catch (error) {
       console.log("API response:", error.request.status);
@@ -43,7 +53,7 @@ const ForggotPassword = () => {
     setSubmitting(false);
   };
   // count down
-  const [countdown, setCountdown] = useState(56); // Initial countdown value
+  const [countdown, setCountdown] = useState(59); // Initial countdown value
 
   useEffect(() => {
     let intervalId;
@@ -83,18 +93,28 @@ const ForggotPassword = () => {
               numberTwo: "",
               numberThree: "",
               numberFour: "",
+              otp: "",
             }}
             onSubmit={handleSubmit}
           >
             <Form>
               <div className="m-auto w-[70%] mt-8 text-center flex items-center gap-x-3">
+                {/* <Field type="text" id="otp" name="otp" /> */}
                 {inputRefs.map((inputRef, index) => (
                   <Field
                     key={index}
                     type="text"
-                    name={`number${index + 1}`}
+                    name={
+                      index === 0
+                        ? "numberOne"
+                        : index === 1
+                        ? "numberTwo"
+                        : index === 2
+                        ? "numberThree"
+                        : "numberFour"
+                    }
                     autocomplete="off"
-                    onChange={(event) => handleInputChange(event, index)}
+                    // onChange={(event) => handleInputChange(event, index)}
                     className="w-[83px]  h-[68px] text-[29px] font-[600] font-[Source Sans Pro] rounded-[20px] text-center outline-none"
                     ref={inputRef}
                     maxLength="1" // Limit input to one character
@@ -103,7 +123,10 @@ const ForggotPassword = () => {
               </div>
               <div className="font-[Source Sans Pro]  flex flex-col  items-center justify-center">
                 {countdown === 0 ? (
-                  <Link to='/forgetpassword' className="text-[16px] text-white font-[400] mt-8">
+                  <Link
+                    to="/forgetpassword"
+                    className="text-[16px] text-white font-[400] mt-8"
+                  >
                     Resend OTP
                   </Link>
                 ) : (
@@ -127,4 +150,4 @@ const ForggotPassword = () => {
   );
 };
 
-export default ForggotPassword;
+export default OTP;
