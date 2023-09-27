@@ -111,7 +111,7 @@ function App() {
     }
     setInterval(() => {
       setLoading(false);
-    }, 4000);
+    }, 2000);
   }, []);
   return (
     <>
