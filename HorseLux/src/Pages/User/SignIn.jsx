@@ -72,6 +72,7 @@ const SignIn = () => {
           localStorage.removeItem("email");
           localStorage.removeItem("password");
         }
+        window.location.reload("true");
       }
     } catch (error) {
       console.log("API response:", error.request.status);
@@ -97,12 +98,12 @@ const SignIn = () => {
           <div className="flex flex-col gap-y-3 py-3 w-full items-center justify-center">
             <div className="flex flex-col gap-y-2 w-full items-center justify-center">
               <Formik
-                initialValues={{ email: "", password: "",rememberMe:false }}
+                initialValues={{ email: "", password: "", rememberMe: false }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
                 {({ isSubmitting }) => (
-                  <Form className="w-full" >
+                  <Form className="w-full">
                     <div className="flex flex-col gap-y-1 w-[70%] m-auto items-start justify-center">
                       <div className="text-start  w-full  px-3 text-white">
                         <label className="text-[16px] font-[600] font-[Source Sans Pro]">
@@ -188,12 +189,13 @@ const SignIn = () => {
                   <img src={face} className="w-[24px] h-[24px]" />
                   <p>Facebook</p>
                 </div>
-                <a 
-                 href="https://mail.google.com" // Replace with the appropriate Gmail URL
-              target="/" // Opens the link in a new tab/window
-              rel="noopener noreferrer" // Recommended for security reasons
-                
-                type="button" className="flex  text-white items-center gap-x-2">
+                <a
+                  href="https://mail.google.com" // Replace with the appropriate Gmail URL
+                  target="/" // Opens the link in a new tab/window
+                  rel="noopener noreferrer" // Recommended for security reasons
+                  type="button"
+                  className="flex  text-white items-center gap-x-2"
+                >
                   <img src={Frame} className="w-[24px] h-[24px]" />
                   <p>Google</p>
                 </a>

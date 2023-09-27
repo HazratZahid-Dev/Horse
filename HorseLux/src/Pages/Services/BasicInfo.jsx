@@ -13,27 +13,25 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
+// import { storage } from "../../config/firebase";
 
 let token = localStorage.getItem("token");
 let user = localStorage.getItem("user");
 const BasicInfo = ({ id }) => {
-  // const getData=async (req, res)=>{
-  // let data =await axios.post("url",body,{
-  // headers:{
-  // Authorisation: `Bearer ${token}`
-  // }
-  // })
-  // }
-
-  //   useEffect(()=>{
-  // getData()
-  //   },[])
-  // const header:{
-  // heaerid:"r34534646"
-  // }
-
   const HandleSubmit = async (values) => {
-    console.log(selectedFile);
+    // console.log(selectedFile);
+    // const storageRef = storage.ref();
+    // const fileRef = storageRef.child(selectedFile.name);
+    // fileRef.put(selectedFile).then((snapshot) => {
+    //   console.log("File uploaded:", snapshot.metadata.fullPath);
+    //   // Get the download URL of the uploaded file
+    //   fileRef.getDownloadURL().then((downloadURL) => {
+    //     console.log("File download URL:", downloadURL);
+    //   });
+    // });
+
+
+
     // console.log(values);
     // const response = await axios.post(
     //   `${baseUrl}/addnewhorse-data`,
@@ -60,10 +58,12 @@ const BasicInfo = ({ id }) => {
     // );
     // console.log(response);
   };
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
+
+  {/* testing */}
+  // const [selectedFile, setSelectedFile] = useState(null);
+  // const handleFileChange = (e) => {
+  //   setSelectedFile(e.target.files[0]);
+  // };
   return (
     <div className="flex">
       <Sidebar />
@@ -71,7 +71,8 @@ const BasicInfo = ({ id }) => {
         <h1 className="text-[20px] w-full text-[#000032] font-[700] text-center font-[Quicksand]">
           Basic Info
         </h1>
-        <input type="file" onChange={handleFileChange} />
+        {/* testing */}
+        {/* <input type="file" onChange={handleFileChange} /> */}
         <Formik
           initialValues={{
             neckName: "",

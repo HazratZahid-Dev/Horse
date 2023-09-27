@@ -16,6 +16,7 @@
     "@mui/material": "^5.14.8",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.5.0",
+    "firebase": "^10.4.0",
     "formik": "^2.4.3",
     "material-ui-popup-state": "^5.0.9",
     "mui-react": "^0.0.10",
