@@ -25,7 +25,7 @@ const ContactInfo = () => {
     setSelectedSex(sex);
     setAnchorSex(null);
   };
-  const { _id } = useParams(); 
+  const {_id} = useParams(); 
 
   console.log('my iddddddddddd',_id)
   // fetch data from api
@@ -45,8 +45,8 @@ const ContactInfo = () => {
   // };
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/userdata`, responseData);
-      // /${_id}
+      const response = await axios.get(`${baseUrl}/userdata/${_id}`, responseData);
+      // /}
       console.log(response.data);
       setResponseData(response.data.contacts);
     } catch (err) {
