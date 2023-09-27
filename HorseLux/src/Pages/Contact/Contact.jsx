@@ -8,12 +8,15 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import OwnerGroup from "./OwnerGroup";
-import '../../Style/Scrollbar.css'
+import "../../Style/ContactScroll.css";
 import axios from "axios";
+import { baseUrl } from "../../config/BaseUrl";
 const Contact = () => {
   const [activeButton, setActiveButton] = useState("contacts");
   const [showContact, setShowContact] = useState(true);
   const [showOwner, setshowOwner] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -45,21 +48,20 @@ const Contact = () => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-
-  // get Data 
+  // get Data
 
   const [responseData, setResponseData] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://hurseluxprojectupdate-production.up.railway.app/userdata`,responseData);
+      const response = await axios.get(`${baseUrl}/userdata`, responseData);
       console.log(response.data);
       setResponseData(response.data.contacts);
       console.log("My data********:", response.data);
     } catch (err) {
       setError(err);
-      console.log('errrrrrrr',err);
+      console.log("errrrrrrr", err);
     }
   };
 
@@ -75,12 +77,27 @@ const Contact = () => {
     const firstLetter = item.first_name.charAt(0).toUpperCase();
     if (!groupedData[firstLetter]) {
       groupedData[firstLetter] = [];
+      console.log("gorup dataaaaaaaaaaa", groupedData);
     }
     groupedData[firstLetter].push(item);
   });
 
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // search name in the contact
 
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // search data
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredContacts = responseData.filter((item) =>
+    `${item.first_name} ${item.last_name}`
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
+  );
+
+  console.log("dfdfdgfgtghhjhjjjhyhtyj", filteredContacts);
 
   return (
     <div className="flex ">
@@ -104,6 +121,8 @@ const Contact = () => {
                       id="voice-search"
                       class="bg-gray-50 outline-none shadow border-gray-300 text-gray-900 text-sm rounded-3xl  focus:border-blue-500 h-[45px] block w-[380px] p-3.5   "
                       placeholder="Search"
+                      value={searchQuery}
+                      onChange={handleSearch}
                     />
                     <button
                       type="button"
@@ -222,7 +241,7 @@ const Contact = () => {
           {showOwner && (
             <div className="flex items-center flex-row gap-x-3">
               <div>
-                <form class="flex items-center  w-auto">
+                {/* <form class="flex items-center  w-auto">
                   <label for="voice-search" class="sr-only">
                     Search
                   </label>
@@ -254,7 +273,7 @@ const Contact = () => {
                       </svg>
                     </button>
                   </div>
-                </form>
+                </form> */}
               </div>
               <div className="flex flex-row gap-x-3">
                 <MdFilterAlt
@@ -377,34 +396,45 @@ const Contact = () => {
 
         {/* page start */}
         {showContact && (
-         
+          <>
+            {" "}
+            <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
+              {alphabet.split("").map((letter) => (
+                <div key={letter}>
+                  {groupedData[letter] && (
+                    <div>
+                      <div>
+                        <h1 className="pt-3 font-bold ">{letter}</h1>
+                        <hr className="mt-3" />
+                      </div>
 
-       <>   <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
-      {alphabet.split('').map((letter) => (
-        <div key={letter}>
-          {groupedData[letter] && (
-            <div>
-              <div>
-                <h1 className="pt-3 font-bold ">{letter}</h1>
-                <hr className="mt-3" />
-              </div>
-
-              <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
-                {groupedData[letter].map((item, index) => (
-                  <div className="flex items-center space-y-3 justify-between" key={index}>
-                    <h1 className="text-[16px] font-[600]">{item.first_name} {item.last_name}</h1>
-                    <Link to="/contactinfo">
-                      <HiOutlineChevronRight className="text-lg" />
-                    </Link>
-                  </div>
-                ))}
-              </div>
+                      <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
+                        {groupedData[letter]
+                          .filter((item) =>
+                            `${item.first_name} ${item.last_name}`
+                              .toLowerCase()
+                              .includes(searchQuery.toLowerCase())
+                          )
+                          .map((item, index) => (
+                            <div
+                              className="flex items-center space-y-3 justify-between"
+                              key={index}
+                            >
+                              <h1 className="text-[16px] font-[600]">
+                                {item.first_name} {item.last_name}
+                              </h1>
+                              <Link to={`/contactinfo/${item._id}`}>
+                                <HiOutlineChevronRight className="text-lg" />
+                              </Link>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          )}
-        </div>
-      ))}
-    </div></>
-          
+          </>
         )}
         {showOwner && (
           <>

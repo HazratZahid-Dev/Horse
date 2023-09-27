@@ -13,6 +13,9 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "../config/BaseUrl";
+import { BiChevronRight } from "react-icons/bi";
+// import '../Style/ContactScroll.css'
+import '../../src/Style/Scrollbar.css'
 let token = localStorage.getItem("token");
 
 
@@ -60,7 +63,7 @@ const Dashboard = () => {
 
       <div className="flex w-full relative">
         {harry && (
-          <div className="space-y-4 w-full py-12 px-12">
+          <div className="space-y-4 w-full  overflow-y-auto py-12 px-12">
             {responseData.map((items) => (
               <div className="pr-44">
                 <div className="flex items-center justify-between ">
@@ -85,7 +88,7 @@ const Dashboard = () => {
                       onClick={toHorsesDetail}
                       className="text-xl cursor-pointer font-semibold text-[#000032]"
                     >
-                      {items.arrow}
+                      <BiChevronRight size={32}/>
                     </button>
                   </div>
                 </div>
