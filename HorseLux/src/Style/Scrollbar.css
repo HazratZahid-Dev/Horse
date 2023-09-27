@@ -13,7 +13,7 @@
   }
   
   .breadScroll::-webkit-scrollbar-track {
-    background-color: #000032; /* Set the color of the scrollbar track */
+    background-color: #ffffff; /* Set the color of the scrollbar track */
   }
   
   /* Hide the default scrollbar */

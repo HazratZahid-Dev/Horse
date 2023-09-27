@@ -70,13 +70,13 @@ const Dashboard = () => {
                       className="w-[106px] h-[106px] rounded-full"
                     />
                     <div>
-                      <p className="text-[24px] font-[600]">{items.name}</p>
+                      <p className="text-[24px] font-[600]">{items.neckName}</p>
                       <p className="text-[16px] font-[600] text-[#5B5B5B]">
                         <span className="text-black">Owner: </span>
                         {items.neckName}
                       </p>
                       <p className="text-[16px] font-[600] text-[#5B5B5B]">
-                        <span className="text-black">Sex:</span> {items.sex}
+                        <span className="text-black">Sex: {items.sex}</span> 
                       </p>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ const Dashboard = () => {
         </div>
 
         {showHorse && (
-          <div className="animate-slideInFromBottom m-auto">
+          <div className="animate-slideInFromBottom m-auto ">
             <Horses />
           </div>
         )}
