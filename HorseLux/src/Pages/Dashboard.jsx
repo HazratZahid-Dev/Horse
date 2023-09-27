@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/addnewhorse-data`, {
+      const response = await axios.get(`${baseUrl}/addnewhorse-data/${User._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const Dashboard = () => {
       <div className="flex w-full relative">
         {harry && (
           <div className="space-y-4 w-full py-12 px-12">
-            {Newdata.map((items) => (
+            {responseData.map((items) => (
               <div className="pr-44">
                 <div className="flex items-center justify-between ">
                   <div className="flex items-center gap-x-4 ">
@@ -71,7 +71,7 @@ const Dashboard = () => {
                       <p className="text-[24px] font-[600]">{items.name}</p>
                       <p className="text-[16px] font-[600] text-[#5B5B5B]">
                         <span className="text-black">Owner: </span>
-                        {items.onwer}
+                        {items.neckName}
                       </p>
                       <p className="text-[16px] font-[600] text-[#5B5B5B]">
                         <span className="text-black">Sex:</span> {items.sex}
