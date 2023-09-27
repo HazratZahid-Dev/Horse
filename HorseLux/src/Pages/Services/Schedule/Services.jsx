@@ -10,7 +10,8 @@ import { contactType, eventType } from "../../../config/Horses";
 const Services = () => {
 const [value,setValue]=useState()
 const params= useLocation()
-console.log(params.state.value);
+// console.log(params.state.value);
+console.log(params.state && params.state.value);
   const navigate = useNavigate();
   const toHome = () => {
     navigate("/dashboard");
@@ -31,14 +32,6 @@ console.log(params.state.value);
     setSelectedBreed(breed);
     setAnchorEl(null);
   };
-
-
-
- 
-
- 
-
-  
 
   return (
     <div className="flex">
