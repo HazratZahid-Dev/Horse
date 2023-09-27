@@ -26,12 +26,14 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
+      console.log(User);
       const response = await axios.get(`${baseUrl}/addnewhorse-data/${User._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setResponseData(response.data);
+      console.log(response.data.horses);
+      setResponseData(response.data.horses);
       console.log("My data********:", response.data);
     } catch (err) {
       setError(err);
