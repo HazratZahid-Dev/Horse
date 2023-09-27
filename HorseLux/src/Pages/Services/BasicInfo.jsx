@@ -13,6 +13,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
+
 let token = localStorage.getItem("token");
 let user = localStorage.getItem("user");
 const BasicInfo = ({ id }) => {
@@ -32,33 +33,37 @@ const BasicInfo = ({ id }) => {
   // }
 
   const HandleSubmit = async (values) => {
-    console.log(values);
-    const response = await axios.post(
-      `${baseUrl}/addnewhorse-data`,
-      {
-        neckName: values.neckName,
-        showName: values.showName,
-        owner: values.owner,
-        ownerId: "1234",
-        billPayer: values.billPayer,
-        billPayerId: "5678",
-        bread: values.breed,
-        color: values.color,
-        sex: values.sex,
-        img: values.file,
-        microchip: values.chip,
-        paddockLocation: values.paddockLocation,
-        stallNotes: values.stallNotes,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    console.log(response);
+    console.log(selectedFile);
+    // console.log(values);
+    // const response = await axios.post(
+    //   `${baseUrl}/addnewhorse-data`,
+    //   {
+    //     neckName: values.neckName,
+    //     showName: values.showName,
+    //     owner: values.owner,
+    //     ownerId: "1234",
+    //     billPayer: values.billPayer,
+    //     billPayerId: "5678",
+    //     bread: values.breed,
+    //     color: values.color,
+    //     sex: values.sex,
+    //     img: values.file,
+    //     microchip: values.chip,
+    //     paddockLocation: values.paddockLocation,
+    //     stallNotes: values.stallNotes,
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   }
+    // );
+    // console.log(response);
   };
-
+  const [selectedFile, setSelectedFile] = useState(null);
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
   return (
     <div className="flex">
       <Sidebar />
@@ -66,6 +71,7 @@ const BasicInfo = ({ id }) => {
         <h1 className="text-[20px] w-full text-[#000032] font-[700] text-center font-[Quicksand]">
           Basic Info
         </h1>
+        <input type="file" onChange={handleFileChange} />
         <Formik
           initialValues={{
             neckName: "",

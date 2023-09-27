@@ -22,7 +22,12 @@ import ResetPassword from "../src/Pages/User/ResetPassword";
 import SignIn from "../src/Pages/User/SignIn";
 import SignUp from "../src/Pages/User/SignUp";
 import "./index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import UploadContact from "./Pages/Services/Contact/UploadContact";
 import Breading from "./Pages/Services/Breading/Breading";
 import MilkTest from "./Pages/Services/Breading/MilkTest";
@@ -84,22 +89,60 @@ import Profile from "./Drawer/Profile";
 import AboutUs from "./Drawer/AboutUs";
 import ContactUs from "./Drawer/ContactUs";
 import Subscription from "./Drawer/Subscription/Subscription";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ProtectedRoute from "./Compunents/ProtectedRoute";
 import HorseSelection from "./Compunents/HorseSelection/HorseSelection";
+import { useEffect } from "react";
+import { SetAuth } from "./store/Slices/AuthSlice";
+import LoginProtectedRoute from "./Compunents/LoginProtectedRoute";
+import { useState } from "react";
 // import HorseOwnerReport from './Pages/Report/HorseOwnerReport';
 // import AddServicesRecord from './Compunents/AddServicesRecord';
+let user = localStorage.getItem("user");
 
 function App() {
+  const dispatch = useDispatch();
+  const [Loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(SetAuth(JSON.parse(user)));
+    }
+    setInterval(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
   return (
     <>
       <Router>
         <NavBar />
         <div>
           <Routes>
-            <Route path="/temp" element={<HorseSelection headingText={"Horse Selection"} navigateTo={"/signin"} />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route
+              path="/temp"
+              element={
+                <HorseSelection
+                  headingText={"Horse Selection"}
+                  navigateTo={"/signin"}
+                />
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <LoginProtectedRoute>
+                  <Home />
+                </LoginProtectedRoute>
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <LoginProtectedRoute>
+                  <SignIn />
+                </LoginProtectedRoute>
+              }
+            />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/otp/:email" element={<OTP />} />
             <Route path="/resetpassword/:email" element={<ResetPassword />} />
