@@ -77,20 +77,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
           <hr className="mt-6" />
           <div className="flex items-center  mt-5 justify-between">
             <h3 className="text-[20px] font-[700] ">Select Horse</h3>
-            <div className="flex gap-x-2">
-              {/* select all */}
-              <label className="text-[15px] font-[600]">Select all</label>
-              <Checkbox
-                icon={<RadioButtonUncheckedIcon />}
-                checkedIcon={<RadioButtonCheckedIcon />}
-                onChange={toggleSelectAll}
-              />
-              {/* <input
-                type="radio"
-                checked={selectAll}
-                onChange={toggleSelectAll}
-              /> */}
-            </div>
+            
           </div>
           <div className="flex h-[45px] bg-[#F4F6F9] mt-5 w-full items-center justify-between border shadow-sm rounded-3xl px-4">
             <input
@@ -117,8 +104,8 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                       </p>
                     </div>
                     <Checkbox
-                      icon={<RadioButtonUncheckedIcon />}
-                      checkedIcon={<RadioButtonCheckedIcon />}
+                      icon={<RadioButtonUncheckedIcon style={{fontSize:"1.3rem"}} />}
+                      checkedIcon={<RadioButtonCheckedIcon style={{fontSize:"1.3rem"}} />}
                       value={items.name}
                       onChange={handleOptionChange}
                       checked={selectedOptions.includes(items.name)}
