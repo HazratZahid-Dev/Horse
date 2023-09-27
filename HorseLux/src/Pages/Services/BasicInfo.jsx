@@ -13,57 +13,61 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
+import { listAll, ref, uploadBytes } from "firebase/storage";
+// import { storage } from "../../config/firebase";
+import { v4 } from "uuid";
+import { storage } from "../../config/firebase";
 // import { storage } from "../../config/firebase";
 
 let token = localStorage.getItem("token");
 let user = localStorage.getItem("user");
 const BasicInfo = ({ id }) => {
+  const imageListRef = ref(storage, "horses/");
+
   const HandleSubmit = async (values) => {
-    // console.log(selectedFile);
-    // const storageRef = storage.ref();
-    // const fileRef = storageRef.child(selectedFile.name);
-    // fileRef.put(selectedFile).then((snapshot) => {
-    //   console.log("File uploaded:", snapshot.metadata.fullPath);
-    //   // Get the download URL of the uploaded file
-    //   fileRef.getDownloadURL().then((downloadURL) => {
-    //     console.log("File download URL:", downloadURL);
-    //   });
-    // });
-
-
-
-    // console.log(values);
-    // const response = await axios.post(
-    //   `${baseUrl}/addnewhorse-data`,
-    //   {
-    //     neckName: values.neckName,
-    //     showName: values.showName,
-    //     owner: values.owner,
-    //     ownerId: "1234",
-    //     billPayer: values.billPayer,
-    //     billPayerId: "5678",
-    //     bread: values.breed,
-    //     color: values.color,
-    //     sex: values.sex,
-    //     img: values.file,
-    //     microchip: values.chip,
-    //     paddockLocation: values.paddockLocation,
-    //     stallNotes: values.stallNotes,
-    //   },
-    //   {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   }
-    // );
-    // console.log(response);
+    console.log(selectedFile);
+    if (selectedFile === null) return;
+    const imageName = v4();
+    const imageRef = storage.ref(`/horses/${imageName}`);
+    try {
+      const snapshot = await imageRef.put(selectedFile);
+      const downloadURL = await snapshot.ref.getDownloadURL();
+      const response = await axios.post(
+        `${baseUrl}/addnewhorse-data`,
+        {
+          neckName: values.neckName,
+          showName: values.showName,
+          owner: values.owner,
+          ownerId: "1234",
+          billPayer: values.billPayer,
+          billPayerId: "5678",
+          bread: values.breed,
+          color: values.color,
+          sex: values.sex,
+          img: downloadURL,
+          microchip: values.chip,
+          paddockLocation: values.paddockLocation,
+          stallNotes: values.stallNotes,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  {/* testing */}
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const handleFileChange = (e) => {
-  //   setSelectedFile(e.target.files[0]);
-  // };
+  {
+    /* testing */
+  }
+  const [selectedFile, setSelectedFile] = useState(null);
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
   return (
     <div className="flex">
       <Sidebar />
@@ -72,7 +76,7 @@ const BasicInfo = ({ id }) => {
           Basic Info
         </h1>
         {/* testing */}
-        {/* <input type="file" onChange={handleFileChange} /> */}
+
         <Formik
           initialValues={{
             neckName: "",
@@ -317,13 +321,19 @@ const BasicInfo = ({ id }) => {
                   </label>
                   <input
                     type="file"
+                    onChange={handleFileChange}
+                    className="flex items-center justify-center outline-none h-[44px] rounded-[10px] py-1 px-2"
+                  />
+
+                  {/* <input
+                    type="file"
+                    className="flex items-center justify-center outline-none h-[44px] rounded-[10px] py-1 px-2"
                     name="file"
                     accept="image/*"
-                    className="flex items-center justify-center outline-none h-[44px] rounded-[10px] py-1 px-2"
                     onChange={(e) => {
                       setFieldValue("file", e.currentTarget.value);
                     }}
-                  />
+                  /> */}
                 </div>
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
