@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Sidebar from "../../Compunents/Sidebar";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
@@ -17,15 +17,18 @@ import { listAll, ref, uploadBytes } from "firebase/storage";
 // import { storage } from "../../config/firebase";
 import { v4 } from "uuid";
 import { storage } from "../../config/firebase";
+import FormLoader from "../../Compunents/Loader/FormLoader";
 // import { storage } from "../../config/firebase";
 
 let token = localStorage.getItem("token");
 let user = localStorage.getItem("user");
 const BasicInfo = ({ id }) => {
   const imageListRef = ref(storage, "horses/");
+  const fileInputRef = useRef(null);
+  const [AddingLoader, setAddingLoader] = useState(false);
 
-  const HandleSubmit = async (values) => {
-    console.log(selectedFile);
+  const HandleSubmit = async (values, { resetForm }) => {
+    setAddingLoader(true);
     if (selectedFile === null) return;
     const imageName = v4();
     const imageRef = storage.ref(`/horses/${imageName}`);
@@ -55,10 +58,16 @@ const BasicInfo = ({ id }) => {
           },
         }
       );
-      console.log(response);
+      if (response.status === 200) {
+        resetForm();
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ""; // Reset the value to an empty string
+        }
+      }
     } catch (err) {
       console.log(err);
     }
+    setAddingLoader(false);
   };
 
   {
@@ -321,19 +330,10 @@ const BasicInfo = ({ id }) => {
                   </label>
                   <input
                     type="file"
+                    ref={fileInputRef}
                     onChange={handleFileChange}
                     className="flex items-center justify-center outline-none h-[44px] rounded-[10px] py-1 px-2"
                   />
-
-                  {/* <input
-                    type="file"
-                    className="flex items-center justify-center outline-none h-[44px] rounded-[10px] py-1 px-2"
-                    name="file"
-                    accept="image/*"
-                    onChange={(e) => {
-                      setFieldValue("file", e.currentTarget.value);
-                    }}
-                  /> */}
                 </div>
                 <div className="flex flex-col">
                   <label className="text-[16px] py-1 px-2 font-[600] text-[#2C3A4B]">
@@ -420,12 +420,16 @@ const BasicInfo = ({ id }) => {
                 </div>
               </div>
               <div className="flex items-center justify-center mt-2">
-                <button
-                  type="submit"
-                  className="bg-[#000032] w-[382px] text-[18px] font-[600] font-[Source Sans Pro] h-[55px] rounded-full text-white"
-                >
-                  Add
-                </button>
+                {AddingLoader ? (
+                  <FormLoader />
+                ) : (
+                  <button
+                    type="submit"
+                    className="bg-[#000032] w-[382px] text-[18px] font-[600] font-[Source Sans Pro] h-[55px] rounded-full text-white"
+                  >
+                    Add
+                  </button>
+                )}
               </div>
             </Form>
           )}

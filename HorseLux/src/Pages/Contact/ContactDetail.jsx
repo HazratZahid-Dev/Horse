@@ -13,7 +13,6 @@ const token = localStorage.getItem("token");
 const ContactDetail = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedBreed, setSelectedBreed] = useState("");
-  const [title, setTitle] = useState("");
   const [PrimaryPhone, setPrimaryPhone] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -22,23 +21,46 @@ const ContactDetail = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      `${baseUrl}/add-contact-data`,
-      {
-        contact_type: selectedBreed,
-        title: selectedProperty,
-        first_name: FirstName,
-        last_name: LastName,
-        primary_phone: PrimaryPhone,
-        email: Email,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+    try {
+      if (
+        selectedBreed !== "" &&
+        PrimaryPhone !== "" &&
+        FirstName !== "" &&
+        LastName !== "" &&
+        Email !== "" &&
+        selectedProperty !== ""
+      ) {
+        const response = await axios.post(
+          `${baseUrl}/add-contact-data`,
+          {
+            contact_type: selectedBreed,
+            title: selectedProperty,
+            first_name: FirstName,
+            last_name: LastName,
+            primary_phone: PrimaryPhone,
+            email: Email,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        if (response.status === 200) {
+          alert("Contact Added Successfully...");
+          setSelectedBreed("");
+          setPrimaryPhone("");
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setSelectedProperty("");
+        }
+      } else {
+        alert("All Fields are Mandatory!");
       }
-    );
-    console.log(response);
+    } catch (err) {
+      console.log("Error: ", err);
+    }
   };
 
   const handleClick = (event) => {
