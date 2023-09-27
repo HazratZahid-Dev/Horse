@@ -366,7 +366,7 @@ const Contact = () => {
             type="button"
             className={`px-4 py-2 text-sm bg-white font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
               activeButton === "ownerGroup"
-                ? " bg-[#181839] text-white"
+                ? " bg-[#181833] text-white"
                 : "bg-white text-gray-900"
             }`}
             onClick={ownerGroup}
