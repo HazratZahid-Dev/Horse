@@ -97,7 +97,7 @@ const Contact = () => {
       .includes(searchQuery.toLowerCase())
   );
 
-  console.log("dfdfdgfgtghhjhjjjhyhtyj", filteredContacts);
+  // console.log("dfdfdgfgtghhjhjjjhyhtyj", filteredContacts);
 
   return (
     <div className="flex ">
@@ -241,7 +241,7 @@ const Contact = () => {
           {showOwner && (
             <div className="flex items-center flex-row gap-x-3">
               <div>
-                {/* <form class="flex items-center  w-auto">
+                <form class="flex items-center  w-auto">
                   <label for="voice-search" class="sr-only">
                     Search
                   </label>
@@ -273,7 +273,7 @@ const Contact = () => {
                       </svg>
                     </button>
                   </div>
-                </form> */}
+                </form>
               </div>
               <div className="flex flex-row gap-x-3">
                 <MdFilterAlt
@@ -385,7 +385,7 @@ const Contact = () => {
             type="button"
             className={`px-4 py-2 text-sm bg-white font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
               activeButton === "ownerGroup"
-                ? " bg-[#181833] text-white"
+                ? " bg-[#1b1b41] text-white"
                 : "bg-white text-gray-900"
             }`}
             onClick={ownerGroup}
@@ -395,7 +395,7 @@ const Contact = () => {
         </div>
 
         {/* page start */}
-        {showContact && (
+        {/* {showContact && (
           <>
             {" "}
             <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
@@ -435,7 +435,52 @@ const Contact = () => {
               ))}
             </div>
           </>
-        )}
+        )} */}
+        {showContact && (
+  <>
+    <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
+      {alphabet.split("").map((letter) => (
+        <div key={letter}>
+          {groupedData[letter] &&
+            groupedData[letter].some((item) =>
+              `${item.first_name} ${item.last_name}`
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+            ) && (
+            <div>
+              <div>
+                <h1 className="pt-3 font-bold ">{letter}</h1>
+                <hr className="mt-3" />
+              </div>
+
+              <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
+                {groupedData[letter]
+                  .filter((item) =>
+                    `${item.first_name} ${item.last_name}`
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase())
+                  )
+                  .map((item, index) => (
+                    <div
+                      className="flex items-center space-y-3 justify-between"
+                      key={index}
+                    >
+                      <h1 className="text-[16px] font-[600]">
+                        {item.first_name} {item.last_name}
+                      </h1>
+                      <Link to={`/contactinfo/${item._id}`}>
+                        <HiOutlineChevronRight className="text-lg" />
+                      </Link>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </>
+)}
         {showOwner && (
           <>
             <OwnerGroup />
