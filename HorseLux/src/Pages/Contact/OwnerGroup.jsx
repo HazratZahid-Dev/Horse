@@ -30,7 +30,26 @@ const OwnerGroup = () => {
       const response = await axios.get(`${baseUrl}/groups/${User.data._id}`, responseData);
       console.log('reerfefefeferferferferv',response.data.results);
       setResponseData(response.data.results);
-      console.log("My data in arrays::::::::::::", response.data.results);
+      let data=response.data.results
+  
+    
+    data.forEach(item => {
+        const shares = item.shares;
+    
+        // Now you can access the values within the "shares" object
+        for (const key in shares) {
+            if (shares.hasOwnProperty(key)) {
+                const value = shares[key];
+               console.log(value);
+            }
+        }
+    })
+    
+    
+    
+    
+    
+    
 
       console.log('responseeeeeeeeeeeeeeeeeeeeeeeeeee:',responseData)
     } catch (err) {
@@ -57,15 +76,26 @@ const OwnerGroup = () => {
         {/* page start */}
 
            {
-            responseData.map((items)=>(
+            responseData.map((items,index)=>(
               <div className="w-1/3"> 
                 <hr className=" mt-12 border-t-2 text-lg" />
 
-                <h1 className="pt-4 font-[700] text-[20px]">Group 1</h1>
-                <div className=" flex justify-between">
+                <h1 className="pt-4 font-[700] text-[20px]">Group {index}</h1>
+                <div className=" flex justify-between items-center">
                     <div>
-                    <p className="pt-2">{items.name}</p>
-                    <p className="">Horses: Harry,Ferris</p>
+                    <p className="pt-2 text-[18px]  font-[600]"><span>Owner:</span> 
+                    {
+                      
+                    
+                      Object.entries(items.shares).map(([key, value]) => (
+                            <p key={key} className="flex">
+                                {key}: {value}
+                            </p>
+                        ))
+
+                    }
+                 </p>
+                    <p className=" text-[18px] font-[600]">Horses: Harry,Ferris</p>
                     </div>
                     <div className="pt-3">
                     <HiOutlineChevronRight className="text-lg cursor-pointer"  onClick={newOnwerGroup}/>

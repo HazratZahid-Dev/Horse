@@ -22,7 +22,7 @@
   }
   
   /* Optional: Hide the scrollbar in WebKit browsers */
-  .::-webkit-scrollbar {
+  .breadScroll::-webkit-scrollbar {
     display: none;
   }
   

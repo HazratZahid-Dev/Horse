@@ -163,7 +163,6 @@ const NewOwner = () => {
                                 <br />
                                 <Field
                                   type="text"
-                                onClick
                                   name={`shares[${index}].owner`}
                                   placeholder="Select"
                                   className="py-1 w-full px-3 mt-1 outline-none h-9 rounded-[10px]"
