@@ -409,7 +409,7 @@ function App() {
                 }
               />
               <Route
-                path="/contactinfo"
+               path="/contactinfo/:_id"
                 element={
                   <ProtectedRoute>
                     <ContactInfo />

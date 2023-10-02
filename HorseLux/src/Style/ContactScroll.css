@@ -9,11 +9,11 @@
   }
   
   .breadScroll::-webkit-scrollbar-thumb:hover {
-    background-color: #cccccc; /* Change the thumb color on hover */
+    background-color: #ffffff; /* Change the thumb color on hover */
   }
   
   .breadScroll::-webkit-scrollbar-track {
-    background-color: #000032; /* Set the color of the scrollbar track */
+    background-color: #ffffff; /* Set the color of the scrollbar track */
   }
   
   /* Hide the default scrollbar */
