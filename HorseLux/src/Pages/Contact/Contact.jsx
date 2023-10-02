@@ -437,50 +437,50 @@ const Contact = () => {
           </>
         )} */}
         {showContact && (
-  <>
-    <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
-      {alphabet.split("").map((letter) => (
-        <div key={letter}>
-          {groupedData[letter] &&
-            groupedData[letter].some((item) =>
-              `${item.first_name} ${item.last_name}`
-                .toLowerCase()
-                .includes(searchQuery.toLowerCase())
-            ) && (
-            <div>
-              <div>
-                <h1 className="pt-3 font-bold ">{letter}</h1>
-                <hr className="mt-3" />
-              </div>
+          <>
+            <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
+              {alphabet.split("").map((letter) => (
+                <div key={letter}>
+                  {groupedData[letter] &&
+                    groupedData[letter].some((item) =>
+                      `${item.first_name} ${item.last_name}`
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())
+                    ) && (
+                      <div>
+                        <div>
+                          <h1 className="pt-3 font-bold ">{letter}</h1>
+                          <hr className="mt-3" />
+                        </div>
 
-              <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
-                {groupedData[letter]
-                  .filter((item) =>
-                    `${item.first_name} ${item.last_name}`
-                      .toLowerCase()
-                      .includes(searchQuery.toLowerCase())
-                  )
-                  .map((item, index) => (
-                    <div
-                      className="flex items-center space-y-3 justify-between"
-                      key={index}
-                    >
-                      <h1 className="text-[16px] font-[600]">
-                        {item.first_name} {item.last_name}
-                      </h1>
-                      <Link to={`/contactinfo/${item._id}`}>
-                        <HiOutlineChevronRight className="text-lg" />
-                      </Link>
-                    </div>
-                  ))}
-              </div>
+                        <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
+                          {groupedData[letter]
+                            .filter((item) =>
+                              `${item.first_name} ${item.last_name}`
+                                .toLowerCase()
+                                .includes(searchQuery.toLowerCase())
+                            )
+                            .map((item, index) => (
+                              <div
+                                className="flex items-center space-y-3 justify-between"
+                                key={index}
+                              >
+                                <h1 className="text-[16px] font-[600]">
+                                  {item.first_name} {item.last_name}
+                                </h1>
+                                <Link to={`/contactinfo/${item._id}`}>
+                                  <HiOutlineChevronRight className="text-lg" />
+                                </Link>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    )}
+                </div>
+              ))}
             </div>
-          )}
-        </div>
-      ))}
-    </div>
-  </>
-)}
+          </>
+        )}
         {showOwner && (
           <>
             <OwnerGroup />

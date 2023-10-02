@@ -85,7 +85,7 @@ const NewOwner = () => {
                   .post(`${baseUrl}/groups`,modifiedValues,{headers:{Authorization:`Bearer ${token}`}})
                   .then((response) => {
                     console.log("Response from server:", response.data);
-                    alert("Contact Added Successfully...");
+                    alert("Owner Group Added Successfully...");
                     // navigate("/groupinfomember");
                   })
                   .catch((error) => {
