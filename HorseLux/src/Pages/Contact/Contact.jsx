@@ -3,12 +3,12 @@ import Sidebar from "../../Compunents/Sidebar";
 import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import OwnerGroup from "./OwnerGroup";
-import '../../Style/Scrollbar.css'
+import "../../Style/Scrollbar.css";
 import axios from "axios";
 const Contact = () => {
   const [activeButton, setActiveButton] = useState("contacts");
@@ -16,6 +16,11 @@ const Contact = () => {
   const [showOwner, setshowOwner] = useState(false);
 
   const navigate = useNavigate();
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const data = params.get("data");
+  const formData = JSON.parse(data);
+  console.log(formData);
 
   const ownerGroup = () => {
     setShowContact(false);
@@ -45,21 +50,23 @@ const Contact = () => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-
-  // get Data 
+  // get Data
 
   const [responseData, setResponseData] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://hurseluxprojectupdate-production.up.railway.app/userdata`,responseData);
+      const response = await axios.get(
+        `https://hurseluxprojectupdate-production.up.railway.app/userdata`,
+        responseData
+      );
       console.log(response.data);
       setResponseData(response.data.contacts);
       console.log("My data********:", response.data);
     } catch (err) {
       setError(err);
-      console.log('errrrrrrr',err);
+      console.log("errrrrrrr", err);
     }
   };
 
@@ -79,8 +86,7 @@ const Contact = () => {
     groupedData[firstLetter].push(item);
   });
 
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   return (
     <div className="flex ">
@@ -349,7 +355,6 @@ const Contact = () => {
           )}
         </div>
         {/* top menu End */}
-
         <div class="inline-flex rounded-md shadow-sm" role="group">
           <button
             onClick={handleContact}
@@ -377,34 +382,55 @@ const Contact = () => {
 
         {/* page start */}
         {showContact && (
-         
+          <>
+            {" "}
+            <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
+              {alphabet.split("").map((letter) => (
+                <div key={letter}>
+                  {groupedData[letter] && (
+                    <div>
+                      <div>
+                        <h1 className="pt-3 font-bold ">{letter}</h1>
+                        <hr className="mt-3" />
+                      </div>
 
-       <>   <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
-      {alphabet.split('').map((letter) => (
-        <div key={letter}>
-          {groupedData[letter] && (
-            <div>
-              <div>
-                <h1 className="pt-3 font-bold ">{letter}</h1>
-                <hr className="mt-3" />
-              </div>
-
-              <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
-                {groupedData[letter].map((item, index) => (
-                  <div className="flex items-center space-y-3 justify-between" key={index}>
-                    <h1 className="text-[16px] font-[600]">{item.first_name} {item.last_name}</h1>
-                    <Link to="/contactinfo">
-                      <HiOutlineChevronRight className="text-lg" />
-                    </Link>
-                  </div>
-                ))}
-              </div>
+                      <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
+                        {groupedData[letter].map((item, index) => (
+                          <div
+                            className="flex items-center space-y-3 justify-between"
+                            key={index}
+                          >
+                            <h1 className="text-[16px] font-[600]">
+                              {item.first_name} {item.last_name}
+                            </h1>
+                            {formData !== null ? (
+                              <div
+                              className="flex cursor-pointer"
+                                onClick={() => {
+                                  navigate(
+                                    `/basicInfo?data=${JSON.stringify({
+                                      ...formData,
+                                      owner: `${item.first_name} ${item.last_name}`,
+                                    })}`
+                                  );
+                                }}
+                              >
+                                <HiOutlineChevronRight className="text-lg" />
+                              </div>
+                            ) : (
+                              <Link to="/contactinfo">
+                                <HiOutlineChevronRight className="text-lg" />
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          )}
-        </div>
-      ))}
-    </div></>
-          
+          </>
         )}
         {showOwner && (
           <>
