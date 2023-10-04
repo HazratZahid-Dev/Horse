@@ -10,9 +10,12 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import { baseUrl } from "../../config/BaseUrl";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 let token = localStorage.getItem("token");
+
 const HorseSelection = ({ headingText, navigateTo }) => {
+  const User = useSelector((state) => state.auth);
   const [HorseData, setHorseData] = useState([]);
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -39,16 +42,14 @@ const HorseSelection = ({ headingText, navigateTo }) => {
   };
   const FetchData = async () => {
     const response = await axios.get(
-      `https://hurseluxprojectupdate-production.up.railway.app/addnewhorse-data/64d38f949ed7fb061dc22c70`,
+      `${baseUrl}/addnewhorse-data/${User.data._id}`,
       {
         headers: {
-          "Content-Type": "application/json", // Adjust the content type as needed
-          Authorization: "Bearer YourAccessToken", // Add any custom headers you need
+          Authorization: `Bearer ${token}`,
         },
       }
     );
-    console.log("Response", response);
-    // console.log(response.data);
+    setHorseData(response.data.horses);
   };
 
   FetchData();
@@ -77,7 +78,6 @@ const HorseSelection = ({ headingText, navigateTo }) => {
           <hr className="mt-6" />
           <div className="flex items-center  mt-5 justify-between">
             <h3 className="text-[20px] font-[700] ">Select Horse</h3>
-            
           </div>
           <div className="flex h-[45px] bg-[#F4F6F9] mt-5 w-full items-center justify-between border shadow-sm rounded-3xl px-4">
             <input
@@ -104,9 +104,17 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                       </p>
                     </div>
                     <Checkbox
-                      icon={<RadioButtonUncheckedIcon style={{fontSize:"1.3rem"}} />}
-                      checkedIcon={<RadioButtonCheckedIcon style={{fontSize:"1.3rem"}} />}
-                      value={items.name}
+                      icon={
+                        <RadioButtonUncheckedIcon
+                          style={{ fontSize: "1.3rem" }}
+                        />
+                      }
+                      checkedIcon={
+                        <RadioButtonCheckedIcon
+                          style={{ fontSize: "1.3rem" }}
+                        />
+                      }
+                      value={items._id}
                       onChange={handleOptionChange}
                       checked={selectedOptions.includes(items.name)}
                     />
@@ -117,7 +125,8 @@ const HorseSelection = ({ headingText, navigateTo }) => {
             ))}
           </div>
           <button
-            onClick={() => navigate(navigateTo)}
+            // onClick={() => navigate(navigateTo)}
+            onClick={() => console.log(selectedOptions)}
             className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
           >
             Next
