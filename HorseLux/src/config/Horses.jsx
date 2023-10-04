@@ -119,7 +119,7 @@ export const horse = [
 export const contact = [
   {
     id: 1,
-    link:"/contact",
+    link:"/contactdetail",
     img: horse14,
     text: "Contact",
   },

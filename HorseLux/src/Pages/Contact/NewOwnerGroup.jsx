@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../Compunents/Sidebar";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,18 +14,24 @@ import {
 } from "formik";
 import { baseUrl } from "../../config/BaseUrl";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { FaTrashAlt } from "react-icons/fa";
+import { asyncGetSingleOwnerGroup, asyncPostOwnerGroup } from "../../store/Slices/OwnerGroupSlice";
 let token = localStorage.getItem("token");
 
 const NewOwner = () => {
   const User = useSelector((state) => state.auth);
+  const {loading,error,ownerGroupData,ownerId} =useSelector(state=>state.ownerGroup)
+  const dispatch=useDispatch()
   // const userId = User._id;
   const navigate = useNavigate();
 
   const groupinfomember = () => {
     navigate("/groupinfomember");
   };
-
+useEffect(()=>{
+dispatch(asyncGetSingleOwnerGroup(User?.data?._id))
+},[dispatch])
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const open = Boolean(anchorEl);
@@ -34,7 +40,14 @@ const NewOwner = () => {
   const [groupMembers, setGroupMembers] = useState([
     { owner: "", percentage: "" },
   ]);
+  let ownerData=ownerGroupData && ownerGroupData?.find(it=>it._id===ownerId)
 
+  // const arrayData = Object.entries(ownerData && ownerData?.shares)?.map(([owner, percentage]) => ({
+  //   owner,
+  //   percentage,
+  // }));
+
+// console.log("dataaaaaaaaaaaaaaaaaaa",)
   const handleAddGroupMember = (e) => {
     e.preventDefault();
     setGroupMembers([...groupMembers, { owner: "", percentage: "" }]);
@@ -57,9 +70,18 @@ const NewOwner = () => {
       <Sidebar />
       <div className="w-full">
         <div className="px-10 pt-5">
-          <h2 className="text-[24px] leading-[36px] font-[700]">
+         <div className="flex items-center justify-between">
+         <h2 className="text-[24px] leading-[36px] font-[700]">
             NEW OWNER GROUP
           </h2>
+          <button className="bg-[#000032] text-white p-2 rounded-full">
+          <FaTrashAlt
+                  className="cursor-pointer hover:scale-110"
+                  size={20}
+                  // onClick={handleDeleteContact}
+                />
+          </button>
+         </div>
           <hr />
         </div>
 
@@ -68,30 +90,37 @@ const NewOwner = () => {
             <Formik
               initialValues={{
                 _id:uuidv4(),
-                name: "",
-                number: "",
+                name:ownerData?.name || "",
+                number:ownerData?.number || "",
                 // userId:userId,
-                shares: [{ owner: "", percentage: "" }],
-                comments: "",
+                // shares: Array.isArray(ownerData?.shares) ? ownerData.shares : [{ owner: "", percentage: "" }],
+                shares: arrayData || [{ owner: "", percentage: "" }],
+                comments:ownerData?.comments ||  "",
               }}
+              enableReinitialize={true}
               onSubmit={(values) => {
                 const transformedShares = {};
                 values.shares.forEach((share) => {
                   transformedShares[share.owner] = share.percentage;
                 });
                 const modifiedValues = { ...values, shares: transformedShares };
-
-                axios
-                  .post(`${baseUrl}/groups`,modifiedValues,{headers:{Authorization:`Bearer ${token}`}})
-                  .then((response) => {
-                    console.log("Response from server:", response.data);
-                    alert("Owner Group Added Successfully...");
-                    // navigate("/groupinfomember");
-                  })
-                  .catch((error) => {
-                    console.error("Error:", error);
-                  });
-                console.log(values);
+// if(ownerData){
+//   dispatch(editApiCall)
+// }else{
+//   // da lande bande k pake 
+// }
+dispatch(asyncPostOwnerGroup(modifiedValues))
+              //   axios
+              //     .post(`${baseUrl}/groups`,modifiedValues,{headers:{Authorization:`Bearer ${token}`}})
+              //     .then((response) => {
+              //       console.log("Response from server:", response.data);
+              //       alert("Owner Group Added Successfully...");
+              //       // navigate("/groupinfomember");
+              //     })
+              //     .catch((error) => {
+              //       console.error("Error:", error);
+              //     });
+              //   console.log(values);
               }}
             >
               {({ values, handleSubmit, handleAddGroupMember }) => (
@@ -124,35 +153,11 @@ const NewOwner = () => {
                   </div>
                   <div className="flex justify-between mt-2">
                     <div className="flex flex-col w-[45%]">
-                      {/* {groupMembers.map((member, index) => (
-            
-            <div key={index} className="w-full border  shadow-md mt-4 px-2 py-3 rounded-[10px]">
-              <label className="px-[14px] text-[16px] font-[600]">Owner</label>
-              <br />
-              <input
-                type="text"
-                placeholder="Select"
-                className="py-1 w-full px-3 mt-1 outline-none h-9 rounded-[10px]"
-                value={member.owner}
-                onChange={(e) => handleOwnerChange(index, e.target.value)}
-              ></input>
-              <label className="px-[14px] text-[16px] font-[600]">Percentage</label>
-              <br />
-              <input
-                type="text"
-                placeholder="0%"
-                className="py-1 w-full px-3 mt-1 outline-none h-9 rounded-[10px]"
-                value={member.percentage}
-                onChange={(e) => handlePercentageChange(index, e.target.value)}
-              ></input>
-            </div>
-          
-       
-        ))} */}
+                    
                       <FieldArray name="shares">
                         {(arrayHelpers) => (
                           <div>
-                            {values.shares.map((member, index) => (
+                             {values?.shares?.map((member, index) => (
                               <div
                                 key={index}
                                 className="w-full border  shadow-md mt-4 px-2 py-3 rounded-[10px]"
@@ -188,7 +193,7 @@ const NewOwner = () => {
                                   className="text-red-500 text-sm mt-1"
                                 />
                               </div>
-                            ))}
+                            ))} 
                             <div className="flex items-center mt-1">
                               <button
                                 type="button"
@@ -241,7 +246,7 @@ const NewOwner = () => {
                     // onClick={groupinfomember}
                     className="bg-[#000032] w-1/2 mt-2 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
                   >
-                    Save
+                    {ownerData ? "update" :"save"}
                   </button>
                 </Form>
               )}

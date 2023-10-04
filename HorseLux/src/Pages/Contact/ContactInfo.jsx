@@ -6,7 +6,7 @@ import h from "../../Images/h.png";
 import { useState } from "react";
 import axios from "axios";
 import { AiOutlineMail } from "react-icons/ai";
-import { useParams,useNavigate,useHistory } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { baseUrl } from "../../config/BaseUrl";
 import { FaTrashAlt } from "react-icons/fa";
 // import { useParams, Link,  } from "react-router-dom";
@@ -56,7 +56,7 @@ const ContactInfo = () => {
 
   const specificItem = responseData.find((item) => item._id === _id);
 
-  console.log("idddd",specificItem);
+  console.log("idddd", specificItem);
 
   const handleDeleteContact = async () => {
     try {
@@ -65,23 +65,21 @@ const ContactInfo = () => {
       );
       if (response.status === 200) {
         console.log("Contact deleted successfully.");
-        alert("deleted successfully")
+        alert("deleted successfully");
       }
     } catch (error) {
       console.error("Error deleting contact:", error);
     }
   };
-  console.log('the specific person id is ::::::',specificItem);
-  const navigate=useNavigate()
-  const history = useHistory();
+  console.log("the specific person id is ::::::", specificItem);
+  const navigate = useNavigate();
+  // const history = useHistory();
 
   const toContactdetail = () => {
-    // Navigate to ContactDetail with specificItem's ID
-    history.push(`/contactdetail/${specificItem._id}`);
+    navigate(`/contactdetail`, { state: { id: specificItem?._id } });
 
-    console.log('click meeeeeeee');
+    console.log("click meeeeeeee");
   };
-
 
   return (
     <div className="flex">
@@ -90,8 +88,6 @@ const ContactInfo = () => {
         <h1 className="text-[30px] font-[700] text-[#000000] text-center">
           CONTACTS
         </h1>
-     
-
 
         {specificItem && (
           <>
@@ -104,18 +100,21 @@ const ContactInfo = () => {
                 <h1 className=" text-[18px] font-[700]">Horse Owner</h1>
               </div>
               <div className="flex gap-x-4">
-                <button type="button"
+                <button
+                  type="button"
                   // to="/contactdetail"
                   onClick={toContactdetail}
-                  className="cursor-pointer hover:scale-110"
+                  className="cursor-pointer hover:scale-110 bg-[#000032] text-white p-2 rounded-full"
                 >
                   <BiEdit size={24} />
                 </button>
-                <FaTrashAlt
-                  className="cursor-pointer hover:scale-110"
-                  size={20}
-                  onClick={handleDeleteContact}
-                />{" "}
+                <button className=" cursor-pointer hover:scale-110 bg-[#000032] text-white p-2 rounded-full">
+                  <FaTrashAlt
+                    className=""
+                    size={24}
+                    onClick={handleDeleteContact}
+                  />
+                </button>
               </div>
             </div>
 

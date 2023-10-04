@@ -12,7 +12,7 @@ import "../../Style/ContactScroll.css";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
 const Contact = () => {
-  const [activeButton, setActiveButton] = useState("contacts");
+  const [activeButton, setActiveButton] = useState('Contacts');
   const [showContact, setShowContact] = useState(true);
   const [showOwner, setshowOwner] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
@@ -22,11 +22,11 @@ const Contact = () => {
 
   const ownerGroup = () => {
     setShowContact(false);
-    setActiveButton("ownerGroup");
+    setActiveButton("Ownergroups");
     setshowOwner(true);
   };
   const handleContact = () => {
-    setActiveButton("contacts");
+    setActiveButton('Contacts');
     setShowContact(true);
     setshowOwner(false);
   };
@@ -369,73 +369,28 @@ const Contact = () => {
         </div>
         {/* top menu End */}
 
-        <div class="inline-flex rounded-md shadow-sm" role="group">
-          <button
-            onClick={handleContact}
-            type="button"
-            className={`px-4 py-2 text-sm font-medium border border-gray-900 rounded-l-lg ${
-              activeButton === "contacts"
-                ? "bg-[#000032] text-white"
-                : "bg-white text-gray-900"
-            }`}
-          >
-            Contacts
-          </button>
-          <button
-            type="button"
-            className={`px-4 py-2 text-sm bg-white font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
-              activeButton === "ownerGroup"
-                ? " bg-[#1b1b41] text-white"
-                : "bg-white text-gray-900"
-            }`}
-            onClick={ownerGroup}
-          >
-            Owner group
-          </button>
-        </div>
+        <div className="inline-flex rounded-md shadow-sm" role="group">
+      <button
+        onClick={handleContact}
+        type="button"
+        className={`px-4 py-2 text-sm font-medium border border-gray-900 rounded-l-lg ${
+          activeButton === 'Contacts' ? 'bg-[#000032] text-white' : ''
+        }`}
+      >
+        Contacts
+      </button>
+      <button
+        onClick={ownerGroup}
+        type="button"
+        className={`px-4 py-2 text-sm font-medium bg-white text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
+          activeButton === 'Ownergroups' ? 'bg-[#0a0a1d]' : ''
+        }`}
+      >
+        Owner group
+      </button>
+    </div>
 
-        {/* page start */}
-        {/* {showContact && (
-          <>
-            {" "}
-            <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
-              {alphabet.split("").map((letter) => (
-                <div key={letter}>
-                  {groupedData[letter] && (
-                    <div>
-                      <div>
-                        <h1 className="pt-3 font-bold ">{letter}</h1>
-                        <hr className="mt-3" />
-                      </div>
-
-                      <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
-                        {groupedData[letter]
-                          .filter((item) =>
-                            `${item.first_name} ${item.last_name}`
-                              .toLowerCase()
-                              .includes(searchQuery.toLowerCase())
-                          )
-                          .map((item, index) => (
-                            <div
-                              className="flex items-center space-y-3 justify-between"
-                              key={index}
-                            >
-                              <h1 className="text-[16px] font-[600]">
-                                {item.first_name} {item.last_name}
-                              </h1>
-                              <Link to={`/contactinfo/${item._id}`}>
-                                <HiOutlineChevronRight className="text-lg" />
-                              </Link>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </>
-        )} */}
+      
         {showContact && (
           <>
             <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">

@@ -3,15 +3,16 @@ import Sidebar from "../../Compunents/Sidebar";
 import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getOwnerId } from "../../store/Slices/OwnerGroupSlice";
 
 
 const OwnerGroup = () => {
   const User = useSelector((state) => state.auth);
-
+const dispatch=useDispatch()
   const navigate = useNavigate();
 
  
@@ -26,11 +27,12 @@ const OwnerGroup = () => {
 
   const fetchData = async () => {
     try {
-      console.log('userIddddddddd',User.data._id)
+    
       const response = await axios.get(`${baseUrl}/groups/${User.data._id}`, responseData);
       console.log('reerfefefeferferferferv',response.data.results);
       setResponseData(response.data.results);
       let data=response.data.results
+      console.log('used Iddddddddd',User.data._id)
   
     
     data.forEach(item => {
@@ -98,7 +100,10 @@ const OwnerGroup = () => {
                     <p className=" text-[18px] font-[600]">Horses: Harry,Ferris</p>
                     </div>
                     <div className="pt-3">
-                    <HiOutlineChevronRight className="text-lg cursor-pointer"  onClick={newOnwerGroup}/>
+                    <Link to={`/newowner`} onClick={()=>dispatch(getOwnerId(items?._id))}>
+                    <HiOutlineChevronRight className="text-lg cursor-pointer" />
+
+                    </Link>
                     </div>
                 </div>
 

@@ -389,12 +389,14 @@ import "../../Style/Scrollbar.css";
 import { milktestProprties, titleData } from "../../config/HorseDetail";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
-import { useParams } from "react-router-dom";
+import { useParams ,useLocation } from "react-router-dom";
 
 const token = localStorage.getItem("token");
 
 const ContactDetail = () => {
   const { id } = useParams();
+  const location =useLocation()
+let cont_id= location?.state?.id
   const [update, setUpdate] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedBreed, setSelectedBreed] = useState("");
@@ -407,6 +409,11 @@ const ContactDetail = () => {
     // Fetch contact details if update is not null
     if (update !== null) {
       fetchContactData();
+    }
+    if(cont_id){
+      // const contData=await fetch("url/"+cont_id)
+      // seetData(contData)
+
     }
   }, [update]);
 
@@ -722,7 +729,7 @@ console.log('update id::::::::::::::::',update);
                   className="bg-[#000032] w-[45%] mt-5 text-white px-8 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
                   onClick={onSubmit}
                 >
-                  {update === null ? "Save" : "Update"}
+                  {!cont_id ? "Save" : "Update"}
                 </button>
               </form>
             </div>
