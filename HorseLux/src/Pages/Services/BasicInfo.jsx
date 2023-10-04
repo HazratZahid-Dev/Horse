@@ -15,16 +15,14 @@ let token = localStorage.getItem("token");
 let user = localStorage.getItem("user");
 
 const BasicInfo = ({ id }) => {
-  const { search } = useLocation();
-  const params = new URLSearchParams(search);
-  const data = params.get('data');
-  console.log(JSON.parse(data));
+  const location = useLocation();
+  const data = location.state;
 
-  useEffect(()=>{
-    if(data !== null){
-      setFormData(JSON.parse(data))
+  useEffect(() => {
+    if (data !== null) {
+      setFormData(JSON.parse(data));
     }
-  },[])
+  }, []);
 
   const navigate = useNavigate();
   const imageListRef = ref(storage, "horses/");
@@ -35,7 +33,9 @@ const BasicInfo = ({ id }) => {
     neckName: "",
     showName: "",
     owner: "",
+    ownerId: "",
     billPayer: "",
+    billPayerId: "",
     breed: "",
     color: "",
     sex: "",
@@ -74,9 +74,9 @@ const BasicInfo = ({ id }) => {
           neckName: formData.neckName,
           showName: formData.showName,
           owner: formData.owner,
-          ownerId: "1234",
+          ownerId: formData.ownerId,
           billPayer: formData.billPayer,
-          billPayerId: "5678",
+          billPayerId: formData.billPayerId,
           bread: formData.breed,
           color: formData.color,
           sex: formData.sex,
@@ -97,7 +97,9 @@ const BasicInfo = ({ id }) => {
           neckName: "",
           showName: "",
           owner: "",
+          ownerId: "",
           billPayer: "",
+          billPayerId: "",
           breed: "",
           color: "",
           sex: "",
@@ -167,13 +169,19 @@ const BasicInfo = ({ id }) => {
                 placeholder="Owner"
                 value={formData.owner}
                 onChange={handleInputChange}
-                onClick={() =>
-                  navigate(
-                    `/contact?data=${JSON.stringify({
-                      ...formData,
-                      filter: false,
-                    })}`
-                  )
+                onClick={
+                  () =>
+                    navigate("/contact", {
+                      state: JSON.stringify({
+                        ...formData,
+                        calling: "basicinfo",
+                      }),
+                    })
+                  // `?data=${JSON.stringify({
+                  // ...formData,
+                  // filter: false,
+                  // })}`
+                  // )
                 }
                 className="border outline-none h-[44px] bg-white rounded-[10px] py-1 px-2 shadow-md"
               />
@@ -189,6 +197,14 @@ const BasicInfo = ({ id }) => {
                 name="billPayer"
                 placeholder="Neck Name"
                 value={formData.billPayer}
+                onClick={() =>
+                  navigate("/contact", {
+                    state: JSON.stringify({
+                      ...formData,
+                      calling: "billPayer",
+                    }),
+                  })
+                }
                 onChange={handleInputChange}
                 className="border outline-none bg-white  h-[44px] rounded-[10px] py-1 px-2 shadow-md"
               />

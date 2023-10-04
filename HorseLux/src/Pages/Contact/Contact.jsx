@@ -3,7 +3,7 @@ import Sidebar from "../../Compunents/Sidebar";
 import { MdFilterAlt } from "react-icons/md";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
@@ -12,21 +12,32 @@ import "../../Style/ContactScroll.css";
 import axios from "axios";
 import { baseUrl } from "../../config/BaseUrl";
 const Contact = () => {
-  const [activeButton, setActiveButton] = useState('Contacts');
+  const [activeButton, setActiveButton] = useState("contacts");
   const [showContact, setShowContact] = useState(true);
   const [showOwner, setshowOwner] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const location = useLocation();
+  const data = location.state;
+
+  useEffect(() => {
+    if (data !== null) {
+      setData(JSON.parse(data));
+    }
+  }, []);
+
+  const [Data, setData] = useState([]);
+
   const navigate = useNavigate();
 
   const ownerGroup = () => {
     setShowContact(false);
-    setActiveButton("Ownergroups");
+    setActiveButton("ownerGroup");
     setshowOwner(true);
   };
   const handleContact = () => {
-    setActiveButton('Contacts');
+    setActiveButton("contacts");
     setShowContact(true);
     setshowOwner(false);
   };
@@ -359,7 +370,6 @@ const Contact = () => {
                     </div>
                   </div>
                 </Popover>
-
                 <Link to="/newowner">
                   <FiPlusCircle className="text-[32px] hover:scale-125" />
                 </Link>
@@ -369,28 +379,73 @@ const Contact = () => {
         </div>
         {/* top menu End */}
 
-        <div className="inline-flex rounded-md shadow-sm" role="group">
-      <button
-        onClick={handleContact}
-        type="button"
-        className={`px-4 py-2 text-sm font-medium border border-gray-900 rounded-l-lg ${
-          activeButton === 'Contacts' ? 'bg-[#000032] text-white' : ''
-        }`}
-      >
-        Contacts
-      </button>
-      <button
-        onClick={ownerGroup}
-        type="button"
-        className={`px-4 py-2 text-sm font-medium bg-white text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
-          activeButton === 'Ownergroups' ? 'bg-[#0a0a1d]' : ''
-        }`}
-      >
-        Owner group
-      </button>
-    </div>
+        <div class="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            onClick={handleContact}
+            type="button"
+            className={`px-4 py-2 text-sm font-medium border border-gray-900 rounded-l-lg ${
+              activeButton === "contacts"
+                ? "bg-[#000032] text-white"
+                : "bg-white text-gray-900"
+            }`}
+          >
+            Contacts
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 text-sm bg-white font-medium text-gray-900 bg-transparent border-t border-b border-r rounded-r-lg border-gray-900 ${
+              activeButton === "ownerGroup"
+                ? " bg-[#1b1b41] text-white"
+                : "bg-white text-gray-900"
+            }`}
+            onClick={ownerGroup}
+          >
+            Owner group
+          </button>
+        </div>
 
-      
+        {/* page start */}
+        {/* {showContact && (
+          <>
+            {" "}
+            <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
+              {alphabet.split("").map((letter) => (
+                <div key={letter}>
+                  {groupedData[letter] && (
+                    <div>
+                      <div>
+                        <h1 className="pt-3 font-bold ">{letter}</h1>
+                        <hr className="mt-3" />
+                      </div>
+
+                      <div className="pt-5 flex-col flex space-y-1 justify-between gap-x-">
+                        {groupedData[letter]
+                          .filter((item) =>
+                            `${item.first_name} ${item.last_name}`
+                              .toLowerCase()
+                              .includes(searchQuery.toLowerCase())
+                          )
+                          .map((item, index) => (
+                            <div
+                              className="flex items-center space-y-3 justify-between"
+                              key={index}
+                            >
+                              <h1 className="text-[16px] font-[600]">
+                                {item.first_name} {item.last_name}
+                              </h1>
+                              <Link to={`/contactinfo/${item._id}`}>
+                                <HiOutlineChevronRight className="text-lg" />
+                              </Link>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
+        )} */}
         {showContact && (
           <>
             <div className="w-1/3 h-96 breadScroll mt-3 overflow-y-auto">
@@ -423,9 +478,53 @@ const Contact = () => {
                                 <h1 className="text-[16px] font-[600]">
                                   {item.first_name} {item.last_name}
                                 </h1>
-                                <Link to={`/contactinfo/${item._id}`}>
-                                  <HiOutlineChevronRight className="text-lg" />
-                                </Link>
+                                {data === null ? (
+                                  <Link to={`/contactinfo/${item._id}`}>
+                                    <HiOutlineChevronRight className="text-lg" />
+                                  </Link>
+                                ) : (
+                                  // <Link
+                                  //   to={`/basicinfo?data=${JSON.stringify({
+                                  //     ...formData,
+                                  //     owner: `${item.first_name} ${item.last_name}`,
+                                  //   })}`}
+                                  // >
+                                  <div
+                                    className="cursor-pointer"
+                                    onClick={() =>
+                                      navigate(
+                                        Data.calling === "basicinfo"
+                                          ? "/basicinfo"
+                                          : Data.calling === "uploadcontact"
+                                          ? "/uploadcontact"
+                                          : "/basicinfo",
+                                        Data.calling === "basicinfo"
+                                          ? {
+                                              state: JSON.stringify({
+                                                ...Data,
+                                                owner: `${item.first_name} ${item.last_name}`,
+                                                ownerId: item._id,
+                                              }),
+                                            }
+                                          : Data.calling === "uploadcontact"
+                                          ? {
+                                              state: JSON.stringify({
+                                                contact: `${item.first_name} ${item.last_name}`,
+                                              }),
+                                            }
+                                          : {
+                                              state: JSON.stringify({
+                                                ...Data,
+                                                billPayer: `${item.first_name} ${item.last_name}`,
+                                                billPayerId: item._id,
+                                              }),
+                                            }
+                                      )
+                                    }
+                                  >
+                                    <HiOutlineChevronRight className="text-lg" />
+                                  </div>
+                                )}
                               </div>
                             ))}
                         </div>
@@ -447,4 +546,3 @@ const Contact = () => {
 };
 
 export default Contact;
-// F;

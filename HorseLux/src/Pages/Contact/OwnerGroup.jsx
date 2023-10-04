@@ -9,17 +9,14 @@ import { baseUrl } from "../../config/BaseUrl";
 import { useDispatch, useSelector } from "react-redux";
 import { getOwnerId } from "../../store/Slices/OwnerGroupSlice";
 
-
 const OwnerGroup = () => {
   const User = useSelector((state) => state.auth);
-const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
- 
-
   const newOnwerGroup = () => {
-    navigate('/newowner')
-  }
+    navigate("/newowner");
+  };
 
   // get Data from api
   const [responseData, setResponseData] = useState([]);
@@ -27,35 +24,30 @@ const dispatch=useDispatch()
 
   const fetchData = async () => {
     try {
-    
-      const response = await axios.get(`${baseUrl}/groups/${User.data._id}`, responseData);
-      console.log('reerfefefeferferferferv',response.data.results);
+      const response = await axios.get(
+        `${baseUrl}/groups/${User.data._id}`,
+        responseData
+      );
+      console.log("reerfefefeferferferferv", response.data.results);
       setResponseData(response.data.results);
-      let data=response.data.results
-      console.log('used Iddddddddd',User.data._id)
-  
-    
-    data.forEach(item => {
+      let data = response.data.results;
+      console.log("used Iddddddddd", User.data._id);
+
+      data.forEach((item) => {
         const shares = item.shares;
-    
+
         // Now you can access the values within the "shares" object
         for (const key in shares) {
-            if (shares.hasOwnProperty(key)) {
-                const value = shares[key];
-               console.log(value);
-            }
+          if (shares.hasOwnProperty(key)) {
+            const value = shares[key];
+            console.log(value);
+          }
         }
-    })
-    
-    
-    
-    
-    
-    
+      });
 
-      console.log('responseeeeeeeeeeeeeeeeeeeeeeeeeee:',responseData)
+      console.log("responseeeeeeeeeeeeeeeeeeeeeeeeeee:", responseData);
     } catch (err) {
-      setError(err); 
+      setError(err);
       console.log("errrrrrrr", err);
     }
   };
@@ -64,51 +56,43 @@ const dispatch=useDispatch()
     fetchData();
   }, []);
 
-
   return (
     <div className="flex ">
       {/* <Sidebar /> */}
       <div className=" w-full    relative">
         {/* top menu Start */}
-       
-
-
-        
 
         {/* page start */}
 
-           {
-            responseData.map((items,index)=>(
-              <div className="w-1/3"> 
-                <hr className=" mt-12 border-t-2 text-lg" />
+        {responseData.map((items, index) => (
+          <div className="w-1/3">
+            <hr className=" mt-12 border-t-2 text-lg" />
 
-                <h1 className="pt-4 font-[700] text-[20px]">Group {index}</h1>
-                <div className=" flex justify-between items-center">
-                    <div>
-                    <p className="pt-2 text-[18px]  font-[600]"><span>Owner:</span> 
-                    {
-                      
-                    
-                      Object.entries(items.shares).map(([key, value]) => (
-                            <p key={key} className="flex">
-                                {key}: {value}
-                            </p>
-                        ))
+            <h1 className="pt-4 font-[700] text-[20px]">Group {index}</h1>
+            <div className=" flex justify-between items-center">
+              <div>
+                <p className="pt-2 text-[18px]  font-[600]">
+                  <span>Owner:</span>
+                  {Object.entries(items.shares).map(([key, value]) => (
+                    <p key={key} className="flex">
+                      {key}: {value}
+                    </p>
+                  ))}
+                </p>
+                <p className=" text-[18px] font-[600]">Horses: Harry,Ferris</p>
+              </div>
+              <div className="pt-3">
+                <Link
+                  to={`/newowner`}
+                  onClick={() => dispatch(getOwnerId(items?._id))}
+                >
+                  <HiOutlineChevronRight className="text-lg cursor-pointer" />
+                </Link>
+              </div>
+            </div>
 
-                    }
-                 </p>
-                    <p className=" text-[18px] font-[600]">Horses: Harry,Ferris</p>
-                    </div>
-                    <div className="pt-3">
-                    <Link to={`/newowner`} onClick={()=>dispatch(getOwnerId(items?._id))}>
-                    <HiOutlineChevronRight className="text-lg cursor-pointer" />
-
-                    </Link>
-                    </div>
-                </div>
-
-                {/* <hr className="mt-8 border-t-2 text-lg" /> */}
-{/* 
+            {/* <hr className="mt-8 border-t-2 text-lg" /> */}
+            {/* 
                 <h1 className="pt-4 font-[700] text-[20px]">Group 2</h1>
                 <div className=" flex justify-between">
                     <div>
@@ -120,12 +104,9 @@ const dispatch=useDispatch()
                     </div>
                 </div> */}
 
-                {/* <hr className="mt-8 border-t-2 text-lg" /> */}
-            </div>
-            ))
-           }
-            
-        
+            {/* <hr className="mt-8 border-t-2 text-lg" /> */}
+          </div>
+        ))}
       </div>
     </div>
   );

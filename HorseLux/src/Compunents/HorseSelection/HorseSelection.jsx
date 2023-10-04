@@ -20,6 +20,16 @@ const HorseSelection = ({ headingText, navigateTo }) => {
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
+  const location = useLocation();
+  const data = location.state;
+  const [Data, setData] = useState("");
+
+  useEffect(() => {
+    console.log(JSON.parse(data));
+    if (data !== null) {
+      setData(JSON.parse(data));
+    }
+  }, []);
   const handleOptionChange = (event) => {
     const optionValue = event.target.value;
 
@@ -41,7 +51,6 @@ const HorseSelection = ({ headingText, navigateTo }) => {
           },
         }
       );
-      console.log(response.data.horses);
       setHorseData(response.data.horses);
     };
 
@@ -55,7 +64,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
       <div className="w-full p-5">
         {/* Header */}
         <div>
-          <h2 className="text-[30px] font-[700] text-center">{headingText}</h2>
+          <h2 className="text-[30px] font-[700] text-center">{Data.heading}</h2>
         </div>
         <div className="w-1/2">
           <div className="w-full">
@@ -127,8 +136,17 @@ const HorseSelection = ({ headingText, navigateTo }) => {
             ))}
           </div>
           <button
-            // onClick={() => navigate(navigateTo)}
-            onClick={() => console.log(selectedOptions)}
+            onClick={() =>
+              navigate(Data.navigate_to, {
+                state: JSON.stringify(
+                  selectedOptions.map((opt) => {
+                    return {
+                      id: opt,
+                    };
+                  })
+                ),
+              })
+            }
             className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
           >
             Next

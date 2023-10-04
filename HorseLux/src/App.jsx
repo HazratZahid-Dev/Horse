@@ -122,7 +122,7 @@ function App() {
           <NavBar />
           <div>
             <Routes>
-              <Route
+              {/* <Route
                 path="/temp"
                 element={
                   <HorseSelection
@@ -130,7 +130,7 @@ function App() {
                     navigateTo={"/signin"}
                   />
                 }
-              />
+              /> */}
               <Route
                 path="/"
                 element={
@@ -143,6 +143,14 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/otp/:email" element={<OTP />} />
               <Route path="/resetpassword/:email" element={<ResetPassword />} />
+              <Route
+                path="/horse-selection"
+                element={
+                  <ProtectedRoute>
+                    <HorseSelection />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/dashboard"
                 element={
