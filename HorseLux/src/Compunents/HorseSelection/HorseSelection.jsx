@@ -33,14 +33,12 @@ const HorseSelection = ({ headingText, navigateTo }) => {
   const handleOptionChange = (event) => {
     const optionValue = event.target.value;
 
-    if (selectedOptions.includes(optionValue)) {
-      setSelectedOptions(
-        selectedOptions.filter((option) => option !== optionValue)
-      );
-    } else {
-      setSelectedOptions([...selectedOptions, optionValue]);
-    }
+    // Toggle selection on click
+    setSelectedOptions((prevSelectedOption) =>
+      prevSelectedOption === optionValue ? "" : optionValue
+    );
   };
+
   useEffect(() => {
     const FetchData = async () => {
       const response = await axios.get(
@@ -138,13 +136,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
           <button
             onClick={() =>
               navigate(Data.navigate_to, {
-                state: JSON.stringify(
-                  selectedOptions.map((opt) => {
-                    return {
-                      id: opt,
-                    };
-                  })
-                ),
+                state: selectedOptions,
               })
             }
             className="bg-[#000032] mt-5 text-white w-full text-center h-[53px] rounded-[100px] text-[20px] font-[400]"

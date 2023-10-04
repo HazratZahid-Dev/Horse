@@ -10,9 +10,11 @@ import { milktestProprties } from "../../../config/HorseDetail";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { baseUrl } from "../../../config/BaseUrl";
+import { listAll, ref, uploadBytes } from "firebase/storage";
+import { v4 } from "uuid";
+import { storage } from "../../../config/firebase";
 
 let token = localStorage.getItem("token");
-
 
 const MilkTest = () => {
   const [HorseData, setHorseData] = useState([]);
@@ -20,6 +22,16 @@ const MilkTest = () => {
   const data = location.state;
   const [SelectedHorse, setSelectedHorse] = useState("");
   const User = useSelector((state) => state.auth);
+  const [formData, setFormData] = useState({
+    date: "",
+    property: "",
+    account: "",
+    milkTestPh: "",
+    price: "",
+    development: "",
+    attachments: null,
+    comments: "",
+  });
 
   useEffect(() => {
     if (data !== null) {
@@ -48,7 +60,10 @@ const MilkTest = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
   const handlePropertySelect = (property) => {
-    setSelectedProperty(property);
+    setFormData({
+      ...formData,
+      property: property,
+    });
     setAnchorEl(null); // Close the popover when an item is selected
   };
 
@@ -64,6 +79,80 @@ const MilkTest = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (event) => {
+    setFormData({
+      ...formData,
+      attachments: event.target.files[0],
+    });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    // const imageName = v4();
+    // const imageRef = storage.ref(`/milk-test/${imageName}`);
+
+    try {
+      // const snapshot = await imageRef.put();
+      // const downloadURL = await snapshot.ref.getDownloadURL();
+      // const response = await axios.post(
+      //   `${baseUrl}/addnewhorse-data`,
+      //   {
+      //     neckName: formData.neckName,
+      //     showName: formData.showName,
+      //     owner: formData.owner,
+      //     ownerId: formData.ownerId,
+      //     billPayer: formData.billPayer,
+      //     billPayerId: formData.billPayerId,
+      //     bread: formData.breed,
+      //     color: formData.color,
+      //     sex: formData.sex,
+      //     img: downloadURL,
+      //     microchip: formData.chip,
+      //     paddockLocation: formData.paddockLocation,
+      //     stallNotes: formData.stallNotes,
+      //   },
+      //   {
+      //     headers: {
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   }
+      // );
+      // if (response.status === 200) {
+      //   // Reset form data and file input
+      //   setFormData({
+      //     neckName: "",
+      //     showName: "",
+      //     owner: "",
+      //     ownerId: "",
+      //     billPayer: "",
+      //     billPayerId: "",
+      //     breed: "",
+      //     color: "",
+      //     sex: "",
+      //     chip: "",
+      //     stallNumber: "",
+      //     stallNotes: "",
+      //     paddockName: "",
+      //     paddockLocation: "",
+      //     paddockNotes: "",
+      //   });
+      //   if (fileInputRef.current) {
+      //     fileInputRef.current.value = ""; // Reset the value to an empty string
+      //   }
+      // }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex">
@@ -113,10 +202,13 @@ const MilkTest = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
+                      type="text"
+                      name="date"
                       placeholder="22-jun-2023"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                      value={formData.date}
+                      onChange={handleInputChange}
+                    />
                   </div>
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
@@ -126,14 +218,16 @@ const MilkTest = () => {
                     <br />
                     <div className="py-1 flex items-center justify-between w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]">
                       <input
+                        type="text"
+                        name="date"
+                        // onChange={handleInputChange}
                         aria-describedby={id}
                         variant="contained"
                         onClick={handleClick}
                         className="outline-none w-full h-full"
-                        type=" text"
-                        value={selectedProperty || ""}
+                        value={formData.property || ""}
                         placeholder="Select"
-                      ></input>
+                      />
                       <AiFillCaretRight className="text-2xl text-gray-300" />
                     </div>
 
@@ -179,11 +273,12 @@ const MilkTest = () => {
                     <br />
                     <input
                       type="text"
-                      //   onChange={handleQuantityChange}
-                      //   value={quantity}
+                      name="account"
                       placeholder="Adam"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                      value={formData.account}
+                      onChange={handleInputChange}
+                    />
                   </div>
                   <div className="w-[45%]">
                     <label className="px-[14px]   text-[16px] font-[600] ">
@@ -192,9 +287,12 @@ const MilkTest = () => {
                     <br />
                     <input
                       type="text"
-                      placeholder="adamsmith@gmail.com"
+                      name="milkTestPh"
+                      placeholder="Milk Test Ph"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                      value={formData.milkTestPh}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
                 <div className="flex justify-between mt-2  ">
@@ -204,10 +302,13 @@ const MilkTest = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
-                      placeholder="Smith"
+                      type="text"
+                      name="price"
+                      placeholder="Price"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                      value={formData.price}
+                      onChange={handleInputChange}
+                    />
                   </div>
                   <div className="w-[45%] ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
@@ -215,51 +316,46 @@ const MilkTest = () => {
                     </label>
                     <br />
                     <input
-                      type=" text"
+                      type="text"
+                      name="development"
                       placeholder="Under Development"
                       className="py-1 w-full border px-3 shadow-md mt-1 outline-none h-12 rounded-[10px]"
-                    ></input>
+                      value={formData.development}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className=" justify-between   w-[45%] mt-2   ">
-                    <label className="px-1  py-3 text-[16px] font-[600]  ">
+                    <label className="px-1  py-3 text-[16px] font-[600]">
                       Add Attachments
                     </label>
-                    <div className="flex items-center mt-1 ">
-                      <label
-                        htmlFor="fileInput"
-                        className="custom-file-upload border text-[12px] font-[600] flex items-center h-[33px] rounded-[5px] gap-x-1 px-2"
-                      >
-                        <AiOutlinePlus />
-                        Add Attachments
-                      </label>
-                      <input
-                        type="file"
-                        id="fileInput"
-                        style={{ display: "none" }}
-                        //   onChange={handleFileChange}
-                      />
-                      {selectedFile && (
-                        <button className=" text-[12px] font-[600] ml-2">
-                          {" "}
-                          {selectedFile.name}
-                        </button>
-                      )}
-                    </div>
+                    <input
+                      type="file"
+                      name="attachments"
+                      id="attachment"
+                      onChange={handleFileChange}
+                    />
                   </div>
-
                   <div className=" justify-between mt-1   w-[45%]  ">
                     <label className="px-[14px]   text-[16px] font-[600] ">
                       Comments
                     </label>
-                    <textarea className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "></textarea>
+                    <textarea
+                      name="comments"
+                      value={formData.comments}
+                      onChange={handleInputChange}
+                      placeholder="Comment"
+                      className="py-1 w-full border px-3 shadow-md mt-1 h-20 outline-none rounded-[10px] "
+                    ></textarea>
                   </div>
                 </div>
                 <button
                   type="submit"
                   className="bg-[#000032] w-1/2 mt-5 text-white px-10 text-center h-[53px] rounded-[100px] text-[20px] font-[400]"
+                  // onClick={onSubmit}
+                  onClick={(e) => e.preventDefault()}
                 >
                   Save
                 </button>

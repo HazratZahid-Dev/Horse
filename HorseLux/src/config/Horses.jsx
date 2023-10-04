@@ -52,87 +52,70 @@ import { IoMdRefresh } from "react-icons/io";
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { MdContactPage, MdLogout } from "react-icons/md";
 
-
-
 // diagnostic
-
-
-
-
-
-
-
-
-
 
 export const horse = [
   {
     id: 1,
     img: horse1,
     text: "Horse",
-    link:"/basicInfo"
+    link: "/basicInfo",
   },
   {
     id: 2,
     img: horse2,
     text: "Health",
     // link:"/basicInfo"
-
   },
   {
     id: 3,
     img: horse3,
     text: "Services",
-    link:"/addservices"
-
+    link: "/addservices",
   },
   {
     id: 4,
     img: horse4,
     text: "Renewal",
-    link:"/chooserecordtype"
-
+    link: "/chooserecordtype",
   },
   {
     id: 5,
     img: horse5,
     text: "Notes",
-    link:"/addnote"
-
+    link: "/horse-selection",
   },
   {
     id: 6,
     img: horse6,
     text: "Temprature",
-    link:"/addtemp"
-
+    link: "/addtemp",
   },
   {
     id: 6,
     img: horse7,
     text: "Breeding",
-    link:"/breading"
-
+    link: "/breading",
   },
 ];
 
 export const contact = [
   {
     id: 1,
-    link:"/contactdetail",
+    link: "/contactdetail",
     img: horse14,
     text: "Contact",
   },
   {
     id: 2,
-    link:"/uploadcontact",
+    link: "/uploadcontact",
 
     img: horse15,
     text: "Upload",
   },
   {
     id: 3,
-    link:"/newowner",
+    link: "/newowner",
 
     img: horse9,
     text: "Owner Group",
@@ -141,19 +124,19 @@ export const contact = [
 export const schedule = [
   {
     id: 1,
-    link:"/eventservices",
+    link: "/eventservices",
     img: horse10,
     text: "Services",
   },
   {
     id: 2,
-    link:"/appointmet",
+    link: "/appointmet",
     img: horse11,
     text: "Appointment",
   },
   {
     id: 3,
-    link:"/task",
+    link: "/task",
     img: horse12,
     text: "Task",
   },
@@ -232,12 +215,12 @@ export const popOver = [
   { text: "Furioso" },
   { text: "German Trotter" },
   { text: "German Classic Pony" },
-  { text: "German Riding Horse" },  
+  { text: "German Riding Horse" },
   { text: "German Riding Pony" },
   { text: "Gelderland" },
 ];
 
-export const dewormingRecor= [
+export const dewormingRecor = [
   { text: "ivercare - ivermectin" },
   { text: "generic - ivermectin" },
   { text: "panacur - fenbendazole" },
@@ -245,9 +228,8 @@ export const dewormingRecor= [
   { text: "primex equine liquid wormer pyrantel pamoate " },
   { text: "generic - pyrantel pamoate" },
   { text: "pyrantel paste - pyrantel pamoat" },
- 
 ];
-export const InjuryData= [
+export const InjuryData = [
   { text: "Abrasion" },
   { text: "Colic" },
   { text: "Dehydration" },
@@ -255,26 +237,22 @@ export const InjuryData= [
   { text: "Eye injury " },
   { text: "Heat stroke" },
   { text: "Hoof" },
- 
 ];
-export const vitalsRecord= [
+export const vitalsRecord = [
   { text: "Height" },
   { text: "Pulse" },
   { text: "Respiration" },
   { text: "Temprature" },
- 
- 
 ];
-export const therapyData= [
+export const therapyData = [
   { text: "Acupressure" },
   { text: "Acupuncture" },
   { text: "Bodywork" },
   { text: "Bodywork" },
   { text: "Electro-stimulation " },
   { text: "Footpad" },
- 
 ];
-export const addDiognostic= [
+export const addDiognostic = [
   { text: "Blood Chemistry" },
   { text: "Bone Scan" },
   { text: "CBC" },
@@ -283,9 +261,8 @@ export const addDiognostic= [
   { text: "MRI  " },
 
   { text: "Radiograph" },
- 
 ];
-export const addContactType= [
+export const addContactType = [
   { text: "Brand  Number" },
   { text: "Dentist" },
   { text: "Forrier" },
@@ -295,35 +272,26 @@ export const addContactType= [
 
   { text: "Horse Owner" },
   { text: "Lessee" },
-
- 
 ];
-export const eventType= [
-  { 
-    id:1,
-    link:"/task",
-    text: "Task"
-   },
-  {id:2,
-    link:"/appointmet",
-     text: "Appointment"
-     },
+export const eventType = [
   {
-    id:3,
-    link:"/eventservices",
-     text: "Services"
-     },
- 
-
- 
+    id: 1,
+    link: "/task",
+    text: "Task",
+  },
+  { id: 2, link: "/appointmet", text: "Appointment" },
+  {
+    id: 3,
+    link: "/eventservices",
+    text: "Services",
+  },
 ];
-export const vaccinationData= [
+export const vaccinationData = [
   { text: "eastern/western equine encephalomyel.." },
   { text: "equine herpesvirus (ehv)" },
   { text: "influenze (flu/rhino)" },
   { text: "potomac horse fever (phf)" },
   { text: "rabies " },
- 
 ];
 export const sex = [
   { text: "Gelding" },
@@ -387,17 +355,9 @@ export const HorseColor = [
   { text: " Criollo Horse" },
 ];
 
-export const fraction = [
-  { text: "1/4" },
-  { text: "1/2" },
-  
-  { text: "3/4" },
+export const fraction = [{ text: "1/4" }, { text: "1/2" }, { text: "3/4" }];
 
-  
-  
-];
-
-export const  health = [
+export const health = [
   {
     id: 0,
     img: glass,
@@ -472,494 +432,485 @@ export const  health = [
   },
 ];
 
-export const addservicesData=[
+export const addservicesData = [
   {
-    id:1,
-    service:"BodyClip",
-    price:"$100",
-    arrow:<BsChevronRight/>
-
+    id: 1,
+    service: "BodyClip",
+    price: "$100",
+    arrow: <BsChevronRight />,
   },
   {
-    id:2,
-    service:"Coaching (Daily)",
-    price:"$100",
-    arrow:<BsChevronRight/>
-
+    id: 2,
+    service: "Coaching (Daily)",
+    price: "$100",
+    arrow: <BsChevronRight />,
   },
   {
-    id:3,
-    service:"Equipment",
-    price:"",
-    arrow:<BsChevronRight/>
-
+    id: 3,
+    service: "Equipment",
+    price: "",
+    arrow: <BsChevronRight />,
   },
   {
-    id:4,
-    service:"Flat Rate",
-    price:"$3000",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:5,
-    service:"Lesson",
-    price:"$65",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:6,
-    service:"Lodging",
-    price:"",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:7,
-    service:"Longe",
-    price:"30$",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:8,
-    service:"Monthly Board",
-    price:"$1200",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:9,
-    service:"Monthly Training",
-    price:"$1000",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:10,
-    service:"Office Fee",
-    price:"$25",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:11,
-    service:"Other",
-    price:"",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:12,
-    service:"Riding",
-    price:"$25",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:13,
-    service:"Show Ride",
-    price:"",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:14,
-    service:"Travel Expense",
-    price:"",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:15,
-    service:"Treadmill",
-    price:"$25",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:16,
-    service:"Trim",
-    price:"$30",
-    arrow:<BsChevronRight/>
-
-  },  {
-    id:17,
-    service:"Warmup Ride",
-    price:"$50",
-    arrow:<BsChevronRight/>
-
-  },
-]
-
-export const contactType=[
-  {
-    contactType:"Brand Member"
+    id: 4,
+    service: "Flat Rate",
+    price: "$3000",
+    arrow: <BsChevronRight />,
   },
   {
-    contactType:"Dentist"
-  },  {
-    contactType:"Forrier"
-  },  {
-    contactType:"Health Provider"
-  },  {
-    contactType:"Bill Payer"
-  },  {
-    contactType:"Barn Manager"
-  },  {
-    contactType:"Horse Owner"
-  },  {
-    contactType:"Lesse"
-  },  {
-    contactType:"Parent"
-  },  {
-    contactType:"Lesson student"
-  },  {
-    contactType:"Rider"
-  },  {
-    contactType:"Veterinarian"
+    id: 5,
+    service: "Lesson",
+    price: "$65",
+    arrow: <BsChevronRight />,
   },
   {
-    contactType:"Staff"
-  }, {
-    contactType:"Trainer"
-  }, {
-    contactType:"Vedor"
-  }, {
-    contactType:"Volunteer"
+    id: 6,
+    service: "Lodging",
+    price: "",
+    arrow: <BsChevronRight />,
   },
+  {
+    id: 7,
+    service: "Longe",
+    price: "30$",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 8,
+    service: "Monthly Board",
+    price: "$1200",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 9,
+    service: "Monthly Training",
+    price: "$1000",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 10,
+    service: "Office Fee",
+    price: "$25",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 11,
+    service: "Other",
+    price: "",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 12,
+    service: "Riding",
+    price: "$25",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 13,
+    service: "Show Ride",
+    price: "",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 14,
+    service: "Travel Expense",
+    price: "",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 15,
+    service: "Treadmill",
+    price: "$25",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 16,
+    service: "Trim",
+    price: "$30",
+    arrow: <BsChevronRight />,
+  },
+  {
+    id: 17,
+    service: "Warmup Ride",
+    price: "$50",
+    arrow: <BsChevronRight />,
+  },
+];
 
+export const contactType = [
   {
-    contactType:"Other"
-  },
-
-]
-
-export const dewormingRecord=[
-  {
-    contactType:"Brand Member"
+    contactType: "Brand Member",
   },
   {
-    contactType:"Dentist"
-  },  {
-    contactType:"Forrier"
-  },  {
-    contactType:"Health Provider"
-  },  {
-    contactType:"Bill Payer"
-  },  {
-    contactType:"Barn Manager"
-  },  {
-    contactType:"Horse Owner"
-  },  {
-    contactType:"Lesse"
-  },  {
-    contactType:"Parent"
-  },  {
-    contactType:"Lesson student"
-  },  {
-    contactType:"Rider"
-  },  {
-    contactType:"Veterinarian"
+    contactType: "Dentist",
   },
   {
-    contactType:"Staff"
-  }, {
-    contactType:"Trainer"
-  }, {
-    contactType:"Vedor"
-  }, {
-    contactType:"Volunteer"
+    contactType: "Forrier",
+  },
+  {
+    contactType: "Health Provider",
+  },
+  {
+    contactType: "Bill Payer",
+  },
+  {
+    contactType: "Barn Manager",
+  },
+  {
+    contactType: "Horse Owner",
+  },
+  {
+    contactType: "Lesse",
+  },
+  {
+    contactType: "Parent",
+  },
+  {
+    contactType: "Lesson student",
+  },
+  {
+    contactType: "Rider",
+  },
+  {
+    contactType: "Veterinarian",
+  },
+  {
+    contactType: "Staff",
+  },
+  {
+    contactType: "Trainer",
+  },
+  {
+    contactType: "Vedor",
+  },
+  {
+    contactType: "Volunteer",
   },
 
   {
-    contactType:"Other"
+    contactType: "Other",
+  },
+];
+
+export const dewormingRecord = [
+  {
+    contactType: "Brand Member",
+  },
+  {
+    contactType: "Dentist",
+  },
+  {
+    contactType: "Forrier",
+  },
+  {
+    contactType: "Health Provider",
+  },
+  {
+    contactType: "Bill Payer",
+  },
+  {
+    contactType: "Barn Manager",
+  },
+  {
+    contactType: "Horse Owner",
+  },
+  {
+    contactType: "Lesse",
+  },
+  {
+    contactType: "Parent",
+  },
+  {
+    contactType: "Lesson student",
+  },
+  {
+    contactType: "Rider",
+  },
+  {
+    contactType: "Veterinarian",
+  },
+  {
+    contactType: "Staff",
+  },
+  {
+    contactType: "Trainer",
+  },
+  {
+    contactType: "Vedor",
+  },
+  {
+    contactType: "Volunteer",
   },
 
-]
+  {
+    contactType: "Other",
+  },
+];
 
+export const allRecordType = [
+  {
+    id: 1,
+    coggins: "Coggins Record",
+    img: cogg,
+  },
+  {
+    id: 2,
+    coggins: "Dental Records ",
+    img: allr1,
+  },
+  {
+    id: 3,
+    coggins: "Deworming Records",
+    img: allr2,
+  },
+  {
+    id: 4,
+    coggins: "Therapy Records",
+    img: allr4,
+  },
+  {
+    id: 5,
+    coggins: "Vaccination Records",
+    img: allr5,
+  },
+  {
+    id: 6,
+    coggins: "Vitals Records",
+    img: allr6,
+  },
+  {
+    id: 7,
+    coggins: "Diagnostic Records",
+    img: diagnostic,
+  },
+  {
+    id: 8,
+    coggins: "Farrier Records",
+    img: allr8,
+  },
+  {
+    id: 9,
+    coggins: "General Health...",
+    img: allr7,
+  },
+  {
+    id: 10,
+    coggins: "Injury Records",
+    img: allr9,
+  },
+  {
+    id: 11,
+    coggins: "Joint Injection...",
+    img: allr11,
+  },
+  {
+    id: 12,
+    coggins: "Med/supplements...",
+    img: alr10,
+  },
+  {
+    id: 13,
+    coggins: "Milk Test",
+    img: cogg,
+  },
+  {
+    id: 14,
+    coggins: "Notes",
+    img: cogg,
+  },
+  {
+    id: 15,
+    coggins: "Passport Renewal",
+    img: cogg,
+  },
+  {
+    id: 16,
+    coggins: "Fooling Record",
+    img: cogg,
+  },
+  {
+    id: 17,
+    coggins: "Medication",
+    img: cogg,
+  },
+  {
+    id: 18,
+    coggins: "Pregnancy Test",
+    img: cogg,
+  },
+  {
+    id: 19,
+    coggins: "FEI Renewal",
+    img: cogg,
+  },
+  {
+    id: 20,
+    coggins: "Insemination",
+    img: cogg,
+  },
+  {
+    id: 21,
+    coggins: "Semen Collection",
+    img: cogg,
+  },
+];
 
-export const  allRecordType=[
+export const contactData = [
   {
-    id:1,
-    coggins:'Coggins Record',
-    img:cogg
-  
+    id: 1,
+    name: "Avalynn Bruce",
   },
   {
-    id:2,
-    coggins:'Dental Records ',
-    img:allr1
-  
+    id: 2,
+    name: "Avalynn Bruce",
   },
   {
-    id:3,
-    coggins:'Deworming Records',
-    img:allr2
-  
-  }, {
-    id:4,
-    coggins:'Therapy Records',
-    img:allr4
-  
+    id: 3,
+    name: "Avalynn Bruce",
   },
-  {
-    id:5,
-    coggins:'Vaccination Records',
-    img:allr5
-  
-  },
-  {
-    id:6,
-    coggins:'Vitals Records',
-    img:allr6
-  
-  },
-  {
-    id:7,
-    coggins:'Diagnostic Records',
-    img:diagnostic
-  
-  },
-  {
-    id:8,
-    coggins:'Farrier Records',
-    img:allr8
-  
-  },
-  {
-    id:9,
-    coggins:'General Health...',
-    img:allr7
-  
-  },
-  {
-    id:10,
-    coggins:'Injury Records',
-    img:allr9
-  
-  },
-  {
-    id:11,
-    coggins:'Joint Injection...',
-    img:allr11
-  
-  },
-  {
-    id:12,
-    coggins:'Med/supplements...',
-    img:alr10
-  
-  },
-  {
-    id:13,
-    coggins:'Milk Test',
-    img:cogg
-  
-  },
-  {
-    id:14,
-    coggins:'Notes',
-    img:cogg
-  
-  }, {
-    id:15,
-    coggins:'Passport Renewal',
-    img:cogg
-  
-  }, {
-    id:16,
-    coggins:'Fooling Record',
-    img:cogg
-  
-  }, {
-    id:17,
-    coggins:'Medication',
-    img:cogg
-  
-  }, {
-    id:18,
-    coggins:'Pregnancy Test',
-    img:cogg
-  
-  }, {
-    id:19,
-    coggins:'FEI Renewal',
-    img:cogg
-  
-  }, {
-    id:20,
-    coggins:'Insemination',
-    img:cogg
-  
-  }, {
-    id:21,
-    coggins:'Semen Collection',
-    img:cogg
-  
-  },
-]
+];
 
+export const healthRecordType = [
+  {
+    id: 1,
+    coggins: "Coggins ",
+    img: cogg,
+  },
+  {
+    id: 2,
+    coggins: "Dental  ",
+    img: allr1,
+  },
+  {
+    id: 3,
+    coggins: "Deworming ",
+    img: allr2,
+  },
+  {
+    id: 4,
+    coggins: "Therapy ",
+    img: allr4,
+  },
+  {
+    id: 5,
+    coggins: "Vaccination ",
+    img: allr5,
+  },
+  {
+    id: 6,
+    coggins: "Vitals ",
+    img: allr6,
+  },
+  {
+    id: 7,
+    coggins: "Diagnostic ",
+    img: diagnostic,
+  },
+  {
+    id: 8,
+    coggins: "Farrier ",
+    img: allr8,
+  },
+  {
+    id: 9,
+    coggins: "General",
+    img: allr7,
+  },
+  {
+    id: 10,
+    coggins: "Injury ",
+    img: allr9,
+  },
+  {
+    id: 11,
+    coggins: "Joint",
+    img: allr11,
+  },
+  {
+    id: 12,
+    coggins: "Med/supplements...",
+    img: alr10,
+  },
+];
 
-export const contactData=[
-  
-    {
-      id:1,
-      name:"Avalynn Bruce",
-  },
+export const horseTemp = [
   {
-    id:2,
-      name:"Avalynn Bruce",
+    id: 1,
+    name: "Harry",
+    img: temp,
+    time: "04:40 PM",
+    temp: "90",
+  },
+];
 
-  }
-  ,
+export const feedData = [
   {
-    id:3,
-    name:"Avalynn Bruce",
+    id: 1,
+    feed: "alfalfa cubes",
+  },
+  {
+    id: 2,
+    feed: "barley",
+  },
+  {
+    id: 3,
+    feed: "beet pulp",
+  },
+  {
+    id: 4,
+    feed: "bran",
+  },
+  {
+    id: 5,
+    feed: "bran mash",
+  },
+  {
+    id: 6,
+    feed: "cob (corn oats barley)",
+  },
+  {
+    id: 7,
+    feed: "complete",
+  },
+];
 
-  }
-  
-]
+export const scheduleData = [
+  {
+    time: "6:00 PM",
+    officeFee: "Paying Fee",
+    parti: "Adam Smith",
+    horse: "Jupiter",
+    admin: "John Son",
+    desc: "Lorem Ipsum is simply dummy text of the printing and.",
+    img: h1,
+    name: "Ferris",
+  },
+];
 
-export const  healthRecordType=[
+export const drawyer = [
   {
-    id:1,
-    coggins:'Coggins ',
-    img:cogg
-  
+    text: "Profile",
+    link: "/profile",
+    icons: <FiUser />,
   },
   {
-    id:2,
-    coggins:'Dental  ',
-    img:allr1
-  
+    text: "Subscription",
+    link: "/subscription",
+    icons: <IoMdRefresh />,
   },
   {
-    id:3,
-    coggins:'Deworming ',
-    img:allr2
-  
-  }, {
-    id:4,
-    coggins:'Therapy ',
-    img:allr4
-  
+    text: "About",
+    link: "/aboutus",
+    icons: <AiOutlineExclamationCircle />,
   },
   {
-    id:5,
-    coggins:'Vaccination ',
-    img:allr5
-  
-  },
-  {
-    id:6,
-    coggins:'Vitals ',
-    img:allr6
-  
-  },
-  {
-    id:7,
-    coggins:'Diagnostic ',
-    img:diagnostic
-  
-  },
-  {
-    id:8,
-    coggins:'Farrier ',
-    img:allr8
-  
-  },
-  {
-    id:9,
-    coggins:'General',
-    img:allr7
-  
-  },
-  {
-    id:10,
-    coggins:'Injury ',
-    img:allr9
-  
-  },
-  {
-    id:11,
-    coggins:'Joint',
-    img:allr11
-  
-  },
-  {
-    id:12,
-    coggins:'Med/supplements...',
-    img:alr10
-  
-  },
-  
-]
-
-export const horseTemp=[
-  {
-    id:1,
-    name:"Harry",
-    img:temp,
-    time:"04:40 PM",
-    temp:"90"
-  }
-]
-
-export const feedData=[
-  {
-    id:1,
-    feed:"alfalfa cubes",
-  },
-  {
-    id:2,
-    feed:"barley",
-  } , {
-    id:3,
-    feed:"beet pulp",
-  },  {
-    id:4,
-    feed:"bran",
-  } , {
-    id:5,
-    feed:"bran mash",
-  } , {
-    id:6,
-    feed:"cob (corn oats barley)",
-  } , {
-    id:7,
-    feed:"complete",
-  }
-]
-
-
-export const scheduleData=[
-  {
-    time:"6:00 PM",
-    officeFee:"Paying Fee",
-    parti:"Adam Smith",
-    horse:"Jupiter",
-    admin:"John Son",
-    desc:"Lorem Ipsum is simply dummy text of the printing and.",
-    img:h1,
-    name:"Ferris"
-  }
-]
-
-
-export const drawyer=[
-  {
-    text:"Profile",
-    link:"/profile",
-    icons:<FiUser/>
-  },
-  {
-    text:"Subscription",
-    link:"/subscription",
-    icons:<IoMdRefresh/>
-  },
-  {
-    text:"About",
-    link:"/aboutus",
-    icons:<AiOutlineExclamationCircle/>
-  },
-  {
-    text:"Contact Us",
-    link:"/contactus",
-    icons:<MdContactPage/>
+    text: "Contact Us",
+    link: "/contactus",
+    icons: <MdContactPage />,
   },
   // {
   //   text:"Logout",
   //   // link:"/logout",
   //   icons:<MdLogout/>
   // }
-]
+];
