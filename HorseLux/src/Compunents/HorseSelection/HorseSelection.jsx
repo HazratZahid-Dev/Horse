@@ -20,15 +20,6 @@ const HorseSelection = ({ headingText, navigateTo }) => {
   const navigate = useNavigate();
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
-  const toggleSelectAll = (e) => {
-    console.log(e.target);
-    if (selectAll) {
-      setSelectedOptions([]);
-    } else {
-      setSelectedOptions(data.map((option) => option.name));
-    }
-    setSelectAll(!selectAll);
-  };
   const handleOptionChange = (event) => {
     const optionValue = event.target.value;
 
@@ -40,19 +31,22 @@ const HorseSelection = ({ headingText, navigateTo }) => {
       setSelectedOptions([...selectedOptions, optionValue]);
     }
   };
-  const FetchData = async () => {
-    const response = await axios.get(
-      `${baseUrl}/addnewhorse-data/${User.data._id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    setHorseData(response.data.horses);
-  };
+  useEffect(() => {
+    const FetchData = async () => {
+      const response = await axios.get(
+        `${baseUrl}/addnewhorse-data/${User.data._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response.data.horses);
+      setHorseData(response.data.horses);
+    };
 
-  FetchData();
+    FetchData();
+  }, []);
 
   return (
     <div className="flex">
@@ -66,13 +60,21 @@ const HorseSelection = ({ headingText, navigateTo }) => {
         <div className="w-1/2">
           <div className="w-full">
             <h2 className="w-full text-[20px] font-[700] ">Selected Horse</h2>
-
-            <div className="w-[39px] h-[39px] rounded-full mt-2 ">
-              <img
-                className="h-full w-full rounded-full object-fill"
-                src={h1}
-              />
-              <p className="text-[10px] font-[600] text-center mt-1">Ferrier</p>
+            <div className="flex gap-x-3">
+              {HorseData.map((option) => {
+                if (selectedOptions.includes(option._id))
+                  return (
+                    <div className="rounded-full mt-2 flex flex-col justify-center items-center">
+                      <img
+                        className="w-[39px] h-[39px] rounded-full object-fill"
+                        src={option.img}
+                      />
+                      <p className="text-[10px] font-[600] text-center mt-1">
+                        {option.showName}
+                      </p>
+                    </div>
+                  );
+              })}
             </div>
           </div>
           <hr className="mt-6" />
@@ -88,7 +90,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
             <BsSearch className="w-[24px] h-[24px] text-[#858C94]" />
           </div>
           <div className=" space-y-3 mt-5">
-            {data.map((items) => (
+            {HorseData.map((items) => (
               <>
                 <div className="flex items-center gap-x-3">
                   <img
@@ -97,10 +99,10 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                   />
                   <div className="w-full flex justify-between">
                     <div>
-                      <p className="text-[15px] font-[600]">{items.name}</p>
+                      <p className="text-[15px] font-[600]">{items.showName}</p>
                       <p className="text-[10px] font-[600] ">
-                        <span>Owner</span>
-                        {items.onwer}
+                        <span>Owner: </span>
+                        {items.owner}
                       </p>
                     </div>
                     <Checkbox
@@ -116,7 +118,7 @@ const HorseSelection = ({ headingText, navigateTo }) => {
                       }
                       value={items._id}
                       onChange={handleOptionChange}
-                      checked={selectedOptions.includes(items.name)}
+                      checked={selectedOptions.includes(items._id)}
                     />
                   </div>
                 </div>
