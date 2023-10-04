@@ -83,6 +83,8 @@ const BasicInfo = ({ id }) => {
           img: downloadURL,
           microchip: formData.chip,
           paddockLocation: formData.paddockLocation,
+          paddockName: formData.paddockName,
+          paddockNotes: formData.paddockNotes,
           stallNotes: formData.stallNotes,
         },
         {

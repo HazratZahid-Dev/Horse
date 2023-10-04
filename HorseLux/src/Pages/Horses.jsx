@@ -21,7 +21,6 @@ const style = {
 };
 
 const Horses = () => {
- 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,14 +31,11 @@ const Horses = () => {
     setModals(newModals);
   };
   const navigate = useNavigate();
- 
 
-  const [selectedItemIndex, setSelectedItemIndex] = useState(null); 
-
- 
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
 
   const handleItemClick = (index) => {
-    setSelectedItemIndex(index); 
+    setSelectedItemIndex(index);
   };
 
   return (
@@ -55,16 +51,39 @@ const Horses = () => {
               <div className="flex   justify-between mt-4  w-full">
                 {horse.map((items, index) => (
                   <>
-                    <Link
-                      key={index}
-                      to={items.link}
-                      onClick={() => handleOpen(index)}
-                      
-                      className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
-                    >
-                      <img src={items.img} className="w-[36px] h-[36px]"></img>
-                      <p>{items.text}</p>
-                    </Link>
+                    {items.id === 5 ? (
+                      <div
+                        key={index}
+                        onClick={() =>
+                          navigate(items.link, {
+                            state: JSON.stringify({
+                              heading: "Add Note",
+                              navigate_to: "/addnoterecord",
+                            }),
+                          })
+                        }
+                        className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
+                      >
+                        <img
+                          src={items.img}
+                          className="w-[36px] h-[36px]"
+                        ></img>
+                        <p>{items.text}</p>
+                      </div>
+                    ) : (
+                      <Link
+                        key={index}
+                        to={items.link}
+                        onClick={() => handleOpen(index)}
+                        className=" cursor-pointer h-[65px] w-[75px] flex flex-col space-y-2 items-center justify-center"
+                      >
+                        <img
+                          src={items.img}
+                          className="w-[36px] h-[36px]"
+                        ></img>
+                        <p>{items.text}</p>
+                      </Link>
+                    )}
                     <Modal
                       open={open}
                       onClose={handleClose}
@@ -82,9 +101,13 @@ const Horses = () => {
                           </h2>
                           <div className="grid grid-cols-4   gap-x-12 w-[60%] gap-y-7 py-10 m-auto  items-center justify-center">
                             {health.map((items, index) => (
-                              <div key={index}  onClick={() => handleItemClick(index)} className="flex justify-center cursor-pointer ">
+                              <div
+                                key={index}
+                                onClick={() => handleItemClick(index)}
+                                className="flex justify-center cursor-pointer "
+                              >
                                 <Link
-                                to={items.link}
+                                  to={items.link}
                                   className="  flex flex-col"
                                 >
                                   <div className="flex justify-center items-center">
@@ -118,7 +141,6 @@ const Horses = () => {
                     <Link
                       key={index}
                       to={items.link}
-                   
                       className=" h-[65px] w-[115px] cursor-pointer  flex flex-col space-y-2 items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
@@ -139,7 +161,6 @@ const Horses = () => {
                     <Link
                       key={index}
                       to={items.link}
-                    
                       className=" h-[65px] cursor-pointer w-[75px] space-y-2 flex flex-col items-center justify-center"
                     >
                       <img src={items.img} className="w-[36px] h-[36px]"></img>
