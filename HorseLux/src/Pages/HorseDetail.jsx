@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Compunents/Sidebar";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { activityData, cardData, horseData } from "../config/HorseDetail";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { baseUrl } from "../config/BaseUrl";
+let token = localStorage.getItem("token");
+
 
 const HorseDetail = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const User = useSelector((state) => state.auth);
 
   const tabStyles = {
     backgroundColor: "transparent",
@@ -23,6 +29,32 @@ const HorseDetail = () => {
     padding: "0.5rem 1rem",
     cursor: "pointer",
   };
+
+  // horse detail data 
+
+  const [responseData, setResponseData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      console.log(User);
+      const response = await axios.get(`${baseUrl}/addnewhorse-data/${User._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data.horses);
+      setResponseData(response.data.horses);
+      console.log("My data********:", response.data);
+    } catch (err) {
+      setError(err);
+      console.log('errrrrrrr',err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="flex">
@@ -115,19 +147,19 @@ const HorseDetail = () => {
                     <div className="p-4">
                               <h2 className="text-[17px] font-[700]">Information</h2>
                               {
-                                activityData.map((items)=>(
+                                responseData.map((items)=>(
                                     <div>
                                         <div className="space-y-1 mt-3">
-                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F] font-[600]">{items.bornName}</span></p>
-                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F]  font-[600]">{items.ShowName}</span></p>
-                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F] font-[600]">{items.PaddockName}</span></p>
-                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F] font-[600]">{items.PaddockLocation}</span></p>
-                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F] font-[600]">{items.PaddockNotes}</span></p>
+                                        <p className="text-[14px]  font-[700]">Born Name: <span className="text-[#9F9F9F] font-[600]">{items.neckName}</span></p>
+                                        <p className="text-[14px]  font-[700]">Show Name: <span className="text-[#9F9F9F]  font-[600]">{items.showName}</span></p>
+                                        <p className="text-[14px]  font-[700]">Paddock Name: <span className="text-[#9F9F9F] font-[600]">{items.paddockName}</span></p>
+                                        <p className="text-[14px]  font-[700]">Paddock Location: <span className="text-[#9F9F9F] font-[600]">{items.paddockLocation}</span></p>
+                                        <p className="text-[14px]  font-[700]">Paddock Notes: <span className="text-[#9F9F9F] font-[600]">{items.paddockNotes}</span></p>
 
                                         </div>
                                         <hr className="w-[43%] mt-3 "/>
                                         <h2 className="text-[17px] font-[700] mt-4">Stall Information</h2>
-                                        <p className="text-[14px] mt-2 font-[700]">Stall #: <span className="text-[#9F9F9F] font-[600]">{items.sno}</span></p>
+                                        <p className="text-[14px] mt-2 font-[700]">Stall #: <span className="text-[#9F9F9F] font-[600]">{items.stallNotes}</span></p>
                                         <hr className="w-[43%] mt-3 "/>
                                         <h2 className="text-[17px] space-y-2 font-[700] mt-4">Important Dates</h2>
                                        <div className="space-y-1 mt-3">

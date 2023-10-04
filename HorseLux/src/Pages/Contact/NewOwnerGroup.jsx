@@ -93,8 +93,8 @@ dispatch(asyncGetSingleOwnerGroup(User?.data?._id))
                 name:ownerData?.name || "",
                 number:ownerData?.number || "",
                 // userId:userId,
-                // shares: Array.isArray(ownerData?.shares) ? ownerData.shares : [{ owner: "", percentage: "" }],
-                shares: arrayData || [{ owner: "", percentage: "" }],
+                 shares: Array.isArray(ownerData?.shares) ? ownerData.shares : [{ owner: "", percentage: "" }],
+                //shares: arrayData || [{ owner: "", percentage: "" }],
                 comments:ownerData?.comments ||  "",
               }}
               enableReinitialize={true}
